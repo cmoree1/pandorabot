@@ -405,11 +405,11 @@
         <template>
             <think>
                 <set name="maxScore"><srai>XMAX <get name="SE"/> <get name="DS"/> <get name="CA"/> <get name="SYS"/> <get name="WEB"/></srai></set>
-                <set name="checkSE"><srai>XGT <get name="maxScore"/> XS <get name="SE"/> </srai></set>
-                <set name="checkDS"><srai>XGT <get name="maxScore"/> XS <get name="DS"/> </srai></set>
-                <set name="checkCA"><srai>XGT <get name="maxScore"/> XS <get name="CA"/> </srai></set>
-                <set name="checkSYS"><srai>XGT <get name="maxScore"/> XS <get name="SYS"/> </srai></set>
-                <set name="checkWEB"><srai>XGT <get name="maxScore"/> XS <get name="WEB"/> </srai></set>
+                <set name="checkSE"><srai>XGT <get name="SE"/> XS <get name = "maxScore"/> </srai></set>
+                <set name="checkDS"><srai>XGT <get name="DS"/> XS <get name = "maxScore"/> </srai></set>
+                <set name="checkCA"><srai>XGT <get name="CA"/> XS <get name = "maxScore"/> </srai></set>
+                <set name="checkSYS"><srai>XGT <get name="SYS"/> XS <get name = "maxScore"/> </srai></set>
+                <set name="checkWEB"><srai>XGT <get name="WEB"/> XS <get name = "maxScore"/> </srai></set>
                 
                 <condition name = "checkSE">
                     <li value="TRUE"><set name="bestJob">Software Engineer</set></li>
@@ -432,6 +432,7 @@
                     <li></li>
                 </condition>
             </think>
+            <get name = "maxScore"/>
             <get name = "checkSE"/>
             <get name = "checkDS"/>
             <get name = "checkCA"/>
