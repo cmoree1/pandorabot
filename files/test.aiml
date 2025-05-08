@@ -442,7 +442,11 @@
             <get name = "checkCA"/>
             <get name = "checkSYS"/>
             <get name = "checkWEB"/>
-
+            <get name = "numSE"/>
+            <get name = "numDS"/>
+            <get name = "numCA"/>
+            <get name = "numSYS"/>
+            <get name = "numWEB"/>
             Congratulations, <get name="user"/>! Based on your responses, your ideal career path is: 
             <br/><b><get name="bestJob"/></b>.<br/><br/>
             Would you like to learn more about being a <get name="bestJob"/>?
