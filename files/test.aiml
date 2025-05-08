@@ -65,7 +65,23 @@
 	    <template>
             <think>
                 <set name="type"><star/></set>
-                <srai>INCREMENT <get name="type"/></srai>
+                <condition name="type">
+                    <li value="SE">
+                        <set name="SE"><srai>XADD <get name="SE"/> XS 1</srai></set>
+                    </li>
+                    <li value="DS">
+                        <set name="DS"><srai>XADD <get name="DS"/> XS 1</srai></set>
+                    </li>
+                    <li value="CA">
+                        <set name="CA"><srai>XADD <get name="CA"/> XS 1</srai></set>
+                    </li>
+                    <li value="SYS">
+                        <set name="SYS"><srai>XADD <get name="SYS"/> XS 1</srai></set>
+                    </li>
+                    <li>
+                        <set name="WEB"><srai>XADD <get name="WEB"/> XS 1</srai></set>
+                    </li>                   
+                </condition>
             </think>
 	        Great! Now for the next question.<br/><br/>
 	        Question 2: Which of the following do you prefer to work with?<br/>
@@ -97,8 +113,24 @@
 	    <template>
             <think>
                 <set name="type"><star/></set>
-                <srai>INCREMENT <get name="type"/></srai>
-            </think>            
+                <condition name="type">
+                    <li value="SE">
+                        <set name="SE"><srai>XADD <get name="SE"/> XS 1</srai></set>
+                    </li>
+                    <li value="DS">
+                        <set name="DS"><srai>XADD <get name="DS"/> XS 1</srai></set>
+                    </li>
+                    <li value="CA">
+                        <set name="CA"><srai>XADD <get name="CA"/> XS 1</srai></set>
+                    </li>
+                    <li value="SYS">
+                        <set name="SYS"><srai>XADD <get name="SYS"/> XS 1</srai></set>
+                    </li>
+                    <li>
+                        <set name="WEB"><srai>XADD <get name="WEB"/> XS 1</srai></set>
+                    </li>                   
+                </condition>
+            </think>           
 	        Thank You!<br/>
 	        Question 3: Would you say that you are someone who:<br/>
 	        <button>
@@ -132,8 +164,24 @@
 	    <template>
             <think>
                 <set name="type"><star/></set>
-                <srai>INCREMENT <get name="type"/></srai>
-            </think>   
+                <condition name="type">
+                    <li value="SE">
+                        <set name="SE"><srai>XADD <get name="SE"/> XS 1</srai></set>
+                    </li>
+                    <li value="DS">
+                        <set name="DS"><srai>XADD <get name="DS"/> XS 1</srai></set>
+                    </li>
+                    <li value="CA">
+                        <set name="CA"><srai>XADD <get name="CA"/> XS 1</srai></set>
+                    </li>
+                    <li value="SYS">
+                        <set name="SYS"><srai>XADD <get name="SYS"/> XS 1</srai></set>
+                    </li>
+                    <li>
+                        <set name="WEB"><srai>XADD <get name="WEB"/> XS 1</srai></set>
+                    </li>                   
+                </condition>
+            </think>
 	        Question 4: How do you approach solving a problem at work<br/>
             
             <button>
@@ -170,7 +218,23 @@
 	    <template>
             <think>
                 <set name="type"><star/></set>
-                <srai>INCREMENT <get name="type"/></srai>
+                <condition name="type">
+                    <li value="SE">
+                        <set name="SE"><srai>XADD <get name="SE"/> XS 1</srai></set>
+                    </li>
+                    <li value="DS">
+                        <set name="DS"><srai>XADD <get name="DS"/> XS 1</srai></set>
+                    </li>
+                    <li value="CA">
+                        <set name="CA"><srai>XADD <get name="CA"/> XS 1</srai></set>
+                    </li>
+                    <li value="SYS">
+                        <set name="SYS"><srai>XADD <get name="SYS"/> XS 1</srai></set>
+                    </li>
+                    <li>
+                        <set name="WEB"><srai>XADD <get name="WEB"/> XS 1</srai></set>
+                    </li>                   
+                </condition>
             </think>   
 	        Question 5: Which of the following tasks would you enjoy the most?<br/>
             
@@ -209,8 +273,24 @@
 	    </pattern>
         <think>
             <set name="type"><star/></set>
-            <srai>INCREMENT <get name="type"/></srai>
-        </think>   
+            <condition name="type">
+                <li value="SE">
+                    <set name="SE"><srai>XADD <get name="SE"/> XS 1</srai></set>
+                </li>
+                <li value="DS">
+                    <set name="DS"><srai>XADD <get name="DS"/> XS 1</srai></set>
+                </li>
+                <li value="CA">
+                    <set name="CA"><srai>XADD <get name="CA"/> XS 1</srai></set>
+                </li>
+                <li value="SYS">
+                    <set name="SYS"><srai>XADD <get name="SYS"/> XS 1</srai></set>
+                </li>
+                <li>
+                    <set name="WEB"><srai>XADD <get name="WEB"/> XS 1</srai></set>
+                </li>                   
+            </condition>
+        </think> 
 	    <template>
 	        Alright! Questions are done, and I have your results. When you are ready tap the results button<br/>
 	        <button>
@@ -320,53 +400,18 @@
         </template>
     </category>
 
-    
-    <category>
-        <pattern>INCREMENT SE</pattern>
-        <template>
-            <think><set name="SE">XADD <get name="SE"/> XS 1</set></think>
-        </template>
-    </category>
-    
-    <category>
-        <pattern>INCREMENT DS</pattern>
-        <template>
-            <think><set name="DS">XADD <get name="DS"/> XS 1</set></think>
-        </template>
-    </category>
-    
-    <category>
-        <pattern>INCREMENT CA</pattern>
-        <template>
-            <think><set name="CA">XADD <get name="CA"/> XS 1</set></think>
-        </template>
-    </category>
-    
-    <category>
-        <pattern>INCREMENT SYS</pattern>
-        <template>
-            <think><set name="SYS">XADD <get name="SYS"/> XS 1</set></think>
-        </template>
-    </category>
-    
-    <category>
-        <pattern>INCREMENT WEB</pattern>
-        <template>
-            <think><set name="WEB">XADD <get name="WEB"/> XS 1</set></think>
-        </template>
-    </category>
-
     <category>
         <pattern>FINAL</pattern>
         <template>
             <think>
-                <set name="maxScore">XMAX <get name="SE"/> <get name="DS"/> <get name="CA"/> <get name="SYS"/> <get name="WEB"/></set>
-                <set name="checkSE">XGT <get name="maxScore"/> XS <get name="SE"/> </set>
-                <set name="checkDS">XGT <get name="maxScore"/> XS <get name="DS"/> </set>
-                <set name="checkCA">XGT <get name="maxScore"/> XS <get name="CA"/> </set>
-                <set name="checkSYS">XGT <get name="maxScore"/> XS <get name="SYS"/> </set>
-                <set name="checkWEB">XGT <get name="maxScore"/> XS <get name="WEB"/> </set>
+                <set name="maxScore"><srai>XMAX <get name="SE"/> <get name="DS"/> <get name="CA"/> <get name="SYS"/> <get name="WEB"/></srai></set>
+                <set name="checkSE"><srai>XGT <get name="maxScore"/> XS <get name="SE"/> </srai></set>
+                <set name="checkDS"><srai>XGT <get name="maxScore"/> XS <get name="DS"/> </srai></set>
+                <set name="checkCA"><srai>XGT <get name="maxScore"/> XS <get name="CA"/> </srai></set>
+                <set name="checkSYS"><srai>XGT <get name="maxScore"/> XS <get name="SYS"/> </srai></set>
+                <set name="checkWEB"><srai>XGT <get name="maxScore"/> XS <get name="WEB"/> </srai></set>
                 <set name="xScore"><sr>XMAX <get name="SE"/> <get name="DS"/> <get name="CA"/> <get name="SYS"/> <get name="WEB"/></sr></set>
+                <set name="SYS"><srai>XADD <get name="SYS"/> XS 1</srai></set>
 
                 
                 <condition name = "checkSE">
