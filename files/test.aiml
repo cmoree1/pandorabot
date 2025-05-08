@@ -405,33 +405,29 @@
         <template>
             <think>
                 <set name="maxScore"><srai>XMAX <get name="SE"/> <get name="DS"/> <get name="CA"/> <get name="SYS"/> <get name="WEB"/></srai></set>
-                <set name="numSE"><srai>XSUB <get name="SE"/> XS <get name = "maxScore"/> </srai></set>
-                <set name="numDS"><srai>XSUB <get name="DS"/> XS <get name = "maxScore"/> </srai></set>
-                <set name="numCA"><srai>XSUB <get name="CA"/> XS <get name = "maxScore"/> </srai></set>
-                <set name="numSYS"><srai>XSUB <get name="SYS"/> XS <get name = "maxScore"/> </srai></set>
-                <set name="numWEB"><srai>XSUB <get name="WEB"/> XS <get name = "maxScore"/> </srai></set>
-                <set name="checkSE"><srai>XISNUMBER <get name="numSE"/></srai></set>
-                <set name="checkDS"><srai>XISNUMBER <get name="numDS"/></srai></set>
-                <set name="checkCA"><srai>XISNUMBER <get name="numCA"/></srai></set>
-                <set name="checkSYS"><srai>XISNUMBER <get name="numSYS"/></srai></set>
-                <set name="checkWEB"><srai>XISNUMBER <get name="numWEB"/></srai></set>                
-                <condition name="checkSE">
-                    <li value="TRUE"><set name="bestJob">SOFTWARE ENGINEER</set></li>
+                <set name="checkSE"><srai>XGE <get name="SE"/> XS </srai></set>
+                <set name="checkDS"><srai>XGE <get name="DS"/> XS <get name = "maxScore"/> </srai></set>
+                <set name="checkCA"><srai>XGE <get name="CA"/> XS <get name = "maxScore"/> </srai></set>
+                <set name="checkSYS"><srai>XGE <get name="SYS"/> XS <get name = "maxScore"/> </srai></set>
+                <set name="checkWEB"><srai>XGE <get name="WEB"/> XS </srai></set>
+                
+                <condition name = "checkSE">
+                    <li value="TRUE"><set name="bestJob">Software Engineer</set></li>
                     <li></li>
                 </condition>
-                <condition name="checkDS">
+                <condition name = "checkDS">
                     <li value="TRUE"><set name="bestJob">DATA SCIENTIST</set></li>
                     <li></li>
                 </condition>
-                <condition name="checkca">
+                <condition name = "checkCA">
                     <li value="TRUE"><set name="bestJob">CYBERSECURITY ANALYST</set></li>
                     <li></li>
                 </condition>
-                <condition name="checkSYS">
+                <condition name = "checkSYS">
                     <li value="TRUE"><set name="bestJob">SYSTEMS ENGINEER</set></li>
                     <li></li>
                 </condition>
-                <condition name="checkWEB">
+                <condition name = "checkWEB">
                     <li value="TRUE"><set name="bestJob">WEB DESIGNER</set></li>
                     <li></li>
                 </condition>
@@ -442,11 +438,7 @@
             <get name = "checkCA"/>
             <get name = "checkSYS"/>
             <get name = "checkWEB"/>
-            <get name = "numSE"/>
-            <get name = "numDS"/>
-            <get name = "numCA"/>
-            <get name = "numSYS"/>
-            <get name = "numWEB"/>
+
             Congratulations, <get name="user"/>! Based on your responses, your ideal career path is: 
             <br/><b><get name="bestJob"/></b>.<br/><br/>
             Would you like to learn more about being a <get name="bestJob"/>?
