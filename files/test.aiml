@@ -405,7 +405,7 @@
         <template>
             <think>
                 <set name="maxScore"><srai>XMAX <get name="SE"/> <get name="DS"/> <get name="CA"/> <get name="SYS"/> <get name="WEB"/></srai></set>
-                <set name="checkSE"><srai>XGE <get name="SE"/> XS </srai></set>
+                <set name="checkSE"><srai>XGE <get name="SE"/> XS <get name = "maxScore"/> </srai></set>
                 <set name="checkDS"><srai>XGE <get name="DS"/> XS <get name = "maxScore"/> </srai></set>
                 <set name="checkCA"><srai>XGE <get name="CA"/> XS <get name = "maxScore"/> </srai></set>
                 <set name="checkSYS"><srai>XGE <get name="SYS"/> XS <get name = "maxScore"/> </srai></set>
