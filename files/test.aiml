@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">	
+	<category>
+	    <pattern>
+	        MY NAME IS *
+	    </pattern>
+	    <template>
+	        <think>
+	            <set name = "user"><star/></set>
+	        </think>
+	        It is great to meet you <get name="user"/>. Since our goal today is to find what career fits you best, I will be asking you
+	        a series of question to understand your personality and strengths to suggest the best career. Once You feel ready all you need to do is tap the "Start!" button<br/><br/><br/>
+	        If at anytime you feel you need to Start Over your session or leave the session you can do both by replying in the message bar "START_OVER" or "END"
+	        <button>
+	            <text>Start!</text>
+	            <postback>QONE</postback>
+            </button>
+	    </template>
+	</category>
+	
+	<category>
+	    <pattern>
+	        QONE
+	    </pattern>
+	    <template>
+	        <think>
+                <set name = "SE">0</set>
+	            <set name = "DS">0</set>
+	            <set name = "CA">0</set>
+	            <set name = "SYS">0</set>
+	            <set name = "WEB">0</set>
+            </think>
+	        Let's get right into it. For each question you will be provided different answers to choose from. Once you have decided on your answer, simply just click on it to move forward.<br/><br/>
+            Question 1: What type of project excites you the most?<br/>
+            <button>
+                <text>Building complex software applications</text>
+                <postback>QTWO SE</postback>
+            </button>
+                
+            <button>
+                <text>Analyzing large datasets</text>
+                <postback>QTWO DS</postback>
+            </button>
+                
+            <button>
+                <text>Setting up IT systems</text>
+                <postback>QTWO SYS</postback>
+            </button>
+
+            <button>
+                <text>Securing networks from cyber threats</text>
+                <postback>QTWO CA</postback>
+            </button>
+
+            <button>
+                <text>Designing interactive websites</text>
+                <postback>QTWO WEB</postback>
+            </button>
+	    </template>
+	</category>
+	
+	
+	<category>
+	    <pattern>QTWO *</pattern>
+	    <template>
+            <think>
+                <set name="type"><star/></set>
+                <srai>INCREMENT <get name="type"/></srai>
+            </think>
+	        Great! Now for the next question.<br/><br/>
+	        Question 2: Which of the following do you prefer to work with?<br/>
+	        <button>
+	            <text>Hardware</text>
+	            <postback>QTHREE SYS</postback>
+            </button>
+            <button>
+                <text>Data</text>
+                <postback>QTHREE DS</postback>
+            </button>
+            <button>
+                <text>Design</text>
+                <postback>QTHREE WEB</postback>
+            </button>
+            <button>
+                <text>Code</text>
+                <postback>QTHREE SE</postback>
+            </button>
+            <button>
+                <text>Security</text>
+                <postback>QTHREE CA</postback>
+            </button>
+	    </template>
+	</category>
+	
+	<category>
+	    <pattern>QTHREE *</pattern>
+	    <template>
+            <think>
+                <set name="type"><star/></set>
+                <srai>INCREMENT <get name="type"/></srai>
+            </think>            
+	        Thank You!<br/>
+	        Question 3: Would you say that you are someone who:<br/>
+	        <button>
+	            <text>Thinks in terms of Logic</text>
+	            <postback>QFOUR DS</postback>
+            </button>
+            <button>
+                <text>Thinks in terms of Creativity</text>
+                <postback>QFOUR WEB</postback>
+            </button>
+            <button>
+                <text>Thinks in terms Logic and Creativity</text>
+                <postback>QFOUR SE</postback>
+            </button>
+            <button>
+                <text>Thinks in terms of Emotions</text>
+                <postback>QFOUR SYS</postback>
+            </button>
+            <button>
+                <text>Thinks in terms of Safety</text>
+                <postback>QFOUR CA</postback>
+            </button>
+	    </template>
+	</category>
+
+
+	<category>
+	    <pattern>
+	        QFOUR *
+	    </pattern>
+	    <template>
+            <think>
+                <set name="type"><star/></set>
+                <srai>INCREMENT <get name="type"/></srai>
+            </think>   
+	        Question 4: How do you approach solving a problem at work<br/>
+            
+            <button>
+                <text>Automate with code</text>
+                <postback>QFIVE SE</postback>
+            </button>
+            
+            <button>
+                <text>Analyze data to find patterns</text>
+                <postback>QFIVE DS</postback>
+            </button>
+            
+            <button>
+                <text>Check hardware and network</text>
+                <postback>QFIVE SYS</postback>
+            </button>
+
+            <button>
+                <text>Assess security vulnerabilities</text>
+                <postback>QFIVE CA</postback>
+            </button>
+
+            <button>
+                <text>Focus on designing and optimizing</text>
+                <postback>QFIVE WEB</postback>
+            </button>
+	    </template>
+	</category>
+
+    <category>
+	    <pattern>
+	        QFIVE
+	    </pattern>
+	    <template>
+	        Question 5: Which of the following tasks would you enjoy the most?<br/>
+            
+            <button>
+                <text>Writing algorithms</text>
+                <postback>QSIX SE</postback>
+            </button>
+            
+            <button>
+                <text>Creating data visualizations</text>
+                <postback>QSIX DS</postback>
+            </button>
+            
+            <button>
+                <text>Configuring servers</text>
+                <postback>QSIX SYS</postback>
+            </button>
+
+            <button>
+                <text>Performing security assessments</text>
+                <postback>QSIX CA</postback>
+            </button>
+
+            <button>
+                <text>Designing responsive interfaces</text>
+                <postback>QSIX WEB</postback>
+            </button>
+	    </template>
+	</category>
+
+
+
+	<category>
+	    <pattern>
+	        QSIX *
+	    </pattern>
+        <think>
+            <set name="type"><star/></set>
+            <srai>INCREMENT <get name="type"/></srai>
+        </think>   
+	    <template>
+	        Alright! Questions are done, and I have your results. When you are ready tap the results button<br/>
+	        <button>
+	            <text>Results</text>
+	            <postback>FINAL</postback>	            
+	        </button>
+	    </template>
+	</category>
+
+
+
+    <category>
+        <pattern>FINAL</pattern>
+        <template>
+            
+
+            The results are in <get name="user"/>! Based on the responses you provided, I have found that a great career for you would be:
+            <br/><b><get name="suggestedJob"/></b>
+            Now that your results are in would you like to learn about the role of <get name="suggestedJob"/>?
+    
+            <button>
+                <text>Learn About Being A <get name="suggestedJob"/></text>
+                <postback><get name="suggestedJob"/></postback>
+            </button>
+            
+             <button>
+                 <text>Start Over</text>
+                 <postback>startOver</postback>
+            </button>
+            
+            <button>
+                <text>Leave</text>
+                <postback>END</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>START_OVER</pattern>
+        <template>
+            Certainly, it's not uncommon to want to start over incase you were nervouse or changed your mind.<br/><srai>QUESTIONONE</srai>
+        </template> 
+    </category>
+    
+    <category>
+        <pattern>END</pattern>
+        <template>
+            Good Bye <get name="user"/>, feel free to stop by again if you have any questions about your future career in computer science
+        </template> 
+    </category>
+    
+    <category>
+        <pattern>SOFTWARE ENGINEER</pattern>
+        <template>
+            A career as a Software Engineer entails designing, developing, testing and maintaining software systems with programming languages and engineering principles.
+            <br/><br/> You can start over if you changed your mind about any questions or leave our session.
+            <button>
+                <text>Start Over</text>
+                <postback>START_OVER</postback>
+            </button>
+            
+            <button>
+                <text>Leave</text>
+                <postback>END</postback>
+            </button>
+        </template>
+    </category>
+
+    <category>
+        <pattern>DATA SCIENTIST</pattern>
+        <template>
+            A career as a Data Scientist would entail you utilizing a combination of skills in both mathematics and coimputer science. Data Scientists usually analyze large sums of data to identify trends and predict future outcomes.
+            <br/><br/> You can start over if you changed your mind about any questions or leave our session.
+            <button>
+                <text>Start Over</text>
+                <postback>START_OVER</postback>
+            </button>
+            
+            <button>
+                <text>Leave</text>
+                <postback>END</postback>
+            </button>
+        </template>
+    </category>
+
+    <category>
+        <pattern>CYBERSECURITY ANALYST</pattern>
+        <template>
+            As a CyberSecurity Analyst you will be in charge maintaining both hardware and software of your companies systems. You will constantly be looking to detect new vulnerabilities, add additional security, and learn about new bug/hacking trends.
+            <br/><br/> You can start over if you changed your mind about any questions or leave our session.
+            <button>
+                <text>Start Over</text>
+                <postback>START_OVER</postback>
+            </button>
+            
+            <button>
+                <text>Leave</text>
+                <postback>END</postback>
+            </button>
+        </template>
+    </category>
+
+    <category>
+        <pattern>SYSTEMS ENGINEER</pattern>
+        <template>
+           As a Systems Engineer you will manage and maintain your organization's IT infrastructure such as servers, PCs, and cloud services.
+            <br/><br/> You can start over if you changed your mind about any questions or leave our session.
+            <button>
+                <text>Start Over</text>
+                <postback>START_OVER</postback>
+            </button>
+            
+            <button>
+                <text>Leave</text>
+                <postback>END</postback>
+            </button>
+        </template>
+    </category>
+
+    <category>
+        <pattern>WEB DEVELOPER</pattern>
+         <template>
+           As a Web Developer you will be building websites and web applications. Usually, web developers focus on the front end systems of a website and web application focused on UX/UI and drawing customers in
+            <br/><br/> You can start over if you changed your mind about any questions or leave our session.
+            <button>
+                <text>Start Over</text>
+                <postback>START_OVER</postback>
+            </button>
+            
+            <button>
+                <text>Leave</text>
+                <postback>END</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>NONE</pattern>
+         <template>SOFTWARE ENGINEER</template>
+    </category>
+    <category>
+        <pattern>INCREMENT *</pattern>
+        <template>
+            <think>
+                <set name="type"><star/></set>
+                <condition name="type">
+                    <li value="SE"><srai>INCREMENT SE</srai></li>
+                    <li value="DS"><srai>INCREMENT DS</srai></li>
+                    <li value="CA"><srai>INCREMENT CA</srai></li>
+                    <li value="SYS"><srai>INCREMENT SYS</srai></li>
+                    <li value="WEB"><srai>INCREMENT WEB</srai></li>
+                </condition>
+            </think>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>INCREMENT SE</pattern>
+        <template>
+            <think><set name="SE"><eval>XADD <get name="SE"/> XS 1</eval></set></think>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>INCREMENT DS</pattern>
+        <template>
+            <think><set name="DS"><eval>XADD <get name="DS"/> XS 1</eval></set></think>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>INCREMENT CA</pattern>
+        <template>
+            <think><set name="CA"><eval>XADD <get name="CA"/> XS 1</eval></set></think>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>INCREMENT SYS</pattern>
+        <template>
+            <think><set name="SYS"><eval>XADD <get name="SYS"/> XS 1</eval></set></think>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>INCREMENT WEB</pattern>
+        <template>
+            <think><set name="WEB"><eval>XADD <get name="WEB"/> XS 1</eval></set></think>
+        </template>
+    </category>
+
+    <category>
+        <pattern>FINAL</pattern>
+        <template>
+            <think>
+                <!-- Get the maximum score -->
+                <set name="maxScore"><eval>XMAX <get name="SE"/> <get name="DS"/> <get name="CA"/> <get name="SYS"/> <get name="WEB"/></eval></set>
+                
+                <!-- Determine which career matches the max score -->
+                <condition>
+                    <li><get name="SE"/> == <get name="maxScore"/>
+                        <set name="bestJob">Software Engineer</set>
+                    </li>
+                    <li><get name="DS"/> == <get name="maxScore"/>
+                        <set name="bestJob">Data Scientist</set>
+                    </li>
+                    <li><get name="CA"/> == <get name="maxScore"/>
+                        <set name="bestJob">Cybersecurity Analyst</set>
+                    </li>
+                    <li><get name="SYS"/> == <get name="maxScore"/>
+                        <set name="bestJob">Systems Engineer</set>
+                    </li>
+                    <li><get name="WEB"/> == <get name="maxScore"/>
+                        <set name="bestJob">Web Developer</set>
+                    </li>
+                </condition>
+            </think>
+            
+            Congratulations, <get name="user"/>! Based on your responses, your ideal career path is: 
+            <br/><b><get name="bestJob"/></b>.<br/><br/>
+            Would you like to learn more about being a <get name="bestJob"/>?
+            <button>
+                <text>Learn More</text>
+                <postback><get name="bestJob"/></postback>
+            </button>
+            <button>
+                <text>Restart</text>
+                <postback>START_OVER</postback>
+            </button>
+            <button>
+                <text>Exit</text>
+                <postback>END</postback>
+            </button>
+        </template>
+    </category>
+    
+
+</aiml>

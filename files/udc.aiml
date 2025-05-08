@@ -2,6 +2,10 @@
 <aiml>
   <category>
     <pattern>*</pattern>
-    <template>I have no answer for that.</template>
+    <template>
+      Hello! Welcome to the Computer Science Career Center. I am your new career advisor.
+      I am looking forward to helping you identify your best Computer Science Career Fit.
+      Before we get started, what's your name? Please Reply "My name is (name)".
+    </template>
   </category>
 </aiml>
