@@ -410,9 +410,6 @@
                 <set name="checkCA"><srai>XGT <get name="maxScore"/> XS <get name="CA"/> </srai></set>
                 <set name="checkSYS"><srai>XGT <get name="maxScore"/> XS <get name="SYS"/> </srai></set>
                 <set name="checkWEB"><srai>XGT <get name="maxScore"/> XS <get name="WEB"/> </srai></set>
-                <set name="xScore"><sr>XMAX <get name="SE"/> <get name="DS"/> <get name="CA"/> <get name="SYS"/> <get name="WEB"/></sr></set>
-                <set name="SYS"><srai>XADD <get name="SYS"/> XS 1</srai></set>
-
                 
                 <condition name = "checkSE">
                     <li value="TRUE"><set name="bestJob">Software Engineer</set></li>
@@ -435,6 +432,11 @@
                     <li></li>
                 </condition>
             </think>
+            <get name = "checkSE"/>
+            <get name = "checkDS"/>
+            <get name = "checkCA"/>
+            <get name = "checkSYS"/>
+            <get name = "checkWEB"/>
 
             Congratulations, <get name="user"/>! Based on your responses, your ideal career path is: 
             <br/><b><get name="bestJob"/></b>.<br/><br/>
