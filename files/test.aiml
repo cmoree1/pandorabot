@@ -216,33 +216,6 @@
 	    </template>
 	</category>
 
-
-
-    <category>
-        <pattern>FINAL</pattern>
-        <template>
-            
-
-            The results are in <get name="user"/>! Based on the responses you provided, I have found that a great career for you would be:
-            <br/><b><get name="suggestedJob"/></b>
-            Now that your results are in would you like to learn about the role of <get name="suggestedJob"/>?
-    
-            <button>
-                <text>Learn About Being A <get name="suggestedJob"/></text>
-                <postback><get name="suggestedJob"/></postback>
-            </button>
-            
-             <button>
-                 <text>Start Over</text>
-                 <postback>startOver</postback>
-            </button>
-            
-            <button>
-                <text>Leave</text>
-                <postback>END</postback>
-            </button>
-        </template>
-    </category>
     
     <category>
         <pattern>START_OVER</pattern>
@@ -342,26 +315,7 @@
             </button>
         </template>
     </category>
-    
-    <category>
-        <pattern>NONE</pattern>
-         <template>SOFTWARE ENGINEER</template>
-    </category>
-    <category>
-        <pattern>INCREMENT *</pattern>
-        <template>
-            <think>
-                <set name="type"><star/></set>
-                <condition name="type">
-                    <li value="SE"><srai>INCREMENT SE</srai></li>
-                    <li value="DS"><srai>INCREMENT DS</srai></li>
-                    <li value="CA"><srai>INCREMENT CA</srai></li>
-                    <li value="SYS"><srai>INCREMENT SYS</srai></li>
-                    <li value="WEB"><srai>INCREMENT WEB</srai></li>
-                </condition>
-            </think>
-        </template>
-    </category>
+
     
     <category>
         <pattern>INCREMENT SE</pattern>
@@ -402,26 +356,33 @@
         <pattern>FINAL</pattern>
         <template>
             <think>
-                <!-- Get the maximum score -->
                 <set name="maxScore"><eval>XMAX <get name="SE"/> <get name="DS"/> <get name="CA"/> <get name="SYS"/> <get name="WEB"/></eval></set>
+                <set name="checkSE"><eval>XGT <get name="maxScore"/> XS <get name="SE"/> </eval></set>
+                <set name="checkDS"><eval>XGT <get name="maxScore"/> XS <get name="DS"/> </eval></set>
+                <set name="checkCA"><eval>XGT <get name="maxScore"/> XS <get name="CA"/> </eval></set>
+                <set name="checkSYS"><eval>XGT <get name="maxScore"/> XS <get name="SYS"/> </eval></set>
+                <set name="checkWEB"><eval>XGT <get name="maxScore"/> XS <get name="WEB"/> </eval></set>
+
                 
-                <!-- Determine which career matches the max score -->
-                <condition>
-                    <li><get name="SE"/> == <get name="maxScore"/>
-                        <set name="bestJob">Software Engineer</set>
-                    </li>
-                    <li><get name="DS"/> == <get name="maxScore"/>
-                        <set name="bestJob">Data Scientist</set>
-                    </li>
-                    <li><get name="CA"/> == <get name="maxScore"/>
-                        <set name="bestJob">Cybersecurity Analyst</set>
-                    </li>
-                    <li><get name="SYS"/> == <get name="maxScore"/>
-                        <set name="bestJob">Systems Engineer</set>
-                    </li>
-                    <li><get name="WEB"/> == <get name="maxScore"/>
-                        <set name="bestJob">Web Developer</set>
-                    </li>
+                <condition name = "checkSE">
+                    <li value="TRUE"><set name="bestJob">Software Engineer</set></li>
+                    <li></li>
+                </condition>
+                <condition name = "checkDS">
+                    <li value="TRUE"><set name="bestJob">DATA SCIENTIST</set></li>
+                    <li></li>
+                </condition>
+                <condition name = "checkCA">
+                    <li value="TRUE"><set name="bestJob">CYBERSECURITY ANALYST</set></li>
+                    <li></li>
+                </condition>
+                <condition name = "checkSYS">
+                    <li value="TRUE"><set name="bestJob">SYSTEMS ENGINEER</set></li>
+                    <li></li>
+                </condition>
+                <condition name = "checkWEB">
+                    <li value="TRUE"><set name="bestJob">WEB DESIGNER</set></li>
+                    <li></li>
                 </condition>
             </think>
             
