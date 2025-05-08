@@ -432,12 +432,6 @@
                     <li></li>
                 </condition>
             </think>
-            <get name = "maxScore"/>
-            <get name = "checkSE"/>
-            <get name = "checkDS"/>
-            <get name = "checkCA"/>
-            <get name = "checkSYS"/>
-            <get name = "checkWEB"/>
 
             Congratulations, <get name="user"/>! Based on your responses, your ideal career path is: 
             <br/><b><get name="bestJob"/></b>.<br/><br/>
