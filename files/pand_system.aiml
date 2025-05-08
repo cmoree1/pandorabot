@@ -16,9 +16,7 @@
 <!--  http://www.alicebot.org -->
 <!--  -->
 
-<category><pattern>*</pattern>
-<template>I have no answer for that.</template>
-</category>
+
 
 <category><pattern>BRAIN VERSION</pattern>
 <template><program/></template>
