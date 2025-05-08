@@ -165,9 +165,13 @@
 
     <category>
 	    <pattern>
-	        QFIVE
+	        QFIVE *
 	    </pattern>
 	    <template>
+            <think>
+                <set name="type"><star/></set>
+                <srai>INCREMENT <get name="type"/></srai>
+            </think>   
 	        Question 5: Which of the following tasks would you enjoy the most?<br/>
             
             <button>
@@ -320,35 +324,35 @@
     <category>
         <pattern>INCREMENT SE</pattern>
         <template>
-            <think><set name="SE"><eval>XADD <get name="SE"/> XS 1</eval></set></think>
+            <think><set name="SE">XADD <get name="SE"/> XS 1</set></think>
         </template>
     </category>
     
     <category>
         <pattern>INCREMENT DS</pattern>
         <template>
-            <think><set name="DS"><eval>XADD <get name="DS"/> XS 1</eval></set></think>
+            <think><set name="DS">XADD <get name="DS"/> XS 1</set></think>
         </template>
     </category>
     
     <category>
         <pattern>INCREMENT CA</pattern>
         <template>
-            <think><set name="CA"><eval>XADD <get name="CA"/> XS 1</eval></set></think>
+            <think><set name="CA">XADD <get name="CA"/> XS 1</set></think>
         </template>
     </category>
     
     <category>
         <pattern>INCREMENT SYS</pattern>
         <template>
-            <think><set name="SYS"><eval>XADD <get name="SYS"/> XS 1</eval></set></think>
+            <think><set name="SYS">XADD <get name="SYS"/> XS 1</set></think>
         </template>
     </category>
     
     <category>
         <pattern>INCREMENT WEB</pattern>
         <template>
-            <think><set name="WEB"><eval>XADD <get name="WEB"/> XS 1</eval></set></think>
+            <think><set name="WEB">XADD <get name="WEB"/> XS 1</set></think>
         </template>
     </category>
 
@@ -356,12 +360,13 @@
         <pattern>FINAL</pattern>
         <template>
             <think>
-                <set name="maxScore"><eval>XMAX <get name="SE"/> <get name="DS"/> <get name="CA"/> <get name="SYS"/> <get name="WEB"/></eval></set>
-                <set name="checkSE"><eval>XGT <get name="maxScore"/> XS <get name="SE"/> </eval></set>
-                <set name="checkDS"><eval>XGT <get name="maxScore"/> XS <get name="DS"/> </eval></set>
-                <set name="checkCA"><eval>XGT <get name="maxScore"/> XS <get name="CA"/> </eval></set>
-                <set name="checkSYS"><eval>XGT <get name="maxScore"/> XS <get name="SYS"/> </eval></set>
-                <set name="checkWEB"><eval>XGT <get name="maxScore"/> XS <get name="WEB"/> </eval></set>
+                <set name="maxScore">XMAX <get name="SE"/> <get name="DS"/> <get name="CA"/> <get name="SYS"/> <get name="WEB"/></set>
+                <set name="checkSE">XGT <get name="maxScore"/> XS <get name="SE"/> </set>
+                <set name="checkDS">XGT <get name="maxScore"/> XS <get name="DS"/> </set>
+                <set name="checkCA">XGT <get name="maxScore"/> XS <get name="CA"/> </set>
+                <set name="checkSYS">XGT <get name="maxScore"/> XS <get name="SYS"/> </set>
+                <set name="checkWEB">XGT <get name="maxScore"/> XS <get name="WEB"/> </set>
+                <set name="xScore"><sr>XMAX <get name="SE"/> <get name="DS"/> <get name="CA"/> <get name="SYS"/> <get name="WEB"/></sr></set>
 
                 
                 <condition name = "checkSE">
@@ -385,7 +390,8 @@
                     <li></li>
                 </condition>
             </think>
-            
+            <get name="xScore"/>
+            <get name="maxScore"/>
             Congratulations, <get name="user"/>! Based on your responses, your ideal career path is: 
             <br/><b><get name="bestJob"/></b>.<br/><br/>
             Would you like to learn more about being a <get name="bestJob"/>?
