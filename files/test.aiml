@@ -435,8 +435,7 @@
                     <li></li>
                 </condition>
             </think>
-            <get name="xScore"/>
-            <get name="maxScore"/>
+
             Congratulations, <get name="user"/>! Based on your responses, your ideal career path is: 
             <br/><b><get name="bestJob"/></b>.<br/><br/>
             Would you like to learn more about being a <get name="bestJob"/>?
