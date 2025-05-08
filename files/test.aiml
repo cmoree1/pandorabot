@@ -412,7 +412,7 @@
                 <set name="checkWEB"><srai>XGE <get name="WEB"/> XS <get name = "maxScore"/> </srai></set>
                 
                 <condition name = "checkSE">
-                    <li value="TRUE"><set name="bestJob">Software Engineer</set></li>
+                    <li value="TRUE"><set name="bestJob">SOFTWARE ENGINEER</set></li>
                     <li></li>
                 </condition>
                 <condition name = "checkDS">
@@ -433,8 +433,7 @@
                 </condition>
             </think>
 
-            Congratulations, <get name="user"/>! Based on your responses, your ideal career path is: 
-            <br/><b><get name="bestJob"/></b>.<br/><br/>
+            Congratulations, <get name="user"/>! Based on your responses, your ideal career path is: <get name="bestJob"/><br/>
             Would you like to learn more about being a <get name="bestJob"/>?
             <button>
                 <text>Learn More</text>
