@@ -405,29 +405,33 @@
         <template>
             <think>
                 <set name="maxScore"><srai>XMAX <get name="SE"/> <get name="DS"/> <get name="CA"/> <get name="SYS"/> <get name="WEB"/></srai></set>
-                <set name="checkSE"><srai>XGT <get name="SE"/> XS <get name = "maxScore"/> </srai></set>
-                <set name="checkDS"><srai>XGT <get name="DS"/> XS <get name = "maxScore"/> </srai></set>
-                <set name="checkCA"><srai>XGT <get name="CA"/> XS <get name = "maxScore"/> </srai></set>
-                <set name="checkSYS"><srai>XGT <get name="SYS"/> XS <get name = "maxScore"/> </srai></set>
-                <set name="checkWEB"><srai>XGT <get name="WEB"/> XS <get name = "maxScore"/> </srai></set>
-                
-                <condition name = "checkSE">
-                    <li value="TRUE"><set name="bestJob">Software Engineer</set></li>
+                <set name="numSE"><srai>XSUB <get name="SE"/> XS <get name = "maxScore"/> </srai></set>
+                <set name="numDS"><srai>XSUB <get name="DS"/> XS <get name = "maxScore"/> </srai></set>
+                <set name="numCA"><srai>XSUB <get name="CA"/> XS <get name = "maxScore"/> </srai></set>
+                <set name="numSYS"><srai>XSUB <get name="SYS"/> XS <get name = "maxScore"/> </srai></set>
+                <set name="numWEB"><srai>XSUB <get name="WEB"/> XS <get name = "maxScore"/> </srai></set>
+                <set name="checkSE"><srai>XISNUMBER <get name="numSE"/></srai></set>
+                <set name="checkDS"><srai>XISNUMBER <get name="numDS"/></srai></set>
+                <set name="checkCA"><srai>XISNUMBER <get name="numCA"/></srai></set>
+                <set name="checkSYS"><srai>XISNUMBER <get name="numSYS"/></srai></set>
+                <set name="checkWEB"><srai>XISNUMBER <get name="numWEB"/></srai></set>                
+                <condition name="checkSE">
+                    <li value="TRUE"><set name="bestJob">SOFTWARE ENGINEER</set></li>
                     <li></li>
                 </condition>
-                <condition name = "checkDS">
+                <condition name="checkDS">
                     <li value="TRUE"><set name="bestJob">DATA SCIENTIST</set></li>
                     <li></li>
                 </condition>
-                <condition name = "checkCA">
+                <condition name="checkca">
                     <li value="TRUE"><set name="bestJob">CYBERSECURITY ANALYST</set></li>
                     <li></li>
                 </condition>
-                <condition name = "checkSYS">
+                <condition name="checkSYS">
                     <li value="TRUE"><set name="bestJob">SYSTEMS ENGINEER</set></li>
                     <li></li>
                 </condition>
-                <condition name = "checkWEB">
+                <condition name="checkWEB">
                     <li value="TRUE"><set name="bestJob">WEB DESIGNER</set></li>
                     <li></li>
                 </condition>
