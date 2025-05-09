@@ -4,6 +4,7 @@
 	    <pattern>
 	        MY NAME IS *
 	    </pattern>
+        <that>Hello *</that>
 	    <template>
 	        <think>
 	            <set name = "user"><star/></set>
@@ -22,6 +23,7 @@
 	    <pattern>
 	        QONE
 	    </pattern>
+        <that>It is *</that>
 	    <template>
 	        <think>
                 <set name = "SE">0</set>
@@ -30,7 +32,8 @@
 	            <set name = "SYS">0</set>
 	            <set name = "WEB">0</set>
             </think>
-	        Let's get right into it. For each question you will be provided different answers to choose from. Once you have decided on your answer, simply just click on it to move forward.<br/><br/>
+	        Perfect let's get right into it.<br/>
+            For each question you will be provided different answers to choose from. Once you have decided on your answer, simply just click on it to move forward.<br/><br/>
             Question 1: What type of project excites you the most?<br/>
             <button>
                 <text>Building complex software applications</text>
@@ -62,6 +65,7 @@
 	
 	<category>
 	    <pattern>QTWO *</pattern>
+        <that>Perfect *</that>
 	    <template>
             <think>
                 <set name="type"><star/></set>
@@ -83,7 +87,7 @@
                     </li>                   
                 </condition>
             </think>
-	        Great! Now for the next question.<br/><br/>
+	        Great! Now for the next question.<br/>
 	        Question 2: Which of the following do you prefer to work with?<br/>
 	        <button>
 	            <text>Hardware</text>
@@ -110,6 +114,7 @@
 	
 	<category>
 	    <pattern>QTHREE *</pattern>
+        <that>Great*</that>
 	    <template>
             <think>
                 <set name="type"><star/></set>
@@ -131,7 +136,7 @@
                     </li>                   
                 </condition>
             </think>           
-	        Thank You!<br/>
+	        Thank You!<br/><br/>
 	        Question 3: Would you say that you are someone who:<br/>
 	        <button>
 	            <text>Thinks in terms of Logic</text>
@@ -161,6 +166,7 @@
 	    <pattern>
 	        QFOUR *
 	    </pattern>
+        <that>Thank You*</that>
 	    <template>
             <think>
                 <set name="type"><star/></set>
@@ -182,6 +188,7 @@
                     </li>                   
                 </condition>
             </think>
+            Terrific!<br/><br/>
 	        Question 4: How do you approach solving a problem at work<br/>
             
             <button>
@@ -215,6 +222,7 @@
 	    <pattern>
 	        QFIVE *
 	    </pattern>
+        <that>Terrific*</that>
 	    <template>
             <think>
                 <set name="type"><star/></set>
@@ -236,6 +244,7 @@
                     </li>                   
                 </condition>
             </think>   
+            Glorious!<br/><br/>
 	        Question 5: Which of the following tasks would you enjoy the most?<br/>
             
             <button>
@@ -271,6 +280,7 @@
 	    <pattern>
 	        QSIX *
 	    </pattern>
+        <that>Glorious*</that>
         <think>
             <set name="type"><star/></set>
             <condition name="type">
@@ -292,7 +302,7 @@
             </condition>
         </think> 
 	    <template>
-	        Alright! Questions are done, and I have your results. When you are ready tap the results button<br/>
+	        Alright! Questions are done, and I have your results. When you are ready tap the results button
 	        <button>
 	            <text>Results</text>
 	            <postback>FINAL</postback>	            
@@ -302,16 +312,17 @@
 
     
     <category>
-        <pattern>START_OVER</pattern>
+        <pattern>START OVER</pattern>
         <template>
-            Certainly, it's not uncommon to want to start over incase you were nervouse or changed your mind.<br/><srai>QUESTIONONE</srai>
+            Certainly, it's not uncommon to want to start over incase you were nervouse or changed your mind.<br/>
+            <srai>HI</srai>
         </template> 
     </category>
     
     <category>
         <pattern>END</pattern>
         <template>
-            Good Bye <get name="user"/>, feel free to stop by again if you have any questions about your future career in computer science
+            Good Bye <get name="user"/>, feel free to stop by again.
         </template> 
     </category>
     
@@ -352,7 +363,7 @@
     <category>
         <pattern>CYBERSECURITY ANALYST</pattern>
         <template>
-            As a CyberSecurity Analyst you will be in charge maintaining both hardware and software of your companies systems. You will constantly be looking to detect new vulnerabilities, add additional security, and learn about new bug/hacking trends.
+            A career as a CyberSecurity Analyst you will be in charge maintaining both hardware and software of your companies systems. You will constantly be looking to detect new vulnerabilities, add additional security, and learn about new bug/hacking trends.
             <br/><br/> You can start over if you changed your mind about any questions or leave our session.
             <button>
                 <text>Start Over</text>
@@ -369,7 +380,7 @@
     <category>
         <pattern>SYSTEMS ENGINEER</pattern>
         <template>
-           As a Systems Engineer you will manage and maintain your organization's IT infrastructure such as servers, PCs, and cloud services.
+           A career as a Systems Engineer you will manage and maintain your organization's IT infrastructure such as servers, PCs, and cloud services.
             <br/><br/> You can start over if you changed your mind about any questions or leave our session.
             <button>
                 <text>Start Over</text>
@@ -386,7 +397,7 @@
     <category>
         <pattern>WEB DEVELOPER</pattern>
          <template>
-           As a Web Developer you will be building websites and web applications. Usually, web developers focus on the front end systems of a website and web application focused on UX/UI and drawing customers in
+           A career as a Web Developer you will be building websites and web applications. Usually, web developers focus on the front end systems of a website and web application focused on UX/UI and drawing customers in
             <br/><br/> You can start over if you changed your mind about any questions or leave our session.
             <button>
                 <text>Start Over</text>
@@ -402,6 +413,7 @@
 
     <category>
         <pattern>FINAL</pattern>
+        <that>Alright*</that>
         <template>
             <think>
                 <set name="maxScore"><srai>XMAX <get name="SE"/> <get name="DS"/> <get name="CA"/> <get name="SYS"/> <get name="WEB"/></srai></set>
@@ -428,19 +440,19 @@
                     <li></li>
                 </condition>
                 <condition name = "checkWEB">
-                    <li value="TRUE"><set name="bestJob">WEB DESIGNER</set></li>
+                    <li value="TRUE"><set name="bestJob">WEB DEVELOPER</set></li>
                     <li></li>
                 </condition>
             </think>
 
-            Congratulations, <get name="user"/>! Based on your responses, your ideal career path is: <get name="bestJob"/><br/>
+            Congratulations, <get name="user"/>! Based on your responses, your ideal career path is: <get name="bestJob"/><br/><br/>
             Would you like to learn more about being a <get name="bestJob"/>?
             <button>
                 <text>Learn More</text>
                 <postback><get name="bestJob"/></postback>
             </button>
             <button>
-                <text>Restart</text>
+                <text>Start Over</text>
                 <postback>START_OVER</postback>
             </button>
             <button>
