@@ -31,7 +31,8 @@
         If you would like to continue with Question 1 tap your selected answer<br/>
         If you would like to End Your Session type "END".<br/>
         If you would like to start over type "START OVER".<br/>
-        <think><srai>QONE <get name="type"/></srai></think>
+        <think><srai>QONE</srai></think>
+      
       </template>
     </category>
   </topic>
@@ -44,7 +45,7 @@
         If you would like to continue with Question 2 tap your selected answer<br/>
         If you would like to End Your Session type "END".<br/>
         If you would like to start over type "START OVER".<br/>
-        <think><srai>QTWO <get name="type"/></srai></think>
+        <think><srai>QTWO none</srai></think>
 
       </template>
     </category>
@@ -58,7 +59,7 @@
         If you would like to continue with Question 3 tap your selected answer<br/>
         If you would like to End Your Session type "END".<br/>
         If you would like to start over type "START OVER".<br/>
-        <think><srai>QTHREE <get name="type"/></srai></think>
+        <think><srai>QTHREE none</srai></think>
 
       </template>
     </category>
@@ -71,7 +72,7 @@
         If you would like to continue with Question 4 tap your selected answer<br/>
         If you would like to End Your Session type "END".<br/>
         If you would like to start over type "START OVER".<br/>
-        <think><srai>QFOUR <get name="type"/></srai></think>
+        <think><srai>QFOUR none</srai></think>
 
       </template>
     </category>
@@ -85,7 +86,7 @@
         If you would like to continue with Question 5 tap your selected answer<br/>
         If you would like to End Your Session type "END".<br/>
         If you would like to start over type "START OVER".<br/>
-        <think><srai>QFIVE <get name="type"/></srai></think>
+        <think><srai>QFIVE none</srai></think>
 
       </template>
     </category>
@@ -96,35 +97,18 @@
       <pattern>*</pattern>
       <template>
         Sorry <get name="user"/>, I did not quite get that.<br/>
-        Tap "Results" to see your suggested career.<br/>
+        Here are your results.<br/>
         If you do not want to see your results you can either:<br/>
         End Your Session type "END".<br/>
         Start over type "START OVER".<br/>
-        <think><srai>QSIX <get name="type"/></srai></think>
-
-      </template>
-    </category>
-  </topic>
-
-  <topic name="JOBINFO">
-    <category>
-      <pattern>*</pattern>
-      <template>
-        Sorry <get name="user"/>, I did not quite get that.<br/>
-        <srai><get name="bestJob"/></srai>
-      </template>
-    </category>
-  </topic>
-
-  <topic name="FINAL">
-    <category>
-      <pattern>*</pattern>
-      <template>
-        Sorry <get name="user"/>, I did not quite get that.<br/>
         <think><srai>FINAL</srai></think>
+
       </template>
     </category>
   </topic>
+
+
+
 
 
   </aiml>
