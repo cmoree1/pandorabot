@@ -1,444 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
-    <topic name="START">
-        <category>
-            <pattern>
-                MY NAME IS *
-            </pattern>
-            <that>YOU DO NOT NEED TO WORRY ABOUT CASE SENSITIVITY</that>
-            <template>
-                <think>
-                    <set name = "user"><star/></set>
-                </think>
-                It is great to meet you <get name="user"/>. Since our goal today is to find what career fits you best, I will be asking you
-                a series of question to understand your personality and strengths to suggest the best career. Once You feel ready all you need to do is tap the "Start!" button<br/><br/><br/>
-                If at anytime you feel you need to Start Over your session or leave the session you can do both by replying in the message bar "START OVER" or "END"
-                <button>
-                    <text>Start!</text>
-                    <postback>START</postback>
-                </button>
-            </template>
-        </category>
-        <category>
-            <pattern>start</pattern>
-            <template>
-                <think><set name="topic">QONE</set></think>
-                <think>
-                    <reply>
-                        <text>Lets Begin</text>
-                        <postback>QONE</postback>
-                    </reply>
-                </think>
-            </template>
-        </category>
-    </topic>
+    <category>
+        <pattern>
+            MY NAME IS *
+        </pattern>
+        <that>YOU DO NOT NEED TO WORRY ABOUT CASE SENSITIVITY</that>
+        <template>
+            <think>
+                <set name = "user"><star/></set>
+            </think>
+            It is great to meet you <get name="user"/>. Since our goal today is to find what career fits you best, I will be asking you
+            a series of question to understand your personality and strengths to suggest the best career. Once You feel ready all you need to do is tap the "Start!" button<br/><br/><br/>
+            If at anytime you feel you need to Start Over your session or leave the session you can do both by replying in the message bar "START OVER" or "END".
+            
+            <think><button><text>Start!</text><postback>QUESTONE</postback></button></think>
+        </template>
+    </category>
+    <category>
+        <pattern>QUESTONE</pattern>
+        <template>
+
+        </template>
+    </category>
+
+    <category>
+        <pattern>
+            QONE
+        </pattern>
+        <that>ARE YOU READY TO BEGIN</that>
+        <template>
+            <think>
+                <set name = "SE">0</set>
+                <set name = "DS">0</set>
+                <set name = "CA">0</set>
+                <set name = "SYS">0</set>
+                <set name = "WEB">0</set>
+            </think>
+            Perfect let's get right into it.<br/>
+            For each question you will be provided different answers to choose from. Once you have decided on your answer, simply just click on it to move forward.<br/><br/>
+            Question 1: What type of project excites you the most?<br/>
+            <button>
+                <text>Building complex software applications</text>
+                <postback> TOPICTWO SE</postback>
+            </button>
+                
+            <button>
+                <text>Analyzing large datasets</text>
+                <postback> TOPICTWO DS</postback>
+            </button>
+                
+            <button>
+                <text>Setting up IT systems</text>
+                <postback> TOPICTWO SYS</postback>
+            </button>
+
+            <button>
+                <text>Securing networks from cyber threats</text>
+                <postback> TOPICTWO CA</postback>
+            </button>
+
+            <button>
+                <text>Designing interactive websites</text>
+                <postback> TOPICTWO WEB</postback>
+            </button>
+        </template>
+    </category>
+    <category>
+        <pattern>START OVER</pattern>
+        <template>
+            Certainly, it's not uncommon to want to start over incase you were nervouse or changed your mind.<br/>
+            <srai>HI</srai>
+        </template> 
+    </category>
     
-    <topic name="QONE">
-        <category>
-            <pattern>
-                QONE
-            </pattern>
-            <template>
-                <think>
-                    <set name = "SE">0</set>
-                    <set name = "DS">0</set>
-                    <set name = "CA">0</set>
-                    <set name = "SYS">0</set>
-                    <set name = "WEB">0</set>
-                </think>
-                Perfect let's get right into it.<br/>
-                For each question you will be provided different answers to choose from. Once you have decided on your answer, simply just click on it to move forward.<br/><br/>
-                Question 1: What type of project excites you the most?<br/>
-                <button>
-                    <text>Building complex software applications</text>
-                    <postback> TOPICTWO SE</postback>
-                </button>
-                    
-                <button>
-                    <text>Analyzing large datasets</text>
-                    <postback> TOPICTWO DS</postback>
-                </button>
-                    
-                <button>
-                    <text>Setting up IT systems</text>
-                    <postback> TOPICTWO SYS</postback>
-                </button>
-
-                <button>
-                    <text>Securing networks from cyber threats</text>
-                    <postback> TOPICTWO CA</postback>
-                </button>
-
-                <button>
-                    <text>Designing interactive websites</text>
-                    <postback> TOPICTWO WEB</postback>
-                </button>
-            </template>
-        </category>
-        <category>
-            <pattern>START OVER</pattern>
-            <template>
-                Certainly, it's not uncommon to want to start over incase you were nervouse or changed your mind.<br/>
-                <srai>HI</srai>
-            </template> 
-        </category>
-        
-        <category>
-            <pattern>END</pattern>
-            <template>
-                Good Bye <get name="user"/>, feel free to stop by again.
-            </template> 
-        </category>
-        
-        <category>
-            <pattern>TOPICTWO *</pattern>
-            <template>
-                <think>
-                    <set name="choice"><star/></set>
-                    <set name="topic">TWO</set>
-                    <srai>QTWO <get name="choice"/></srai>  
-                </think>
-            </template> 
-        </category>
-	</topic>
-	
-    <topic name="TWO">
-        <category>
-            <pattern>QTWO *</pattern>
-            <template>
-                <think>
-                    <set name="type"><star/></set>
-                    <condition name="type">
-                        <li value="SE">
-                            <set name="SE"><srai>XADD <get name="SE"/> XS 1</srai></set>
-                        </li>
-                        <li value="DS">
-                            <set name="DS"><srai>XADD <get name="DS"/> XS 1</srai></set>
-                        </li>
-                        <li value="CA">
-                            <set name="CA"><srai>XADD <get name="CA"/> XS 1</srai></set>
-                        </li>
-                        <li value="SYS">
-                            <set name="SYS"><srai>XADD <get name="SYS"/> XS 1</srai></set>
-                        </li>
-                        <li>
-                            <set name="WEB"><srai>XADD <get name="WEB"/> XS 1</srai></set>
-                        </li>
-                        <li></li>                   
-                    </condition>
-                </think>
-                Great! Now for the next question.<br/>
-                Question 2: Which of the following do you prefer to work with?<br/>
-                <button>
-                    <text>Hardware</text>
-                    <postback>TOPICTHREE SYS</postback>
-                </button>
-                <button>
-                    <text>Data</text>
-                    <postback>TOPICTHREE DS</postback>
-                </button>
-                <button>
-                    <text>Design</text>
-                    <postback>TOPICTHREE WEB</postback>
-                </button>
-                <button>
-                    <text>Code</text>
-                    <postback>TOPICTHREE SE</postback>
-                </button>
-                <button>
-                    <text>Security</text>
-                    <postback>TOPICTHREE CA</postback>
-                </button>
-            </template>
-        </category>
-
-        <category>
-            <pattern>START OVER</pattern>
-            <template>
-                Certainly, it's not uncommon to want to start over incase you were nervouse or changed your mind.<br/>
-                <srai>HI</srai>
-            </template> 
-        </category>
-        
-        <category>
-            <pattern>END</pattern>
-            <template>
-                Good Bye <get name="user"/>, feel free to stop by again.
-            </template> 
-        </category>
-        <category>
-            <pattern>TOPICTHREE *</pattern>
-            <template>
-                <think>
-                    <set name="choice"><star/></set>
-                    <set name="topic">THREE</set>
-                    <srai>QTHREE <get name="choice"/></srai>  
-                </think>
-            </template> 
-        </category>
-    </topic>
-	
-    <topic name="THREE">
-        <category>
-            <pattern>QTHREE *</pattern>
-            <template>
-                <think>
-                    <set name="type"><star/></set>
-                    <condition name="type">
-                        <li value="SE">
-                            <set name="SE"><srai>XADD <get name="SE"/> XS 1</srai></set>
-                        </li>
-                        <li value="DS">
-                            <set name="DS"><srai>XADD <get name="DS"/> XS 1</srai></set>
-
-                        </li>
-                        <li value="CA">
-                            <set name="CA"><srai>XADD <get name="CA"/> XS 1</srai></set>
-
-                        </li>
-                        <li value="SYS">
-                            <set name="SYS"><srai>XADD <get name="SYS"/> XS 1</srai></set>
-
-                        </li>
-                        <li>
-                            <set name="WEB"><srai>XADD <get name="WEB"/> XS 1</srai></set>
-
-                        </li>     
-                        <li></li>              
-                    </condition>
-                </think>           
-                Thank You!<br/><br/>
-                Question 3: Would you say that you are someone who:<br/>
-                <button>
-                    <text>Thinks in terms of Logic</text>
-                    <postback>TOPICFOUR DS </postback>
-                </button>
-                <button>
-                    <text>Thinks in terms of Creativity</text>
-                    <postback>TOPICFOUR WEB </postback>
-                </button>
-                <button>
-                    <text>Thinks in terms Logic and Creativity</text>
-                    <postback>TOPICFOUR SE </postback>
-                </button>
-                <button>
-                    <text>Thinks in terms of Emotions</text>
-                    <postback>TOPICFOUR SYS </postback>
-                </button>
-                <button>
-                    <text>Thinks in terms of Safety</text>
-                    <postback>TOPICFOUR CA </postback>
-                </button>
-            </template>
-        </category>
-        <category>
-            <pattern>START OVER</pattern>
-            <template>
-                Certainly, it's not uncommon to want to start over incase you were nervouse or changed your mind.<br/>
-                <srai>HI</srai>
-            </template> 
-        </category>
-        
-        <category>
-            <pattern>END</pattern>
-            <template>
-                Good Bye <get name="user"/>, feel free to stop by again.
-            </template> 
-        </category>
-        <category>
-            <pattern>TOPICFOUR *</pattern>
-            <template>
-                <think>
-                    <set name="choice"><star/></set>
-                    <set name="topic">FOUR</set>
-                    <srai>QFOUR <get name="choice"/></srai>  
-                </think>
-            </template> 
-        </category>
-    </topic>
-
-
-    <topic name="FOUR">
-        <category>
-            <pattern>
-                QFOUR *
-            </pattern>
-            <template>
-                <think>
-                    <set name="type"><star/></set>
-                    <condition name="type">
-                        <li value="SE">
-                            <set name="SE"><srai>XADD <get name="SE"/> XS 1</srai></set>
-
-                        </li>
-                        <li value="DS">
-                            <set name="DS"><srai>XADD <get name="DS"/> XS 1</srai></set>
-
-                        </li>
-                        <li value="CA">
-                            <set name="CA"><srai>XADD <get name="CA"/> XS 1</srai></set>
-
-                        </li>
-                        <li value="SYS">
-                            <set name="SYS"><srai>XADD <get name="SYS"/> XS 1</srai></set>
-
-                        </li>
-                        <li>
-                            <set name="WEB"><srai>XADD <get name="WEB"/> XS 1</srai></set>
-
-                        </li>
-                        <li></li>                   
-                    </condition>
-                </think>
-                Terrific!<br/><br/>
-                Question 4: How do you approach solving a problem at work<br/>
-                
-                <button>
-                    <text>Automate with code</text>
-                    <postback>TOPICFIVE SE</postback>
-                </button>
-                
-                <button>
-                    <text>Analyze data to find patterns</text>
-                    <postback>TOPICFIVE DS</postback>
-                </button>
-                
-                <button>
-                    <text>Check hardware and network</text>
-                    <postback>TOPICFIVE SYS</postback>
-                </button>
+    <category>
+        <pattern>END</pattern>
+        <template>
+            Good Bye <get name="user"/>, feel free to stop by again.
+        </template> 
+    </category>
     
-                <button>
-                    <text>Assess security vulnerabilities</text>
-                    <postback>TOPICFIVE CA</postback>
-                </button>
-    
-                <button>
-                    <text>Focus on designing and optimizing</text>
-                    <postback>TOPICFIVE WEB</postback>
-                </button>
-            </template>
-        </category>
-        <category>
-            <pattern>START OVER</pattern>
-            <template>
-                Certainly, it's not uncommon to want to start over incase you were nervouse or changed your mind.<br/>
-                <srai>HI</srai>
-            </template> 
-        </category>
-        
-        <category>
-            <pattern>END</pattern>
-            <template>
-                Good Bye <get name="user"/>, feel free to stop by again.
-            </template> 
-        </category>
-        <category>
-            <pattern>TOPICFIVE *</pattern>
-            <template>
-                <think>
-                    <set name="choice"><star/></set>
-                    <set name="topic">FIVE</set>
-                    <srai>QFIVE <get name="choice"/></srai>  
-                </think>
-            </template> 
-        </category>
-    </topic>
-
-    <topic name="FIVE">
-        <category>
-            <pattern>
-                QFIVE *
-            </pattern>
-            <template>
-                <think>
-                    <set name="type"><star/></set>
-                    <condition name="type">
-                        <li value="SE">
-                            <set name="SE"><srai>XADD <get name="SE"/> XS 1</srai></set>
-
-                        </li>
-                        <li value="DS">
-                            <set name="DS"><srai>XADD <get name="DS"/> XS 1</srai></set>
-
-                        </li>
-                        <li value="CA">
-                            <set name="CA"><srai>XADD <get name="CA"/> XS 1</srai></set>
-
-                        </li>
-                        <li value="SYS">
-                            <set name="SYS"><srai>XADD <get name="SYS"/> XS 1</srai></set>
-
-                        </li>
-                        <li>
-                            <set name="WEB"><srai>XADD <get name="WEB"/> XS 1</srai></set>
-  
-                        </li>        
-                        <li></li>           
-                    </condition>
-                </think>   
-                Glorious!<br/><br/>
-                Question 5: Which of the following tasks would you enjoy the most?<br/>
-                
-                <button>
-                    <text>Writing algorithms</text>
-                    <postback>TOPICSIX SE</postback>
-                </button>
-                
-                <button>
-                    <text>Creating data visualizations</text>
-                    <postback>TOPICSIX DS</postback>
-                </button>
-                
-                <button>
-                    <text>Configuring servers</text>
-                    <postback>TOPICSIX SYS</postback>
-                </button>
-    
-                <button>
-                    <text>Performing security assessments</text>
-                    <postback>TOPICSIX CA</postback>
-                </button>
-    
-                <button>
-                    <text>Designing responsive interfaces</text>
-                    <postback>TOPICSIX WEB</postback>
-                </button>
-            </template>
-        </category>
-
-        <category>
-            <pattern>START OVER</pattern>
-            <template>
-                Certainly, it's not uncommon to want to start over incase you were nervouse or changed your mind.<br/>
-                <srai>HI</srai>
-            </template> 
-        </category>
-        
-        <category>
-            <pattern>END</pattern>
-            <template>
-                Good Bye <get name="user"/>, feel free to stop by again.
-            </template> 
-        </category>
-        <category>
-            <pattern>TOPICSIX *</pattern>
-            <template>
-                <think>
-                    <set name="choice"><star/></set>
-                    <set name="topic">RESULT</set>
-                    <srai>QSIX <get name="choice"/></srai>  
-                </think>
-            </template> 
-        </category>
-    </topic>
 
 
-    <topic name="RESULT">
-        <category>
-            <pattern>
-                QSIX *
-            </pattern>
+    <category>
+        <pattern>QTWO *</pattern>
+        <template>
             <think>
                 <set name="type"><star/></set>
                 <condition name="type">
@@ -447,6 +93,143 @@
                     </li>
                     <li value="DS">
                         <set name="DS"><srai>XADD <get name="DS"/> XS 1</srai></set>
+                    </li>
+                    <li value="CA">
+                        <set name="CA"><srai>XADD <get name="CA"/> XS 1</srai></set>
+                    </li>
+                    <li value="SYS">
+                        <set name="SYS"><srai>XADD <get name="SYS"/> XS 1</srai></set>
+                    </li>
+                    <li>
+                        <set name="WEB"><srai>XADD <get name="WEB"/> XS 1</srai></set>
+                    </li>
+                    <li></li>                   
+                </condition>
+            </think>
+            Great! Now for the next question.<br/>
+            Question 2: Which of the following do you prefer to work with?<br/>
+            <button>
+                <text>Hardware</text>
+                <postback>TOPICTHREE SYS</postback>
+            </button>
+            <button>
+                <text>Data</text>
+                <postback>TOPICTHREE DS</postback>
+            </button>
+            <button>
+                <text>Design</text>
+                <postback>TOPICTHREE WEB</postback>
+            </button>
+            <button>
+                <text>Code</text>
+                <postback>TOPICTHREE SE</postback>
+            </button>
+            <button>
+                <text>Security</text>
+                <postback>TOPICTHREE CA</postback>
+            </button>
+        </template>
+    </category>
+
+    <category>
+        <pattern>START OVER</pattern>
+        <template>
+            Certainly, it's not uncommon to want to start over incase you were nervouse or changed your mind.<br/>
+            <srai>HI</srai>
+        </template> 
+    </category>
+    
+    <category>
+        <pattern>END</pattern>
+        <template>
+            Good Bye <get name="user"/>, feel free to stop by again.
+        </template> 
+    </category>
+
+
+    <category>
+        <pattern>QTHREE *</pattern>
+        <template>
+            <think>
+                <set name="type"><star/></set>
+                <condition name="type">
+                    <li value="SE">
+                        <set name="SE"><srai>XADD <get name="SE"/> XS 1</srai></set>
+                    </li>
+                    <li value="DS">
+                        <set name="DS"><srai>XADD <get name="DS"/> XS 1</srai></set>
+
+                    </li>
+                    <li value="CA">
+                        <set name="CA"><srai>XADD <get name="CA"/> XS 1</srai></set>
+
+                    </li>
+                    <li value="SYS">
+                        <set name="SYS"><srai>XADD <get name="SYS"/> XS 1</srai></set>
+
+                    </li>
+                    <li>
+                        <set name="WEB"><srai>XADD <get name="WEB"/> XS 1</srai></set>
+
+                    </li>     
+                    <li></li>              
+                </condition>
+            </think>           
+            Thank You!<br/><br/>
+            Question 3: Would you say that you are someone who:<br/>
+            <button>
+                <text>Thinks in terms of Logic</text>
+                <postback>TOPICFOUR DS </postback>
+            </button>
+            <button>
+                <text>Thinks in terms of Creativity</text>
+                <postback>TOPICFOUR WEB </postback>
+            </button>
+            <button>
+                <text>Thinks in terms Logic and Creativity</text>
+                <postback>TOPICFOUR SE </postback>
+            </button>
+            <button>
+                <text>Thinks in terms of Emotions</text>
+                <postback>TOPICFOUR SYS </postback>
+            </button>
+            <button>
+                <text>Thinks in terms of Safety</text>
+                <postback>TOPICFOUR CA </postback>
+            </button>
+        </template>
+    </category>
+    <category>
+        <pattern>START OVER</pattern>
+        <template>
+            Certainly, it's not uncommon to want to start over incase you were nervouse or changed your mind.<br/>
+            <srai>HI</srai>
+        </template> 
+    </category>
+    
+    <category>
+        <pattern>END</pattern>
+        <template>
+            Good Bye <get name="user"/>, feel free to stop by again.
+        </template> 
+    </category>
+
+
+    <category>
+        <pattern>
+            QFOUR *
+        </pattern>
+        <template>
+            <think>
+                <set name="type"><star/></set>
+                <condition name="type">
+                    <li value="SE">
+                        <set name="SE"><srai>XADD <get name="SE"/> XS 1</srai></set>
+
+                    </li>
+                    <li value="DS">
+                        <set name="DS"><srai>XADD <get name="DS"/> XS 1</srai></set>
+
                     </li>
                     <li value="CA">
                         <set name="CA"><srai>XADD <get name="CA"/> XS 1</srai></set>
@@ -462,164 +245,314 @@
                     </li>
                     <li></li>                   
                 </condition>
-            </think> 
-            <template>
-                Alright! Questions are done, and I have your results. When you are ready tap the results button
-                <button>
-                    <text>Results</text>
-                    <postback>FINAL</postback>	            
-                </button>
-            </template>
-        </category>
+            </think>
+            Terrific!<br/><br/>
+            Question 4: How do you approach solving a problem at work<br/>
+            
+            <button>
+                <text>Automate with code</text>
+                <postback>TOPICFIVE SE</postback>
+            </button>
+            
+            <button>
+                <text>Analyze data to find patterns</text>
+                <postback>TOPICFIVE DS</postback>
+            </button>
+            
+            <button>
+                <text>Check hardware and network</text>
+                <postback>TOPICFIVE SYS</postback>
+            </button>
 
-        <category>
-            <pattern>FINAL</pattern>
-            <template>
-                <think>
-                    <set name="maxScore"><srai>XMAX <get name="SE"/> <get name="DS"/> <get name="CA"/> <get name="SYS"/> <get name="WEB"/></srai></set>
-                    <set name="checkSE"><srai>XGE <get name="SE"/> XS <get name = "maxScore"/> </srai></set>
-                    <set name="checkDS"><srai>XGE <get name="DS"/> XS <get name = "maxScore"/> </srai></set>
-                    <set name="checkCA"><srai>XGE <get name="CA"/> XS <get name = "maxScore"/> </srai></set>
-                    <set name="checkSYS"><srai>XGE <get name="SYS"/> XS <get name = "maxScore"/> </srai></set>
-                    <set name="checkWEB"><srai>XGE <get name="WEB"/> XS <get name = "maxScore"/> </srai></set>
-                    
-                    <condition name = "checkSE">
-                        <li value="TRUE"><set name="bestJob">SOFTWARE ENGINEER</set></li>
-                        <li></li>
-                    </condition>
-                    <condition name = "checkDS">
-                        <li value="TRUE"><set name="bestJob">DATA SCIENTIST</set></li>
-                        <li></li>
-                    </condition>
-                    <condition name = "checkCA">
-                        <li value="TRUE"><set name="bestJob">CYBERSECURITY ANALYST</set></li>
-                        <li></li>
-                    </condition>
-                    <condition name = "checkSYS">
-                        <li value="TRUE"><set name="bestJob">SYSTEMS ENGINEER</set></li>
-                        <li></li>
-                    </condition>
-                    <condition name = "checkWEB">
-                        <li value="TRUE"><set name="bestJob">WEB DEVELOPER</set></li>
-                        <li></li>
-                    </condition>
-                </think>
+            <button>
+                <text>Assess security vulnerabilities</text>
+                <postback>TOPICFIVE CA</postback>
+            </button>
 
-                Congratulations, <get name="user"/>! Based on your responses, your ideal career path is: <get name="bestJob"/><br/><br/>
-                Would you like to learn more about being a <get name="bestJob"/>?
-                <button>
-                    <text>Learn More</text>
-                    <postback><get name="bestJob"/></postback>
-                </button>
-                <button>
-                    <text>Start Over</text>
-                    <postback>START OVER</postback>
-                </button>
-                <button>
-                    <text>Exit</text>
-                    <postback>END</postback>
-                </button>
-            </template>
-        </category>
-        <category>
-            <pattern>START OVER</pattern>
-            <template>
-                Certainly, it's not uncommon to want to start over incase you were nervouse or changed your mind.<br/>
-                <set name="topic">START</set>
-                <srai>HI</srai>
-            </template> 
-        </category>
-        
-        <category>
-            <pattern>END</pattern>
-            <template>
-                Good Bye <get name="user"/>, feel free to stop by again.
-                <set name="topic">START</set>
-            </template> 
-        </category>
-        <category>
-            <pattern>SOFTWARE ENGINEER</pattern>
-            <template>
-                A career as a Software Engineer entails designing, developing, testing and maintaining software systems with programming languages and engineering principles.
-                <br/><br/> You can start over if you changed your mind about any questions or leave our session.
-                <button>
-                    <text>Start Over</text>
-                    <postback>START OVER</postback>
-                </button>
+            <button>
+                <text>Focus on designing and optimizing</text>
+                <postback>TOPICFIVE WEB</postback>
+            </button>
+        </template>
+    </category>
+    <category>
+        <pattern>START OVER</pattern>
+        <template>
+            Certainly, it's not uncommon to want to start over incase you were nervouse or changed your mind.<br/>
+            <srai>HI</srai>
+        </template> 
+    </category>
+    
+    <category>
+        <pattern>END</pattern>
+        <template>
+            Good Bye <get name="user"/>, feel free to stop by again.
+        </template> 
+    </category>
+
+
+    <category>
+        <pattern>
+            QFIVE *
+        </pattern>
+        <template>
+            <think>
+                <set name="type"><star/></set>
+                <condition name="type">
+                    <li value="SE">
+                        <set name="SE"><srai>XADD <get name="SE"/> XS 1</srai></set>
+
+                    </li>
+                    <li value="DS">
+                        <set name="DS"><srai>XADD <get name="DS"/> XS 1</srai></set>
+
+                    </li>
+                    <li value="CA">
+                        <set name="CA"><srai>XADD <get name="CA"/> XS 1</srai></set>
+
+                    </li>
+                    <li value="SYS">
+                        <set name="SYS"><srai>XADD <get name="SYS"/> XS 1</srai></set>
+
+                    </li>
+                    <li>
+                        <set name="WEB"><srai>XADD <get name="WEB"/> XS 1</srai></set>
+
+                    </li>        
+                    <li></li>           
+                </condition>
+            </think>   
+            Glorious!<br/><br/>
+            Question 5: Which of the following tasks would you enjoy the most?<br/>
+            
+            <button>
+                <text>Writing algorithms</text>
+                <postback>TOPICSIX SE</postback>
+            </button>
+            
+            <button>
+                <text>Creating data visualizations</text>
+                <postback>TOPICSIX DS</postback>
+            </button>
+            
+            <button>
+                <text>Configuring servers</text>
+                <postback>TOPICSIX SYS</postback>
+            </button>
+
+            <button>
+                <text>Performing security assessments</text>
+                <postback>TOPICSIX CA</postback>
+            </button>
+
+            <button>
+                <text>Designing responsive interfaces</text>
+                <postback>TOPICSIX WEB</postback>
+            </button>
+        </template>
+    </category>
+
+    <category>
+        <pattern>START OVER</pattern>
+        <template>
+            Certainly, it's not uncommon to want to start over incase you were nervouse or changed your mind.<br/>
+            <srai>HI</srai>
+        </template> 
+    </category>
+    
+    <category>
+        <pattern>END</pattern>
+        <template>
+            Good Bye <get name="user"/>, feel free to stop by again.
+        </template> 
+    </category>
+
+
+
+    <category>
+        <pattern>
+            QSIX *
+        </pattern>
+        <think>
+            <set name="type"><star/></set>
+            <condition name="type">
+                <li value="SE">
+                    <set name="SE"><srai>XADD <get name="SE"/> XS 1</srai></set>
+                </li>
+                <li value="DS">
+                    <set name="DS"><srai>XADD <get name="DS"/> XS 1</srai></set>
+                </li>
+                <li value="CA">
+                    <set name="CA"><srai>XADD <get name="CA"/> XS 1</srai></set>
+
+                </li>
+                <li value="SYS">
+                    <set name="SYS"><srai>XADD <get name="SYS"/> XS 1</srai></set>
+
+                </li>
+                <li>
+                    <set name="WEB"><srai>XADD <get name="WEB"/> XS 1</srai></set>
+
+                </li>
+                <li></li>                   
+            </condition>
+        </think> 
+        <template>
+            Alright! Questions are done, and I have your results. When you are ready tap the results button
+            <button>
+                <text>Results</text>
+                <postback>FINAL</postback>	            
+            </button>
+        </template>
+    </category>
+
+    <category>
+        <pattern>FINAL</pattern>
+        <template>
+            <think>
+                <set name="maxScore"><srai>XMAX <get name="SE"/> <get name="DS"/> <get name="CA"/> <get name="SYS"/> <get name="WEB"/></srai></set>
+                <set name="checkSE"><srai>XGE <get name="SE"/> XS <get name = "maxScore"/> </srai></set>
+                <set name="checkDS"><srai>XGE <get name="DS"/> XS <get name = "maxScore"/> </srai></set>
+                <set name="checkCA"><srai>XGE <get name="CA"/> XS <get name = "maxScore"/> </srai></set>
+                <set name="checkSYS"><srai>XGE <get name="SYS"/> XS <get name = "maxScore"/> </srai></set>
+                <set name="checkWEB"><srai>XGE <get name="WEB"/> XS <get name = "maxScore"/> </srai></set>
                 
-                <button>
-                    <text>Leave</text>
-                    <postback>END</postback>
-                </button>
-            </template>
-        </category>
+                <condition name = "checkSE">
+                    <li value="TRUE"><set name="bestJob">SOFTWARE ENGINEER</set></li>
+                    <li></li>
+                </condition>
+                <condition name = "checkDS">
+                    <li value="TRUE"><set name="bestJob">DATA SCIENTIST</set></li>
+                    <li></li>
+                </condition>
+                <condition name = "checkCA">
+                    <li value="TRUE"><set name="bestJob">CYBERSECURITY ANALYST</set></li>
+                    <li></li>
+                </condition>
+                <condition name = "checkSYS">
+                    <li value="TRUE"><set name="bestJob">SYSTEMS ENGINEER</set></li>
+                    <li></li>
+                </condition>
+                <condition name = "checkWEB">
+                    <li value="TRUE"><set name="bestJob">WEB DEVELOPER</set></li>
+                    <li></li>
+                </condition>
+            </think>
 
-        <category>
-            <pattern>DATA SCIENTIST</pattern>
-            <template>
-                A career as a Data Scientist would entail you utilizing a combination of skills in both mathematics and coimputer science. Data Scientists usually analyze large sums of data to identify trends and predict future outcomes.
-                <br/><br/> You can start over if you changed your mind about any questions or leave our session.
-                <button>
-                    <text>Start Over</text>
-                    <postback>START OVER</postback>
-                </button>
-                
-                <button>
-                    <text>Leave</text>
-                    <postback>END</postback>
-                </button>
-            </template>
-        </category>
+            Congratulations, <get name="user"/>! Based on your responses, your ideal career path is: <get name="bestJob"/><br/><br/>
+            Would you like to learn more about being a <get name="bestJob"/>?
+            <button>
+                <text>Learn More</text>
+                <postback><get name="bestJob"/></postback>
+            </button>
+            <button>
+                <text>Start Over</text>
+                <postback>START OVER</postback>
+            </button>
+            <button>
+                <text>Exit</text>
+                <postback>END</postback>
+            </button>
+        </template>
+    </category>
+    <category>
+        <pattern>START OVER</pattern>
+        <template>
+            Certainly, it's not uncommon to want to start over incase you were nervouse or changed your mind.<br/>
+            <set name="topic">START</set>
+            <srai>HI</srai>
+        </template> 
+    </category>
+    
+    <category>
+        <pattern>END</pattern>
+        <template>
+            Good Bye <get name="user"/>, feel free to stop by again.
+            <set name="topic">START</set>
+        </template> 
+    </category>
+    <category>
+        <pattern>SOFTWARE ENGINEER</pattern>
+        <template>
+            A career as a Software Engineer entails designing, developing, testing and maintaining software systems with programming languages and engineering principles.
+            <br/><br/> You can start over if you changed your mind about any questions or leave our session.
+            <button>
+                <text>Start Over</text>
+                <postback>START OVER</postback>
+            </button>
+            
+            <button>
+                <text>Leave</text>
+                <postback>END</postback>
+            </button>
+        </template>
+    </category>
 
-        <category>
-            <pattern>CYBERSECURITY ANALYST</pattern>
-            <template>
-                A career as a CyberSecurity Analyst you will be in charge maintaining both hardware and software of your companies systems. You will constantly be looking to detect new vulnerabilities, add additional security, and learn about new bug/hacking trends.
-                <br/><br/> You can start over if you changed your mind about any questions or leave our session.
-                <button>
-                    <text>Start Over</text>
-                    <postback>START OVER</postback>
-                </button>
-                
-                <button>
-                    <text>Leave</text>
-                    <postback>END</postback>
-                </button>
-            </template>
-        </category>
+    <category>
+        <pattern>DATA SCIENTIST</pattern>
+        <template>
+            A career as a Data Scientist would entail you utilizing a combination of skills in both mathematics and coimputer science. Data Scientists usually analyze large sums of data to identify trends and predict future outcomes.
+            <br/><br/> You can start over if you changed your mind about any questions or leave our session.
+            <button>
+                <text>Start Over</text>
+                <postback>START OVER</postback>
+            </button>
+            
+            <button>
+                <text>Leave</text>
+                <postback>END</postback>
+            </button>
+        </template>
+    </category>
 
-        <category>
-            <pattern>SYSTEMS ENGINEER</pattern>
-            <template>
-            A career as a Systems Engineer you will manage and maintain your organization's IT infrastructure such as servers, PCs, and cloud services.
-                <br/><br/> You can start over if you changed your mind about any questions or leave our session.
-                <button>
-                    <text>Start Over</text>
-                    <postback>START OVER</postback>
-                </button>
-                
-                <button>
-                    <text>Leave</text>
-                    <postback>END</postback>
-                </button>
-            </template>
-        </category>
+    <category>
+        <pattern>CYBERSECURITY ANALYST</pattern>
+        <template>
+            A career as a CyberSecurity Analyst you will be in charge maintaining both hardware and software of your companies systems. You will constantly be looking to detect new vulnerabilities, add additional security, and learn about new bug/hacking trends.
+            <br/><br/> You can start over if you changed your mind about any questions or leave our session.
+            <button>
+                <text>Start Over</text>
+                <postback>START OVER</postback>
+            </button>
+            
+            <button>
+                <text>Leave</text>
+                <postback>END</postback>
+            </button>
+        </template>
+    </category>
 
-        <category>
-            <pattern>WEB DEVELOPER</pattern>
-            <template>
-            A career as a Web Developer you will be building websites and web applications. Usually, web developers focus on the front end systems of a website and web application focused on UX/UI and drawing customers in
-                <br/><br/> You can start over if you changed your mind about any questions or leave our session.
-                <button>
-                    <text>Start Over</text>
-                    <postback>START OVER</postback>
-                </button>
-                
-                <button>
-                    <text>Leave</text>
-                    <postback>END</postback>
-                </button>
-            </template>
-        </category>
-    </topic>
+    <category>
+        <pattern>SYSTEMS ENGINEER</pattern>
+        <template>
+        A career as a Systems Engineer you will manage and maintain your organization's IT infrastructure such as servers, PCs, and cloud services.
+            <br/><br/> You can start over if you changed your mind about any questions or leave our session.
+            <button>
+                <text>Start Over</text>
+                <postback>START OVER</postback>
+            </button>
+            
+            <button>
+                <text>Leave</text>
+                <postback>END</postback>
+            </button>
+        </template>
+    </category>
+
+    <category>
+        <pattern>WEB DEVELOPER</pattern>
+        <template>
+        A career as a Web Developer you will be building websites and web applications. Usually, web developers focus on the front end systems of a website and web application focused on UX/UI and drawing customers in
+            <br/><br/> You can start over if you changed your mind about any questions or leave our session.
+            <button>
+                <text>Start Over</text>
+                <postback>START OVER</postback>
+            </button>
+            
+            <button>
+                <text>Leave</text>
+                <postback>END</postback>
+            </button>
+        </template>
+    </category>
 </aiml>

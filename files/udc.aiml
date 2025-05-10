@@ -23,7 +23,6 @@
     </category>
   </topic>
 
-  <topic name="ONE">
     <category>
       <pattern>*</pattern>
       <template>
@@ -35,9 +34,7 @@
       
       </template>
     </category>
-  </topic>
 
-  <topic name="TWO">
     <category>
       <pattern>*</pattern>
       <template>
@@ -49,9 +46,7 @@
 
       </template>
     </category>
-  </topic>
 
-  <topic name="THREE">
     <category>
       <pattern>*</pattern>
       <template>
@@ -63,8 +58,7 @@
 
       </template>
     </category>
-  </topic>
-  <topic name="FOUR">
+
     <category>
       <pattern>*</pattern>
       <template>
@@ -76,9 +70,7 @@
 
       </template>
     </category>
-  </topic>
 
-  <topic name="FIVE">
     <category>
       <pattern>*</pattern>
       <template>
@@ -90,9 +82,7 @@
 
       </template>
     </category>
-  </topic>
 
-  <topic name="RESULT">
     <category>
       <pattern>*</pattern>
       <template>
@@ -105,7 +95,6 @@
 
       </template>
     </category>
-  </topic>
 
 
 
