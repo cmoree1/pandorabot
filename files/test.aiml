@@ -1,309 +1,570 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<aiml version="2.0">	
-	<category>
-	    <pattern>
-	        MY NAME IS *
-	    </pattern>
-        <that>YOU DO NOT NEED TO WORRY ABOUT CASE SENSITIVITY</that>
-	    <template>
-	        <think>
-	            <set name = "user"><star/></set>
-	        </think>
-	        It is great to meet you <get name="user"/>. Since our goal today is to find what career fits you best, I will be asking you
-	        a series of question to understand your personality and strengths to suggest the best career. Once You feel ready all you need to do is tap the "Start!" button<br/><br/><br/>
-	        If at anytime you feel you need to Start Over your session or leave the session you can do both by replying in the message bar "START_OVER" or "END"
-	        <button>
-	            <text>Start!</text>
-	            <postback>QONE</postback>
-            </button>
-            <br/> Are you ready?
-	    </template>
-	</category>
+<aiml version="2.0">
+    <topic name="START">
+        <category>
+            <pattern>
+                MY NAME IS *
+            </pattern>
+            <that>YOU DO NOT NEED TO WORRY ABOUT CASE SENSITIVITY</that>
+            <template>
+                <think>
+                    <set name = "user"><star/></set>
+                </think>
+                It is great to meet you <get name="user"/>. Since our goal today is to find what career fits you best, I will be asking you
+                a series of question to understand your personality and strengths to suggest the best career. Once You feel ready all you need to do is tap the "Start!" button<br/><br/><br/>
+                If at anytime you feel you need to Start Over your session or leave the session you can do both by replying in the message bar "START OVER" or "END"
+                <button>
+                    <text>Start!</text>
+                    <postback>QONE</postback>
+                </button>
+            </template>
+        </category>
+    </topic>
+    
+    <topic name="ONE">
+        <category>
+            <pattern>
+                QONE
+            </pattern>
+            <template>
+                <think>
+                    <set name = "SE">0</set>
+                    <set name = "DS">0</set>
+                    <set name = "CA">0</set>
+                    <set name = "SYS">0</set>
+                    <set name = "WEB">0</set>
+                    <set name = "count">0</set>
+                </think>
+                Perfect let's get right into it.<br/>
+                For each question you will be provided different answers to choose from. Once you have decided on your answer, simply just click on it to move forward.<br/><br/>
+                Question 1: What type of project excites you the most?<br/>
+                <button>
+                    <text>Building complex software applications</text>
+                    <postback>QTWO SE
+                        <think><set name="topic">TWO</set></think>
+                    </postback>
+                </button>
+                    
+                <button>
+                    <text>Analyzing large datasets</text>
+                    <postback>QTWO DS
+                        <think><set name="topic">TWO</set></think>
+                    </postback>
+                </button>
+                    
+                <button>
+                    <text>Setting up IT systems</text>
+                    <postback>QTWO SYS
+                        <think><set name="topic">TWO</set></think>
+                    </postback>
+                </button>
+
+                <button>
+                    <text>Securing networks from cyber threats</text>
+                    <postback>QTWO CA                        
+                        <think><set name="topic">TWO</set></think>
+                    </postback>
+                </button>
+
+                <button>
+                    <text>Designing interactive websites</text>
+                    <postback>QTWO WEB                        
+                        <think><set name="topic">TWO</set></think>
+                    </postback>
+                </button>
+            </template>
+        </category>
+	</topic>
 	
-	<category>
-	    <pattern>
-	        QONE
-	    </pattern>
-	    <template>
-	        <think>
-                <set name = "SE">0</set>
-	            <set name = "DS">0</set>
-	            <set name = "CA">0</set>
-	            <set name = "SYS">0</set>
-	            <set name = "WEB">0</set>
-            </think>
-	        Perfect let's get right into it.<br/>
-            For each question you will be provided different answers to choose from. Once you have decided on your answer, simply just click on it to move forward.<br/><br/>
-            Question 1: What type of project excites you the most?<br/>
-            <button>
-                <text>Building complex software applications</text>
-                <postback>QTWO SE</postback>
-            </button>
+    <topic name="TWO">
+        <category>
+            <pattern>QTWO *</pattern>
+            <template>
+                <think>
+                    <set name="type"><star/></set>
+                    <set name="count"><srai>XADD <get name="count"/> XS 1</srai></set>
+                    <condition name="type">
+                        <li value="SE">
+                            <set name="SE"><srai>XADD <get name="SE"/> XS 1</srai></set>
+                            <condition name="count">
+                                <li value="1"></li>
+                                <li>
+                                    <set name="count"><srai>XSUB <get name="count"/> XS 1</srai></set>
+                                    <set name="SE"><srai>XSUB <get name="SE"/> XS 1</srai></set>
+                                </li>
+                            </condition>
+                        </li>
+                        <li value="DS">
+                            <set name="DS"><srai>XADD <get name="DS"/> XS 1</srai></set>
+                            <condition name="count">
+                                <li value="1"></li>
+                                <li>
+                                    <set name="count"><srai>XSUB <get name="count"/> XS 1</srai></set>
+                                    <set name="DS"><srai>XSUB <get name="DS"/> XS 1</srai></set>
+                                </li>
+                            </condition>
+                        </li>
+                        <li value="CA">
+                            <set name="CA"><srai>XADD <get name="CA"/> XS 1</srai></set>
+                            <condition name="count">
+                                <li value="1"></li>
+                                <li>
+                                    <set name="count"><srai>XSUB <get name="count"/> XS 1</srai></set>
+                                    <set name="CA"><srai>XSUB <get name="CA"/> XS 1</srai></set>
+                                </li>
+                            </condition>
+                        </li>
+                        <li value="SYS">
+                            <set name="SYS"><srai>XADD <get name="SYS"/> XS 1</srai></set>
+                            <condition name="count">
+                                <li value="1"></li>
+                                <li>
+                                    <set name="count"><srai>XSUB <get name="count"/> XS 1</srai></set>
+                                    <set name="SYS"><srai>XSUB <get name="SYS"/> XS 1</srai></set>
+                                </li>
+                            </condition>
+                        </li>
+                        <li>
+                            <set name="WEB"><srai>XADD <get name="WEB"/> XS 1</srai></set>
+                            <condition name="count">
+                                <li value="1"></li>
+                                <li>
+                                    <set name="count"><srai>XSUB <get name="count"/> XS 1</srai></set>
+                                    <set name="WEB"><srai>XSUB <get name="WEB"/> XS 1</srai></set>
+                                </li>
+                            </condition>
+                        </li>                   
+                    </condition>
+                </think>
+                Great! Now for the next question.<br/>
+                Question 2: Which of the following do you prefer to work with?<br/>
+                <button>
+                    <text>Hardware</text>
+                    <postback>QTHREE SYS
+                        <think><set name="topic">THREE</set></think>
+                    </postback>
+                </button>
+                <button>
+                    <text>Data</text>
+                    <postback>QTHREE DS
+                        <think><set name="topic">THREE</set></think>
+                    </postback>
+                </button>
+                <button>
+                    <text>Design</text>
+                    <postback>QTHREE WEB
+                        <think><set name="topic">THREE</set></think>
+
+                    </postback>
+                </button>
+                <button>
+                    <text>Code</text>
+                    <postback>QTHREE SE
+                        <think><set name="topic">THREE</set></think>
+
+                    </postback>
+                </button>
+                <button>
+                    <text>Security</text>
+                    <postback>QTHREE CA
+                        <think><set name="topic">THREE</set></think>
+
+                    </postback>
+                </button>
+            </template>
+        </category>
+    </topic>
+	
+    <topic name="THREE">
+        <category>
+            <pattern>QTHREE *</pattern>
+            <template>
+                <think>
+                    <set name="type"><star/></set>
+                    <set name="count"><srai>XADD <get name="count"/> XS 1</srai></set>
+                    <condition name="type">
+                        <li value="SE">
+                            <set name="SE"><srai>XADD <get name="SE"/> XS 1</srai></set>
+                            <condition name="count">
+                                <li value="2"></li>
+                                <li>
+                                    <set name="count"><srai>XSUB <get name="count"/> XS 1</srai></set>
+                                    <set name="SE"><srai>XSUB <get name="SE"/> XS 1</srai></set>
+                                </li>
+                            </condition>
+                        </li>
+                        <li value="DS">
+                            <set name="DS"><srai>XADD <get name="DS"/> XS 1</srai></set>
+                            <condition name="count">
+                                <li value="2"></li>
+                                <li>
+                                    <set name="count"><srai>XSUB <get name="count"/> XS 1</srai></set>
+                                    <set name="DS"><srai>XSUB <get name="DS"/> XS 1</srai></set>
+                                </li>
+                            </condition>
+                        </li>
+                        <li value="CA">
+                            <set name="CA"><srai>XADD <get name="CA"/> XS 1</srai></set>
+                            <condition name="count">
+                                <li value="2"></li>
+                                <li>
+                                    <set name="count"><srai>XSUB <get name="count"/> XS 1</srai></set>
+                                    <set name="CA"><srai>XSUB <get name="CA"/> XS 1</srai></set>
+                                </li>
+                            </condition>
+                        </li>
+                        <li value="SYS">
+                            <set name="SYS"><srai>XADD <get name="SYS"/> XS 1</srai></set>
+                            <condition name="count">
+                                <li value="2"></li>
+                                <li>
+                                    <set name="count"><srai>XSUB <get name="count"/> XS 1</srai></set>
+                                    <set name="SYS"><srai>XSUB <get name="SYS"/> XS 1</srai></set>
+                                </li>
+                            </condition>
+                        </li>
+                        <li>
+                            <set name="WEB"><srai>XADD <get name="WEB"/> XS 1</srai></set>
+                            <condition name="count">
+                                <li value="2"></li>
+                                <li>
+                                    <set name="count"><srai>XSUB <get name="count"/> XS 1</srai></set>
+                                    <set name="WEB"><srai>XSUB <get name="WEB"/> XS 1</srai></set>
+                                </li>
+                            </condition>
+                        </li>                   
+                    </condition>
+                </think>           
+                Thank You!<br/><br/>
+                Question 3: Would you say that you are someone who:<br/>
+                <button>
+                    <text>Thinks in terms of Logic</text>
+                    <postback>QFOUR DS
+                        <think><set name="topic">FOUR</set></think>
+
+                    </postback>
+                </button>
+                <button>
+                    <text>Thinks in terms of Creativity</text>
+                    <postback>QFOUR WEB
+                        <think><set name="topic">FOUR</set></think>
+
+                    </postback>
+                </button>
+                <button>
+                    <text>Thinks in terms Logic and Creativity</text>
+                    <postback>QFOUR SE
+                        <think><set name="topic">FOUR</set></think>
+
+                    </postback>
+                </button>
+                <button>
+                    <text>Thinks in terms of Emotions</text>
+                    <postback>QFOUR SYS
+                        <think><set name="topic">FOUR</set></think>
+
+                    </postback>
+                </button>
+                <button>
+                    <text>Thinks in terms of Safety</text>
+                    <postback>QFOUR CA
+                        <think><set name="topic">FOUR</set></think>
+
+                    </postback>
+                </button>
+            </template>
+        </category>
+    </topic>
+
+
+    <topic name="FOUR">
+        <category>
+            <pattern>
+                QFOUR *
+            </pattern>
+            <template>
+                <think>
+                    <set name="type"><star/></set>
+                    <set name="count"><srai>XADD <get name="count"/> XS 1</srai></set>
+                    <condition name="type">
+                        <li value="SE">
+                            <set name="SE"><srai>XADD <get name="SE"/> XS 1</srai></set>
+                            <condition name="count">
+                                <li value="3"></li>
+                                <li>
+                                    <set name="count"><srai>XSUB <get name="count"/> XS 1</srai></set>
+                                    <set name="SE"><srai>XSUB <get name="SE"/> XS 1</srai></set>
+                                </li>
+                            </condition>
+                        </li>
+                        <li value="DS">
+                            <set name="DS"><srai>XADD <get name="DS"/> XS 1</srai></set>
+                            <condition name="count">
+                                <li value="3"></li>
+                                <li>
+                                    <set name="count"><srai>XSUB <get name="count"/> XS 1</srai></set>
+                                    <set name="DS"><srai>XSUB <get name="DS"/> XS 1</srai></set>
+                                </li>
+                            </condition>
+                        </li>
+                        <li value="CA">
+                            <set name="CA"><srai>XADD <get name="CA"/> XS 1</srai></set>
+                            <condition name="count">
+                                <li value="3"></li>
+                                <li>
+                                    <set name="count"><srai>XSUB <get name="count"/> XS 1</srai></set>
+                                    <set name="CA"><srai>XSUB <get name="CA"/> XS 1</srai></set>
+                                </li>
+                            </condition>
+                        </li>
+                        <li value="SYS">
+                            <set name="SYS"><srai>XADD <get name="SYS"/> XS 1</srai></set>
+                            <condition name="count">
+                                <li value="3"></li>
+                                <li>
+                                    <set name="count"><srai>XSUB <get name="count"/> XS 1</srai></set>
+                                    <set name="SYS"><srai>XSUB <get name="SYS"/> XS 1</srai></set>
+                                </li>
+                            </condition>
+                        </li>
+                        <li>
+                            <set name="WEB"><srai>XADD <get name="WEB"/> XS 1</srai></set>
+                            <condition name="count">
+                                <li value="3"></li>
+                                <li>
+                                    <set name="count"><srai>XSUB <get name="count"/> XS 1</srai></set>
+                                    <set name="WEB"><srai>XSUB <get name="WEB"/> XS 1</srai></set>
+                                </li>
+                            </condition>
+                        </li>                   
+                    </condition>
+                </think>
+                Terrific!<br/><br/>
+                Question 4: How do you approach solving a problem at work<br/>
                 
-            <button>
-                <text>Analyzing large datasets</text>
-                <postback>QTWO DS</postback>
-            </button>
+                <button>
+                    <text>Automate with code</text>
+                    <postback>QFIVE SE
+                        <think><set name="topic">FIVE</set></think>
+
+                    </postback>
+                </button>
                 
-            <button>
-                <text>Setting up IT systems</text>
-                <postback>QTWO SYS</postback>
-            </button>
+                <button>
+                    <text>Analyze data to find patterns</text>
+                    <postback>QFIVE DS
+                        <think><set name="topic">FIVE</set></think>
 
-            <button>
-                <text>Securing networks from cyber threats</text>
-                <postback>QTWO CA</postback>
-            </button>
+                    </postback>
+                </button>
+                
+                <button>
+                    <text>Check hardware and network</text>
+                    <postback>QFIVE SYS
+                        <think><set name="topic">FIVE</set></think>
 
-            <button>
-                <text>Designing interactive websites</text>
-                <postback>QTWO WEB</postback>
-            </button>
-	    </template>
-	</category>
-	
-	
-	<category>
-	    <pattern>QTWO *</pattern>
-	    <template>
+                    </postback>
+                </button>
+    
+                <button>
+                    <text>Assess security vulnerabilities</text>
+                    <postback>QFIVE CA
+                        <think><set name="topic">FIVE</set></think>
+
+                    </postback>
+                </button>
+    
+                <button>
+                    <text>Focus on designing and optimizing</text>
+                    <postback>QFIVE WEB
+                        <think><set name="topic">FIVE</set></think>
+
+                    </postback>
+                </button>
+            </template>
+        </category>
+    </topic>
+
+    <topic name="FIVE">
+        <category>
+            <pattern>
+                QFIVE *
+            </pattern>
+            <template>
+                <think>
+                    <set name="type"><star/></set>
+                    <set name="count"><srai>XADD <get name="count"/> XS 1</srai></set>
+                    <condition name="type">
+                        <li value="SE">
+                            <set name="SE"><srai>XADD <get name="SE"/> XS 1</srai></set>
+                            <condition name="count">
+                                <li value="4"></li>
+                                <li>
+                                    <set name="count"><srai>XSUB <get name="count"/> XS 1</srai></set>
+                                    <set name="SE"><srai>XSUB <get name="SE"/> XS 1</srai></set>
+                                </li>
+                            </condition>
+                        </li>
+                        <li value="DS">
+                            <set name="DS"><srai>XADD <get name="DS"/> XS 1</srai></set>
+                            <condition name="count">
+                                <li value="4"></li>
+                                <li>
+                                    <set name="count"><srai>XSUB <get name="count"/> XS 1</srai></set>
+                                    <set name="DS"><srai>XSUB <get name="DS"/> XS 1</srai></set>
+                                </li>
+                            </condition>
+                        </li>
+                        <li value="CA">
+                            <set name="CA"><srai>XADD <get name="CA"/> XS 1</srai></set>
+                            <condition name="count">
+                                <li value="4"></li>
+                                <li>
+                                    <set name="count"><srai>XSUB <get name="count"/> XS 1</srai></set>
+                                    <set name="CA"><srai>XSUB <get name="CA"/> XS 1</srai></set>
+                                </li>
+                            </condition>
+                        </li>
+                        <li value="SYS">
+                            <set name="SYS"><srai>XADD <get name="SYS"/> XS 1</srai></set>
+                            <condition name="count">
+                                <li value="4"></li>
+                                <li>
+                                    <set name="count"><srai>XSUB <get name="count"/> XS 1</srai></set>
+                                    <set name="SYS"><srai>XSUB <get name="SYS"/> XS 1</srai></set>
+                                </li>
+                            </condition>
+                        </li>
+                        <li>
+                            <set name="WEB"><srai>XADD <get name="WEB"/> XS 1</srai></set>
+                            <condition name="count">
+                                <li value="4"></li>
+                                <li>
+                                    <set name="count"><srai>XSUB <get name="count"/> XS 1</srai></set>
+                                    <set name="WEB"><srai>XSUB <get name="WEB"/> XS 1</srai></set>
+                                </li>
+                            </condition>
+                        </li>                   
+                    </condition>
+                </think>   
+                Glorious!<br/><br/>
+                Question 5: Which of the following tasks would you enjoy the most?<br/>
+                
+                <button>
+                    <text>Writing algorithms</text>
+                    <postback>QSIX SE
+                        <think><set name="topic">RESULT</set></think>
+                    </postback>
+                </button>
+                
+                <button>
+                    <text>Creating data visualizations</text>
+                    <postback>QSIX DS
+                        <think><set name="topic">RESULT</set></think>
+                    </postback>
+                </button>
+                
+                <button>
+                    <text>Configuring servers</text>
+                    <postback>QSIX SYS
+                        <think><set name="topic">RESULT</set></think>
+
+                    </postback>
+                </button>
+    
+                <button>
+                    <text>Performing security assessments</text>
+                    <postback>QSIX CA
+                        <think><set name="topic">RESULT</set></think>
+
+                    </postback>
+                </button>
+    
+                <button>
+                    <text>Designing responsive interfaces</text>
+                    <postback>QSIX WEB
+                        <think><set name="topic">RESULT</set></think>
+
+                    </postback>
+                </button>
+            </template>
+        </category>
+    </topic>
+
+
+    <topic name="RESULT">
+        <category>
+            <pattern>
+                QSIX *
+            </pattern>
             <think>
                 <set name="type"><star/></set>
+                <set name="count"><srai>XADD <get name="count"/> XS 1</srai></set>
                 <condition name="type">
                     <li value="SE">
                         <set name="SE"><srai>XADD <get name="SE"/> XS 1</srai></set>
+                        <condition name="count">
+                            <li value="5"></li>
+                            <li>
+                                <set name="count"><srai>XSUB <get name="count"/> XS 1</srai></set>
+                                <set name="SE"><srai>XSUB <get name="SE"/> XS 1</srai></set>
+                            </li>
+                        </condition>
                     </li>
                     <li value="DS">
                         <set name="DS"><srai>XADD <get name="DS"/> XS 1</srai></set>
+                        <condition name="count">
+                            <li value="5"></li>
+                            <li>
+                                <set name="count"><srai>XSUB <get name="count"/> XS 1</srai></set>
+                                <set name="DS"><srai>XSUB <get name="DS"/> XS 1</srai></set>
+                            </li>
+                        </condition>
                     </li>
                     <li value="CA">
                         <set name="CA"><srai>XADD <get name="CA"/> XS 1</srai></set>
+                        <condition name="count">
+                            <li value="5"></li>
+                            <li>
+                                <set name="count"><srai>XSUB <get name="count"/> XS 1</srai></set>
+                                <set name="CA"><srai>XSUB <get name="CA"/> XS 1</srai></set>
+                            </li>
+                        </condition>
                     </li>
                     <li value="SYS">
                         <set name="SYS"><srai>XADD <get name="SYS"/> XS 1</srai></set>
+                        <condition name="count">
+                            <li value="5"></li>
+                            <li>
+                                <set name="count"><srai>XSUB <get name="count"/> XS 1</srai></set>
+                                <set name="SYS"><srai>XSUB <get name="SYS"/> XS 1</srai></set>
+                            </li>
+                        </condition>
                     </li>
                     <li>
                         <set name="WEB"><srai>XADD <get name="WEB"/> XS 1</srai></set>
+                        <condition name="count">
+                            <li value="5"></li>
+                            <li>
+                                <set name="count"><srai>XSUB <get name="count"/> XS 1</srai></set>
+                                <set name="WEB"><srai>XSUB <get name="WEB"/> XS 1</srai></set>
+                            </li>
+                        </condition>
                     </li>                   
                 </condition>
-            </think>
-	        Great! Now for the next question.<br/>
-	        Question 2: Which of the following do you prefer to work with?<br/>
-	        <button>
-	            <text>Hardware</text>
-	            <postback>QTHREE SYS</postback>
-            </button>
-            <button>
-                <text>Data</text>
-                <postback>QTHREE DS</postback>
-            </button>
-            <button>
-                <text>Design</text>
-                <postback>QTHREE WEB</postback>
-            </button>
-            <button>
-                <text>Code</text>
-                <postback>QTHREE SE</postback>
-            </button>
-            <button>
-                <text>Security</text>
-                <postback>QTHREE CA</postback>
-            </button>
-	    </template>
-	</category>
-	
-	<category>
-	    <pattern>QTHREE *</pattern>
-	    <template>
-            <think>
-                <set name="type"><star/></set>
-                <condition name="type">
-                    <li value="SE">
-                        <set name="SE"><srai>XADD <get name="SE"/> XS 1</srai></set>
-                    </li>
-                    <li value="DS">
-                        <set name="DS"><srai>XADD <get name="DS"/> XS 1</srai></set>
-                    </li>
-                    <li value="CA">
-                        <set name="CA"><srai>XADD <get name="CA"/> XS 1</srai></set>
-                    </li>
-                    <li value="SYS">
-                        <set name="SYS"><srai>XADD <get name="SYS"/> XS 1</srai></set>
-                    </li>
-                    <li>
-                        <set name="WEB"><srai>XADD <get name="WEB"/> XS 1</srai></set>
-                    </li>                   
-                </condition>
-            </think>           
-	        Thank You!<br/><br/>
-	        Question 3: Would you say that you are someone who:<br/>
-	        <button>
-	            <text>Thinks in terms of Logic</text>
-	            <postback>QFOUR DS</postback>
-            </button>
-            <button>
-                <text>Thinks in terms of Creativity</text>
-                <postback>QFOUR WEB</postback>
-            </button>
-            <button>
-                <text>Thinks in terms Logic and Creativity</text>
-                <postback>QFOUR SE</postback>
-            </button>
-            <button>
-                <text>Thinks in terms of Emotions</text>
-                <postback>QFOUR SYS</postback>
-            </button>
-            <button>
-                <text>Thinks in terms of Safety</text>
-                <postback>QFOUR CA</postback>
-            </button>
-	    </template>
-	</category>
+            </think> 
+            <template>
+                Alright! Questions are done, and I have your results. When you are ready tap the results button
+                <button>
+                    <text>Results</text>
+                    <postback>FINAL
+                        <think><set name="topic">FINAL</set></think>
 
-
-	<category>
-	    <pattern>
-	        QFOUR *
-	    </pattern>
-	    <template>
-            <think>
-                <set name="type"><star/></set>
-                <condition name="type">
-                    <li value="SE">
-                        <set name="SE"><srai>XADD <get name="SE"/> XS 1</srai></set>
-                    </li>
-                    <li value="DS">
-                        <set name="DS"><srai>XADD <get name="DS"/> XS 1</srai></set>
-                    </li>
-                    <li value="CA">
-                        <set name="CA"><srai>XADD <get name="CA"/> XS 1</srai></set>
-                    </li>
-                    <li value="SYS">
-                        <set name="SYS"><srai>XADD <get name="SYS"/> XS 1</srai></set>
-                    </li>
-                    <li>
-                        <set name="WEB"><srai>XADD <get name="WEB"/> XS 1</srai></set>
-                    </li>                   
-                </condition>
-            </think>
-            Terrific!<br/><br/>
-	        Question 4: How do you approach solving a problem at work<br/>
-            
-            <button>
-                <text>Automate with code</text>
-                <postback>QFIVE SE</postback>
-            </button>
-            
-            <button>
-                <text>Analyze data to find patterns</text>
-                <postback>QFIVE DS</postback>
-            </button>
-            
-            <button>
-                <text>Check hardware and network</text>
-                <postback>QFIVE SYS</postback>
-            </button>
-
-            <button>
-                <text>Assess security vulnerabilities</text>
-                <postback>QFIVE CA</postback>
-            </button>
-
-            <button>
-                <text>Focus on designing and optimizing</text>
-                <postback>QFIVE WEB</postback>
-            </button>
-	    </template>
-	</category>
-
-    <category>
-	    <pattern>
-	        QFIVE *
-	    </pattern>
-	    <template>
-            <think>
-                <set name="type"><star/></set>
-                <condition name="type">
-                    <li value="SE">
-                        <set name="SE"><srai>XADD <get name="SE"/> XS 1</srai></set>
-                    </li>
-                    <li value="DS">
-                        <set name="DS"><srai>XADD <get name="DS"/> XS 1</srai></set>
-                    </li>
-                    <li value="CA">
-                        <set name="CA"><srai>XADD <get name="CA"/> XS 1</srai></set>
-                    </li>
-                    <li value="SYS">
-                        <set name="SYS"><srai>XADD <get name="SYS"/> XS 1</srai></set>
-                    </li>
-                    <li>
-                        <set name="WEB"><srai>XADD <get name="WEB"/> XS 1</srai></set>
-                    </li>                   
-                </condition>
-            </think>   
-            Glorious!<br/><br/>
-	        Question 5: Which of the following tasks would you enjoy the most?<br/>
-            
-            <button>
-                <text>Writing algorithms</text>
-                <postback>QSIX SE</postback>
-            </button>
-            
-            <button>
-                <text>Creating data visualizations</text>
-                <postback>QSIX DS</postback>
-            </button>
-            
-            <button>
-                <text>Configuring servers</text>
-                <postback>QSIX SYS</postback>
-            </button>
-
-            <button>
-                <text>Performing security assessments</text>
-                <postback>QSIX CA</postback>
-            </button>
-
-            <button>
-                <text>Designing responsive interfaces</text>
-                <postback>QSIX WEB</postback>
-            </button>
-	    </template>
-	</category>
-
-
-
-	<category>
-	    <pattern>
-	        QSIX *
-	    </pattern>
-        <think>
-            <set name="type"><star/></set>
-            <condition name="type">
-                <li value="SE">
-                    <set name="SE"><srai>XADD <get name="SE"/> XS 1</srai></set>
-                </li>
-                <li value="DS">
-                    <set name="DS"><srai>XADD <get name="DS"/> XS 1</srai></set>
-                </li>
-                <li value="CA">
-                    <set name="CA"><srai>XADD <get name="CA"/> XS 1</srai></set>
-                </li>
-                <li value="SYS">
-                    <set name="SYS"><srai>XADD <get name="SYS"/> XS 1</srai></set>
-                </li>
-                <li>
-                    <set name="WEB"><srai>XADD <get name="WEB"/> XS 1</srai></set>
-                </li>                   
-            </condition>
-        </think> 
-	    <template>
-	        Alright! Questions are done, and I have your results. When you are ready tap the results button
-	        <button>
-	            <text>Results</text>
-	            <postback>FINAL</postback>	            
-	        </button>
-	    </template>
-	</category>
+                    </postback>	            
+                </button>
+            </template>
+        </category>
+    </topic>
 
     
     <category>
@@ -320,141 +581,179 @@
             Good Bye <get name="user"/>, feel free to stop by again.
         </template> 
     </category>
-    
-    <category>
-        <pattern>SOFTWARE ENGINEER</pattern>
-        <template>
-            A career as a Software Engineer entails designing, developing, testing and maintaining software systems with programming languages and engineering principles.
-            <br/><br/> You can start over if you changed your mind about any questions or leave our session.
-            <button>
-                <text>Start Over</text>
-                <postback>START_OVER</postback>
-            </button>
-            
-            <button>
-                <text>Leave</text>
-                <postback>END</postback>
-            </button>
-        </template>
-    </category>
 
-    <category>
-        <pattern>DATA SCIENTIST</pattern>
-        <template>
-            A career as a Data Scientist would entail you utilizing a combination of skills in both mathematics and coimputer science. Data Scientists usually analyze large sums of data to identify trends and predict future outcomes.
-            <br/><br/> You can start over if you changed your mind about any questions or leave our session.
-            <button>
-                <text>Start Over</text>
-                <postback>START_OVER</postback>
-            </button>
-            
-            <button>
-                <text>Leave</text>
-                <postback>END</postback>
-            </button>
-        </template>
-    </category>
+    <topic name="JOBINFO">
+        <category>
+            <pattern>SOFTWARE ENGINEER</pattern>
+            <template>
+                A career as a Software Engineer entails designing, developing, testing and maintaining software systems with programming languages and engineering principles.
+                <br/><br/> You can start over if you changed your mind about any questions or leave our session.
+                <button>
+                    <text>Start Over</text>
+                    <postback>START OVER
+                        <think><set name="topic">UNKNOWN</set></think>
 
-    <category>
-        <pattern>CYBERSECURITY ANALYST</pattern>
-        <template>
-            A career as a CyberSecurity Analyst you will be in charge maintaining both hardware and software of your companies systems. You will constantly be looking to detect new vulnerabilities, add additional security, and learn about new bug/hacking trends.
-            <br/><br/> You can start over if you changed your mind about any questions or leave our session.
-            <button>
-                <text>Start Over</text>
-                <postback>START_OVER</postback>
-            </button>
-            
-            <button>
-                <text>Leave</text>
-                <postback>END</postback>
-            </button>
-        </template>
-    </category>
-
-    <category>
-        <pattern>SYSTEMS ENGINEER</pattern>
-        <template>
-           A career as a Systems Engineer you will manage and maintain your organization's IT infrastructure such as servers, PCs, and cloud services.
-            <br/><br/> You can start over if you changed your mind about any questions or leave our session.
-            <button>
-                <text>Start Over</text>
-                <postback>START_OVER</postback>
-            </button>
-            
-            <button>
-                <text>Leave</text>
-                <postback>END</postback>
-            </button>
-        </template>
-    </category>
-
-    <category>
-        <pattern>WEB DEVELOPER</pattern>
-         <template>
-           A career as a Web Developer you will be building websites and web applications. Usually, web developers focus on the front end systems of a website and web application focused on UX/UI and drawing customers in
-            <br/><br/> You can start over if you changed your mind about any questions or leave our session.
-            <button>
-                <text>Start Over</text>
-                <postback>START_OVER</postback>
-            </button>
-            
-            <button>
-                <text>Leave</text>
-                <postback>END</postback>
-            </button>
-        </template>
-    </category>
-
-    <category>
-        <pattern>FINAL</pattern>
-        <template>
-            <think>
-                <set name="maxScore"><srai>XMAX <get name="SE"/> <get name="DS"/> <get name="CA"/> <get name="SYS"/> <get name="WEB"/></srai></set>
-                <set name="checkSE"><srai>XGE <get name="SE"/> XS <get name = "maxScore"/> </srai></set>
-                <set name="checkDS"><srai>XGE <get name="DS"/> XS <get name = "maxScore"/> </srai></set>
-                <set name="checkCA"><srai>XGE <get name="CA"/> XS <get name = "maxScore"/> </srai></set>
-                <set name="checkSYS"><srai>XGE <get name="SYS"/> XS <get name = "maxScore"/> </srai></set>
-                <set name="checkWEB"><srai>XGE <get name="WEB"/> XS <get name = "maxScore"/> </srai></set>
+                    </postback>
+                </button>
                 
-                <condition name = "checkSE">
-                    <li value="TRUE"><set name="bestJob">SOFTWARE ENGINEER</set></li>
-                    <li></li>
-                </condition>
-                <condition name = "checkDS">
-                    <li value="TRUE"><set name="bestJob">DATA SCIENTIST</set></li>
-                    <li></li>
-                </condition>
-                <condition name = "checkCA">
-                    <li value="TRUE"><set name="bestJob">CYBERSECURITY ANALYST</set></li>
-                    <li></li>
-                </condition>
-                <condition name = "checkSYS">
-                    <li value="TRUE"><set name="bestJob">SYSTEMS ENGINEER</set></li>
-                    <li></li>
-                </condition>
-                <condition name = "checkWEB">
-                    <li value="TRUE"><set name="bestJob">WEB DEVELOPER</set></li>
-                    <li></li>
-                </condition>
-            </think>
+                <button>
+                    <text>Leave</text>
+                    <postback>END
+                        <think><set name="topic">UNKNOWN</set></think>
 
-            Congratulations, <get name="user"/>! Based on your responses, your ideal career path is: <get name="bestJob"/><br/><br/>
-            Would you like to learn more about being a <get name="bestJob"/>?
-            <button>
-                <text>Learn More</text>
-                <postback><get name="bestJob"/></postback>
-            </button>
-            <button>
-                <text>Start Over</text>
-                <postback>START_OVER</postback>
-            </button>
-            <button>
-                <text>Exit</text>
-                <postback>END</postback>
-            </button>
-        </template>
-    </category>
-    
+                    </postback>
+                </button>
+            </template>
+        </category>
 
+        <category>
+            <pattern>DATA SCIENTIST</pattern>
+            <template>
+                A career as a Data Scientist would entail you utilizing a combination of skills in both mathematics and coimputer science. Data Scientists usually analyze large sums of data to identify trends and predict future outcomes.
+                <br/><br/> You can start over if you changed your mind about any questions or leave our session.
+                <button>
+                    <text>Start Over</text>
+                    <postback>START OVER
+                        <think><set name="topic">UNKNOWN</set></think>
+
+                    </postback>
+                </button>
+                
+                <button>
+                    <text>Leave</text>
+                    <postback>END
+                        <think><set name="topic">UNKNOWN</set></think>
+
+                    </postback>
+                </button>
+            </template>
+        </category>
+
+        <category>
+            <pattern>CYBERSECURITY ANALYST</pattern>
+            <template>
+                A career as a CyberSecurity Analyst you will be in charge maintaining both hardware and software of your companies systems. You will constantly be looking to detect new vulnerabilities, add additional security, and learn about new bug/hacking trends.
+                <br/><br/> You can start over if you changed your mind about any questions or leave our session.
+                <button>
+                    <text>Start Over</text>
+                    <postback>START OVER
+                        <think><set name="topic">UNKNOWN</set></think>
+
+                    </postback>
+                </button>
+                
+                <button>
+                    <text>Leave</text>
+                    <postback>END
+                        <think><set name="topic">UNKNOWN</set></think>
+
+                    </postback>
+                </button>
+            </template>
+        </category>
+
+        <category>
+            <pattern>SYSTEMS ENGINEER</pattern>
+            <template>
+            A career as a Systems Engineer you will manage and maintain your organization's IT infrastructure such as servers, PCs, and cloud services.
+                <br/><br/> You can start over if you changed your mind about any questions or leave our session.
+                <button>
+                    <text>Start Over</text>
+                    <postback>START OVER
+                        <think><set name="topic">UNKNOWN</set></think>
+
+                    </postback>
+                </button>
+                
+                <button>
+                    <text>Leave</text>
+                    <postback>END
+                        <think><set name="topic">UNKNOWN</set></think>
+
+                    </postback>
+                </button>
+            </template>
+        </category>
+
+        <category>
+            <pattern>WEB DEVELOPER</pattern>
+            <template>
+            A career as a Web Developer you will be building websites and web applications. Usually, web developers focus on the front end systems of a website and web application focused on UX/UI and drawing customers in
+                <br/><br/> You can start over if you changed your mind about any questions or leave our session.
+                <button>
+                    <text>Start Over</text>
+                    <postback>START OVER
+                        <think><set name="topic">UNKNOWN</set></think>
+
+                    </postback>
+                </button>
+                
+                <button>
+                    <text>Leave</text>
+                    <postback>END
+                        <think><set name="topic">UNKNOWN</set></think>
+
+                    </postback>
+                </button>
+            </template>
+        </category>
+    </topic>
+
+    <topic name="FINAL">
+        <category>
+            <pattern>FINAL</pattern>
+            <template>
+                <think>
+                    <set name="maxScore"><srai>XMAX <get name="SE"/> <get name="DS"/> <get name="CA"/> <get name="SYS"/> <get name="WEB"/></srai></set>
+                    <set name="checkSE"><srai>XGE <get name="SE"/> XS <get name = "maxScore"/> </srai></set>
+                    <set name="checkDS"><srai>XGE <get name="DS"/> XS <get name = "maxScore"/> </srai></set>
+                    <set name="checkCA"><srai>XGE <get name="CA"/> XS <get name = "maxScore"/> </srai></set>
+                    <set name="checkSYS"><srai>XGE <get name="SYS"/> XS <get name = "maxScore"/> </srai></set>
+                    <set name="checkWEB"><srai>XGE <get name="WEB"/> XS <get name = "maxScore"/> </srai></set>
+                    
+                    <condition name = "checkSE">
+                        <li value="TRUE"><set name="bestJob">SOFTWARE ENGINEER</set></li>
+                        <li></li>
+                    </condition>
+                    <condition name = "checkDS">
+                        <li value="TRUE"><set name="bestJob">DATA SCIENTIST</set></li>
+                        <li></li>
+                    </condition>
+                    <condition name = "checkCA">
+                        <li value="TRUE"><set name="bestJob">CYBERSECURITY ANALYST</set></li>
+                        <li></li>
+                    </condition>
+                    <condition name = "checkSYS">
+                        <li value="TRUE"><set name="bestJob">SYSTEMS ENGINEER</set></li>
+                        <li></li>
+                    </condition>
+                    <condition name = "checkWEB">
+                        <li value="TRUE"><set name="bestJob">WEB DEVELOPER</set></li>
+                        <li></li>
+                    </condition>
+                </think>
+
+                Congratulations, <get name="user"/>! Based on your responses, your ideal career path is: <get name="bestJob"/><br/><br/>
+                Would you like to learn more about being a <get name="bestJob"/>?
+                <button>
+                    <text>Learn More</text>
+                    <postback><get name="bestJob"/>
+                        <think><set name="topic">JOBINFO</set></think>
+                    </postback>
+                </button>
+                <button>
+                    <text>Start Over</text>
+                    <postback>START OVER
+                        <think><set name="topic">UNKNOWN</set></think>
+                    </postback>
+                </button>
+                <button>
+                    <text>Exit</text>
+                    <postback>END
+                        <think><set name="topic">UNKNOWN</set></think>
+                    </postback>
+                </button>
+            </template>
+        </category>
+    </topic>
 </aiml>

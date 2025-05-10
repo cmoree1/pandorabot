@@ -10,110 +10,121 @@
     </template>
   </category>
 
-  <category>
-    <pattern>*</pattern>
-    <that>LT SLASH TEXT GT LT POSTBACK GT QONE LT SLASH POSTBACK GT LT SLASH BUTTON GT</that>
-    <template>
-      Sorry <get name="user"/>, I did not quite get that.<br/>
-      If you would like to begin just tap the "Start!" button.<br/>
-      If you would like to End Your Session type "END".<br/>
-      If you would like to start over type "START OVER".<br/>
-      <think><sr>MY NAME IS <get name="user"/></sr></think>
-    </template>
-  </category>
+  <topic name="START">
+    <category>
+      <pattern>*</pattern>
+      <template>
+        Sorry <get name="user"/>, I did not quite get that.<br/>
+        If you would like to begin just tap the "Start!" button.<br/>
+        If you would like to End Your Session type "END".<br/>
+        If you would like to start over type "START OVER".<br/>
+        <think><sr>MY NAME IS <get name="user"/></sr></think>
+      </template>
+    </category>
+  </topic>
 
-  <category>
-    <pattern>*</pattern>
-    <that>LT BUTTON GT LT TEXT GT BUILDING COMPLEX SOFTWARE APPLICATIONS LT SLASH 
-      TEXT GT LT POSTBACK GT QTWO SE LT SLASH POSTBACK GT LT SLASH BUTTON GT LT BUTTON GT LT TEXT GT ANALYZING LARGE DATASETS 
-      LT SLASH TEXT GT LT POSTBACK GT QTWO DS LT SLASH POSTBACK GT LT SLASH BUTTON GT LT BUTTON GT LT TEXT GT SETTING UP IT SYSTEMS LT SLASH TEXT GT LT POSTBACK GT QTWO SYS LT 
-      SLASH POSTBACK GT LT SLASH BUTTON GT LT BUTTON GT LT 
-      TEXT GT SECURING NETWORKS FROM CYBER THREATS 
-      LT SLASH TEXT GT LT POSTBACK GT QTWO CA LT SLASH POSTBACK GT LT SLASH BUTTON GT LT BUTTON GT LT TEXT GT DESIGNING INTERACTIVE WEBSITES LT SLASH TEXT GT LT POSTBACK 
-      GT QTWO WEB LT SLASH POSTBACK GT LT SLASH BUTTON GT</that>
-    <template>
-      Sorry <get name="user"/>, I did not quite get that.<br/>
-      If you would like to continue with Question 1 tap your selected answer<br/>
-      If you would like to End Your Session type "END".<br/>
-      If you would like to start over type "START OVER".<br/>
-    </template>
-  </category>
+  <topic name="ONE">
+    <category>
+      <pattern>*</pattern>
+      <template>
+        Sorry <get name="user"/>, I did not quite get that.<br/>
+        If you would like to continue with Question 1 tap your selected answer<br/>
+        If you would like to End Your Session type "END".<br/>
+        If you would like to start over type "START OVER".<br/>
+        <think><sr>QONE <get name="type"/></sr></think>
+      </template>
+    </category>
+  </topic>
 
+  <topic name="TWO">
+    <category>
+      <pattern>*</pattern>
+      <template>
+        Sorry <get name="user"/>, I did not quite get that.<br/>
+        If you would like to continue with Question 2 tap your selected answer<br/>
+        If you would like to End Your Session type "END".<br/>
+        If you would like to start over type "START OVER".<br/>
+        <think><sr>QTWO <get name="type"/></sr></think>
 
-  <category>
-    <pattern>*</pattern>
-    <that>
-      LT BUTTON GT LT TEXT GT HARDWARE LT SLASH TEXT GT LT POSTBACK GT QTHREE SYS LT SLASH POSTBACK GT LT SLASH BUTTON GT LT BUTTON GT LT TEXT GT DATA LT SLASH TEXT GT LT POSTBACK GT QTHREE DS LT SLASH POSTBACK GT LT SLASH BUTTON GT LT BUTTON GT LT TEXT GT DESIGN LT SLASH TEXT GT LT POSTBACK GT QTHREE WEB LT SLASH POSTBACK GT LT SLASH BUTTON GT LT BUTTON GT LT TEXT GT CODE LT SLASH TEXT GT LT POSTBACK GT QTHREE SE LT SLASH POSTBACK GT LT SLASH BUTTON GT LT BUTTON GT LT TEXT GT SECURITY LT SLASH TEXT GT LT POSTBACK GT QTHREE CA LT SLASH POSTBACK GT LT SLASH BUTTON GT</that>
-    <template>
-      Sorry <get name="user"/>, I did not quite get that.<br/>
-      If you would like to continue with Question 2 tap your selected answer<br/>
-      If you would like to End Your Session type "END".<br/>
-      If you would like to start over type "START OVER".<br/>
-    </template>
-  </category>
+      </template>
+    </category>
+  </topic>
 
-  <category>
-    <pattern>*</pattern>
-    <that>QUESTION 3 WOULD YOU SAY THAT YOU ARE SOMEONE WHO LT BUTTON GT LT TEXT GT THINKS IN TERMS OF LOGIC LT SLASH TEXT GT LT POSTBACK GT QFOUR DS LT SLASH POSTBACK GT LT SLASH BUTTON GT LT BUTTON GT LT TEXT GT THINKS IN TERMS OF CREATIVITY LT SLASH TEXT GT LT POSTBACK GT QFOUR WEB LT SLASH POSTBACK GT LT SLASH BUTTON GT LT BUTTON GT LT TEXT GT THINKS IN TERMS LOGIC AND CREATIVITY LT SLASH TEXT GT LT POSTBACK GT QFOUR SE LT SLASH POSTBACK GT LT SLASH BUTTON GT LT BUTTON GT LT TEXT GT THINKS IN TERMS OF EMOTIONS LT SLASH TEXT GT LT POSTBACK GT QFOUR SYS LT SLASH POSTBACK GT LT SLASH BUTTON GT LT BUTTON GT LT TEXT GT THINKS IN TERMS OF SAFETY LT SLASH TEXT GT LT POSTBACK GT QFOUR CA LT SLASH POSTBACK GT LT SLASH BUTTON GT</that>
-    <template>
-      Sorry <get name="user"/>, I did not quite get that.<br/>
-      If you would like to continue with Question 3 tap your selected answer<br/>
-      If you would like to End Your Session type "END".<br/>
-      If you would like to start over type "START OVER".<br/>
-    </template>
-  </category>
+  <topic name="THREE">
+    <category>
+      <pattern>*</pattern>
+      <template>
+        Sorry <get name="user"/>, I did not quite get that.<br/>
+        If you would like to continue with Question 3 tap your selected answer<br/>
+        If you would like to End Your Session type "END".<br/>
+        If you would like to start over type "START OVER".<br/>
+        <think><sr>QTHREE <get name="type"/></sr></think>
 
-  <category>
-    <pattern>*</pattern>
-    <that>QUESTION 4 HOW DO YOU APPROACH SOLVING A PROBLEM AT WORK LT BUTTON GT LT TEXT GT AUTOMATE WITH CODE LT SLASH TEXT GT LT POSTBACK GT QFIVE SE LT SLASH POSTBACK GT LT SLASH BUTTON GT LT BUTTON GT LT TEXT GT ANALYZE DATA TO FIND PATTERNS LT SLASH TEXT GT LT POSTBACK GT QFIVE DS LT SLASH POSTBACK GT LT SLASH BUTTON GT LT BUTTON GT LT TEXT GT CHECK HARDWARE AND NETWORK LT SLASH TEXT GT LT POSTBACK GT QFIVE SYS LT SLASH POSTBACK GT LT SLASH BUTTON GT LT BUTTON GT LT TEXT GT ASSESS SECURITY VULNERABILITIES LT SLASH TEXT GT LT POSTBACK GT QFIVE CA LT SLASH POSTBACK GT LT SLASH BUTTON GT LT BUTTON GT LT TEXT GT FOCUS ON DESIGNING AND OPTIMIZING LT SLASH TEXT GT LT POSTBACK GT QFIVE WEB LT SLASH POSTBACK GT LT SLASH BUTTON GT</that>
-    <template>
-      Sorry <get name="user"/>, I did not quite get that.<br/>
-      If you would like to continue with Question 4 tap your selected answer<br/>
-      If you would like to End Your Session type "END".<br/>
-      If you would like to start over type "START OVER".<br/>
-    </template>
-  </category>
+      </template>
+    </category>
+  </topic>
+  <topic name="FOUR">
+    <category>
+      <pattern>*</pattern>
+      <template>
+        Sorry <get name="user"/>, I did not quite get that.<br/>
+        If you would like to continue with Question 4 tap your selected answer<br/>
+        If you would like to End Your Session type "END".<br/>
+        If you would like to start over type "START OVER".<br/>
+        <think><sr>QFOUR <get name="type"/></sr></think>
 
-  <category>
-    <pattern>*</pattern>
-    <that>LT BUTTON GT LT TEXT GT WRITING ALGORITHMS LT SLASH TEXT GT LT POSTBACK GT QSIX SE LT SLASH POSTBACK GT LT SLASH BUTTON GT LT BUTTON GT LT TEXT GT CREATING DATA VISUALIZATIONS LT SLASH TEXT GT LT POSTBACK GT QSIX DS LT SLASH POSTBACK GT LT SLASH BUTTON GT LT BUTTON GT LT TEXT GT CONFIGURING SERVERS LT SLASH TEXT GT LT POSTBACK GT QSIX SYS LT SLASH POSTBACK GT LT SLASH BUTTON GT LT BUTTON GT LT TEXT GT PERFORMING SECURITY ASSESSMENTS LT SLASH TEXT GT LT POSTBACK GT QSIX CA LT SLASH POSTBACK GT LT SLASH BUTTON GT LT BUTTON GT LT TEXT GT DESIGNING RESPONSIVE INTERFACES LT SLASH TEXT GT LT POSTBACK GT QSIX WEB LT SLASH POSTBACK GT LT SLASH BUTTON GT</that>
-    <template>
-      Sorry <get name="user"/>, I did not quite get that.<br/>
-      If you would like to continue with Question 5 tap your selected answer<br/>
-      If you would like to End Your Session type "END".<br/>
-      If you would like to start over type "START OVER".<br/>
-    </template>
-  </category>
+      </template>
+    </category>
+  </topic>
 
-  <category>
-    <pattern>*</pattern>
-    <that>WHEN YOU ARE READY TAP THE RESULTS BUTTON LT BUTTON GT LT TEXT GT RESULTS LT SLASH TEXT GT LT POSTBACK GT FINAL LT SLASH POSTBACK GT LT SLASH BUTTON GT</that>
-    <template>
-      Sorry <get name="user"/>, I did not quite get that.<br/>
-      Tap "Results" to see your suggested career.<br/>
-      If you do not want to see your results you can either:<br/>
-      End Your Session type "END".<br/>
-      Start over type "START OVER".<br/>
-    </template>
-  </category>
+  <topic name="FIVE">
+    <category>
+      <pattern>*</pattern>
+      <template>
+        Sorry <get name="user"/>, I did not quite get that.<br/>
+        If you would like to continue with Question 5 tap your selected answer<br/>
+        If you would like to End Your Session type "END".<br/>
+        If you would like to start over type "START OVER".<br/>
+        <think><sr>QFIVE <get name="type"/></sr></think>
 
-  <category>
-    <pattern>*</pattern>
-    <that>
-      LT BUTTON GT LT TEXT GT START OVER LT SLASH TEXT GT LT POSTBACK GT START UNDERSCORE OVER LT SLASH POSTBACK GT LT SLASH BUTTON GT LT BUTTON GT LT TEXT GT LEAVE LT SLASH TEXT GT LT POSTBACK GT END LT SLASH POSTBACK GT LT SLASH BUTTON GT</that>
-    <template>
-      Sorry <get name="user"/>, I did not quite get that.<br/>
-      <sr><get name="bestJob"/></sr>
-    </template>
-  </category>
+      </template>
+    </category>
+  </topic>
 
-  <category>
-    <pattern>*</pattern>
-    <that>LT BUTTON GT LT TEXT GT LEARN MORE LT SLASH TEXT GT LT POSTBACK GT DATA SCIENTIST LT SLASH POSTBACK GT LT SLASH BUTTON GT LT BUTTON GT LT TEXT GT START OVER LT SLASH TEXT GT LT POSTBACK GT START UNDERSCORE OVER LT SLASH POSTBACK GT LT SLASH BUTTON GT LT BUTTON GT LT TEXT GT EXIT LT SLASH TEXT GT LT POSTBACK GT END LT SLASH POSTBACK GT LT SLASH BUTTON GT</that>
-    <template>
-      Sorry <get name="user"/>, I did not quite get that.<br/>
-      <think><sr>FINAL</sr></think>
-    </template>
-  </category>
+  <topic name="RESULT">
+    <category>
+      <pattern>*</pattern>
+      <template>
+        Sorry <get name="user"/>, I did not quite get that.<br/>
+        Tap "Results" to see your suggested career.<br/>
+        If you do not want to see your results you can either:<br/>
+        End Your Session type "END".<br/>
+        Start over type "START OVER".<br/>
+        <think><sr>QSIX <get name="type"/></sr></think>
+
+      </template>
+    </category>
+  </topic>
+
+  <topic name="JOBINFO">
+    <category>
+      <pattern>*</pattern>
+      <template>
+        Sorry <get name="user"/>, I did not quite get that.<br/>
+        <sr><get name="bestJob"/></sr>
+      </template>
+    </category>
+  </topic>
   
+  <topic name="FINAL">
+    <category>
+      <pattern>*</pattern>
+      <template>
+        Sorry <get name="user"/>, I did not quite get that.<br/>
+        <think><sr>FINAL</sr></think>
+      </template>
+    </category>
+  </topic>
+
+
   </aiml>
