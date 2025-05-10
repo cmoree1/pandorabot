@@ -31,7 +31,7 @@
         If you would like to continue with Question 1 tap your selected answer<br/>
         If you would like to End Your Session type "END".<br/>
         If you would like to start over type "START OVER".<br/>
-        <think><sr>QONE <get name="type"/></sr></think>
+        <think><srai>QONE <get name="type"/></srai></think>
       </template>
     </category>
   </topic>
@@ -44,7 +44,7 @@
         If you would like to continue with Question 2 tap your selected answer<br/>
         If you would like to End Your Session type "END".<br/>
         If you would like to start over type "START OVER".<br/>
-        <think><sr>QTWO <get name="type"/></sr></think>
+        <think><srai>QTWO <get name="type"/></srai></think>
 
       </template>
     </category>
@@ -58,7 +58,7 @@
         If you would like to continue with Question 3 tap your selected answer<br/>
         If you would like to End Your Session type "END".<br/>
         If you would like to start over type "START OVER".<br/>
-        <think><sr>QTHREE <get name="type"/></sr></think>
+        <think><srai>QTHREE <get name="type"/></srai></think>
 
       </template>
     </category>
@@ -71,7 +71,7 @@
         If you would like to continue with Question 4 tap your selected answer<br/>
         If you would like to End Your Session type "END".<br/>
         If you would like to start over type "START OVER".<br/>
-        <think><sr>QFOUR <get name="type"/></sr></think>
+        <think><srai>QFOUR <get name="type"/></srai></think>
 
       </template>
     </category>
@@ -85,7 +85,7 @@
         If you would like to continue with Question 5 tap your selected answer<br/>
         If you would like to End Your Session type "END".<br/>
         If you would like to start over type "START OVER".<br/>
-        <think><sr>QFIVE <get name="type"/></sr></think>
+        <think><srai>QFIVE <get name="type"/></srai></think>
 
       </template>
     </category>
@@ -100,7 +100,7 @@
         If you do not want to see your results you can either:<br/>
         End Your Session type "END".<br/>
         Start over type "START OVER".<br/>
-        <think><sr>QSIX <get name="type"/></sr></think>
+        <think><srai>QSIX <get name="type"/></srai></think>
 
       </template>
     </category>
@@ -111,7 +111,7 @@
       <pattern>*</pattern>
       <template>
         Sorry <get name="user"/>, I did not quite get that.<br/>
-        <sr><get name="bestJob"/></sr>
+        <srai><get name="bestJob"/></srai>
       </template>
     </category>
   </topic>
@@ -121,7 +121,7 @@
       <pattern>*</pattern>
       <template>
         Sorry <get name="user"/>, I did not quite get that.<br/>
-        <think><sr>FINAL</sr></think>
+        <think><srai>FINAL</srai></think>
       </template>
     </category>
   </topic>
