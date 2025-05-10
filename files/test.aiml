@@ -15,22 +15,25 @@
                 If at anytime you feel you need to Start Over your session or leave the session you can do both by replying in the message bar "START OVER" or "END"
                 <button>
                     <text>Start!</text>
-                    <postback>start</postback>
+                    <postback>START</postback>
                 </button>
             </template>
         </category>
         <category>
             <pattern>start</pattern>
             <template>
+                <think><set name="topic">QONE</set></think>
                 <think>
-                    <set name="topic">ONE</set>
-                    <srai>QONE</srai>
+                    <reply>
+                        <text>Lets Begin</text>
+                        <postback>QONE</postback>
+                    </reply>
                 </think>
             </template>
         </category>
     </topic>
     
-    <topic name="ONE">
+    <topic name="QONE">
         <category>
             <pattern>
                 QONE
