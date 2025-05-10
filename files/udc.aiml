@@ -7,6 +7,7 @@
       I am looking forward to helping you identify your best Computer Science Career Fit.
       Before we get started, what's your name? Please Reply "My name is (name)".<br/>
       You don't need to worry about case sensitivity.
+      <think><set name="topic">START</set></think>
     </template>
   </category>
 

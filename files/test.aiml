@@ -15,8 +15,17 @@
                 If at anytime you feel you need to Start Over your session or leave the session you can do both by replying in the message bar "START OVER" or "END"
                 <button>
                     <text>Start!</text>
-                    <postback>QONE</postback>
+                    <postback>ONE</postback>
                 </button>
+            </template>
+        </category>
+        <category>
+            <pattern>QONE</pattern>
+            <template>
+                <think>
+                    <set name="topic">ONE</set>
+                    <sr>QONE</sr>
+                </think>
             </template>
         </category>
     </topic>
@@ -40,37 +49,27 @@
                 Question 1: What type of project excites you the most?<br/>
                 <button>
                     <text>Building complex software applications</text>
-                    <postback>QTWO SE
-                        <think><set name="topic">TWO</set></think>
-                    </postback>
+                    <postback>QTWO SE</postback>
                 </button>
                     
                 <button>
                     <text>Analyzing large datasets</text>
-                    <postback>QTWO DS
-                        <think><set name="topic">TWO</set></think>
-                    </postback>
+                    <postback>QTWO DS</postback>
                 </button>
                     
                 <button>
                     <text>Setting up IT systems</text>
-                    <postback>QTWO SYS
-                        <think><set name="topic">TWO</set></think>
-                    </postback>
+                    <postback>QTWO SYS</postback>
                 </button>
 
                 <button>
                     <text>Securing networks from cyber threats</text>
-                    <postback>QTWO CA                        
-                        <think><set name="topic">TWO</set></think>
-                    </postback>
+                    <postback>QTWO CA</postback>
                 </button>
 
                 <button>
                     <text>Designing interactive websites</text>
-                    <postback>QTWO WEB                        
-                        <think><set name="topic">TWO</set></think>
-                    </postback>
+                    <postback>QTWO WEB</postback>
                 </button>
             </template>
         </category>
@@ -86,6 +85,17 @@
             <pattern>END</pattern>
             <template>
                 Good Bye <get name="user"/>, feel free to stop by again.
+            </template> 
+        </category>
+        
+        <category>
+            <pattern>QTWO *</pattern>
+            <template>
+                <think>
+                    <set name="choice"><star/></set>
+                    <set name="topic">TWO</set>
+                    <sr>QTWO <get name="choice"/></sr>  
+                </think>
             </template> 
         </category>
 	</topic>
@@ -154,36 +164,23 @@
                 Question 2: Which of the following do you prefer to work with?<br/>
                 <button>
                     <text>Hardware</text>
-                    <postback>QTHREE SYS
-                        <think><set name="topic">THREE</set></think>
-                    </postback>
+                    <postback>QTHREE SYS</postback>
                 </button>
                 <button>
                     <text>Data</text>
-                    <postback>QTHREE DS
-                        <think><set name="topic">THREE</set></think>
-                    </postback>
+                    <postback>QTHREE DS</postback>
                 </button>
                 <button>
                     <text>Design</text>
-                    <postback>QTHREE WEB
-                        <think><set name="topic">THREE</set></think>
-
-                    </postback>
+                    <postback>QTHREE WEB</postback>
                 </button>
                 <button>
                     <text>Code</text>
-                    <postback>QTHREE SE
-                        <think><set name="topic">THREE</set></think>
-
-                    </postback>
+                    <postback>QTHREE SE</postback>
                 </button>
                 <button>
                     <text>Security</text>
-                    <postback>QTHREE CA
-                        <think><set name="topic">THREE</set></think>
-
-                    </postback>
+                    <postback>QTHREE CA</postback>
                 </button>
             </template>
         </category>
@@ -199,6 +196,16 @@
             <pattern>END</pattern>
             <template>
                 Good Bye <get name="user"/>, feel free to stop by again.
+            </template> 
+        </category>
+        <category>
+            <pattern>QTHREE *</pattern>
+            <template>
+                <think>
+                    <set name="choice"><star/></set>
+                    <set name="topic">THREE</set>
+                    <sr>QTHREE <get name="choice"/></sr>  
+                </think>
             </template> 
         </category>
     </topic>
@@ -267,38 +274,23 @@
                 Question 3: Would you say that you are someone who:<br/>
                 <button>
                     <text>Thinks in terms of Logic</text>
-                    <postback>QFOUR DS
-                        <think><set name="topic">FOUR</set></think>
-
-                    </postback>
+                    <postback>QFOUR DS </postback>
                 </button>
                 <button>
                     <text>Thinks in terms of Creativity</text>
-                    <postback>QFOUR WEB
-                        <think><set name="topic">FOUR</set></think>
-
-                    </postback>
+                    <postback>QFOUR WEB </postback>
                 </button>
                 <button>
                     <text>Thinks in terms Logic and Creativity</text>
-                    <postback>QFOUR SE
-                        <think><set name="topic">FOUR</set></think>
-
-                    </postback>
+                    <postback>QFOUR SE </postback>
                 </button>
                 <button>
                     <text>Thinks in terms of Emotions</text>
-                    <postback>QFOUR SYS
-                        <think><set name="topic">FOUR</set></think>
-
-                    </postback>
+                    <postback>QFOUR SYS </postback>
                 </button>
                 <button>
                     <text>Thinks in terms of Safety</text>
-                    <postback>QFOUR CA
-                        <think><set name="topic">FOUR</set></think>
-
-                    </postback>
+                    <postback>QFOUR CA </postback>
                 </button>
             </template>
         </category>
@@ -314,6 +306,16 @@
             <pattern>END</pattern>
             <template>
                 Good Bye <get name="user"/>, feel free to stop by again.
+            </template> 
+        </category>
+        <category>
+            <pattern>QFOUR *</pattern>
+            <template>
+                <think>
+                    <set name="choice"><star/></set>
+                    <set name="topic">FOUR</set>
+                    <sr>QFOUR <get name="choice"/></sr>  
+                </think>
             </template> 
         </category>
     </topic>
@@ -386,42 +388,27 @@
                 
                 <button>
                     <text>Automate with code</text>
-                    <postback>QFIVE SE
-                        <think><set name="topic">FIVE</set></think>
-
-                    </postback>
+                    <postback>QFIVE SE</postback>
                 </button>
                 
                 <button>
                     <text>Analyze data to find patterns</text>
-                    <postback>QFIVE DS
-                        <think><set name="topic">FIVE</set></think>
-
-                    </postback>
+                    <postback>QFIVE DS</postback>
                 </button>
                 
                 <button>
                     <text>Check hardware and network</text>
-                    <postback>QFIVE SYS
-                        <think><set name="topic">FIVE</set></think>
-
-                    </postback>
+                    <postback>QFIVE SYS</postback>
                 </button>
     
                 <button>
                     <text>Assess security vulnerabilities</text>
-                    <postback>QFIVE CA
-                        <think><set name="topic">FIVE</set></think>
-
-                    </postback>
+                    <postback>QFIVE CA</postback>
                 </button>
     
                 <button>
                     <text>Focus on designing and optimizing</text>
-                    <postback>QFIVE WEB
-                        <think><set name="topic">FIVE</set></think>
-
-                    </postback>
+                    <postback>QFIVE WEB</postback>
                 </button>
             </template>
         </category>
@@ -437,6 +424,16 @@
             <pattern>END</pattern>
             <template>
                 Good Bye <get name="user"/>, feel free to stop by again.
+            </template> 
+        </category>
+        <category>
+            <pattern>QFIVE *</pattern>
+            <template>
+                <think>
+                    <set name="choice"><star/></set>
+                    <set name="topic">FIVE</set>
+                    <sr>QFIVE <get name="choice"/></sr>  
+                </think>
             </template> 
         </category>
     </topic>
@@ -508,40 +505,27 @@
                 
                 <button>
                     <text>Writing algorithms</text>
-                    <postback>QSIX SE
-                        <think><set name="topic">RESULT</set></think>
-                    </postback>
+                    <postback>QSIX SE</postback>
                 </button>
                 
                 <button>
                     <text>Creating data visualizations</text>
-                    <postback>QSIX DS
-                        <think><set name="topic">RESULT</set></think>
-                    </postback>
+                    <postback>QSIX DS</postback>
                 </button>
                 
                 <button>
                     <text>Configuring servers</text>
-                    <postback>QSIX SYS
-                        <think><set name="topic">RESULT</set></think>
-
-                    </postback>
+                    <postback>QSIX SYS</postback>
                 </button>
     
                 <button>
                     <text>Performing security assessments</text>
-                    <postback>QSIX CA
-                        <think><set name="topic">RESULT</set></think>
-
-                    </postback>
+                    <postback>QSIX CA</postback>
                 </button>
     
                 <button>
                     <text>Designing responsive interfaces</text>
-                    <postback>QSIX WEB
-                        <think><set name="topic">RESULT</set></think>
-
-                    </postback>
+                    <postback>QSIX WEB</postback>
                 </button>
             </template>
         </category>
@@ -558,6 +542,16 @@
             <pattern>END</pattern>
             <template>
                 Good Bye <get name="user"/>, feel free to stop by again.
+            </template> 
+        </category>
+        <category>
+            <pattern>QSIX *</pattern>
+            <template>
+                <think>
+                    <set name="choice"><star/></set>
+                    <set name="topic">RESULT</set>
+                    <sr>QSIX <get name="choice"/></sr>  
+                </think>
             </template> 
         </category>
     </topic>
@@ -628,10 +622,7 @@
                 Alright! Questions are done, and I have your results. When you are ready tap the results button
                 <button>
                     <text>Results</text>
-                    <postback>FINAL
-                        <think><set name="topic">FINAL</set></think>
-
-                    </postback>	            
+                    <postback>FINAL</postback>	            
                 </button>
             </template>
         </category>
@@ -640,6 +631,7 @@
             <pattern>START OVER</pattern>
             <template>
                 Certainly, it's not uncommon to want to start over incase you were nervouse or changed your mind.<br/>
+                <set name="topic">START</set>
                 <srai>HI</srai>
             </template> 
         </category>
@@ -648,6 +640,16 @@
             <pattern>END</pattern>
             <template>
                 Good Bye <get name="user"/>, feel free to stop by again.
+                <set name="topic">START</set>
+            </template> 
+        </category>
+        <category>
+            <pattern>FINAL</pattern>
+            <template>
+                <think>
+                    <set name="topic">FINAL</set>
+                    <sr>FINAL</sr>  
+                </think>
             </template> 
         </category>
     </topic>
@@ -657,6 +659,7 @@
         <pattern>START OVER</pattern>
         <template>
             Certainly, it's not uncommon to want to start over incase you were nervouse or changed your mind.<br/>
+            <set name="topic">START</set>
             <srai>HI</srai>
         </template> 
     </category>
@@ -665,126 +668,11 @@
         <pattern>END</pattern>
         <template>
             Good Bye <get name="user"/>, feel free to stop by again.
+            <set name="topic">START</set>
         </template> 
     </category>
 
 
-    <topic name="JOBINFO">
-        <category>
-            <pattern>SOFTWARE ENGINEER</pattern>
-            <template>
-                A career as a Software Engineer entails designing, developing, testing and maintaining software systems with programming languages and engineering principles.
-                <br/><br/> You can start over if you changed your mind about any questions or leave our session.
-                <button>
-                    <text>Start Over</text>
-                    <postback>START OVER
-                        <think><set name="topic">UNKNOWN</set></think>
-
-                    </postback>
-                </button>
-                
-                <button>
-                    <text>Leave</text>
-                    <postback>END
-                        <think><set name="topic">UNKNOWN</set></think>
-
-                    </postback>
-                </button>
-            </template>
-        </category>
-
-        <category>
-            <pattern>DATA SCIENTIST</pattern>
-            <template>
-                A career as a Data Scientist would entail you utilizing a combination of skills in both mathematics and coimputer science. Data Scientists usually analyze large sums of data to identify trends and predict future outcomes.
-                <br/><br/> You can start over if you changed your mind about any questions or leave our session.
-                <button>
-                    <text>Start Over</text>
-                    <postback>START OVER
-                        <think><set name="topic">UNKNOWN</set></think>
-
-                    </postback>
-                </button>
-                
-                <button>
-                    <text>Leave</text>
-                    <postback>END
-                        <think><set name="topic">UNKNOWN</set></think>
-
-                    </postback>
-                </button>
-            </template>
-        </category>
-
-        <category>
-            <pattern>CYBERSECURITY ANALYST</pattern>
-            <template>
-                A career as a CyberSecurity Analyst you will be in charge maintaining both hardware and software of your companies systems. You will constantly be looking to detect new vulnerabilities, add additional security, and learn about new bug/hacking trends.
-                <br/><br/> You can start over if you changed your mind about any questions or leave our session.
-                <button>
-                    <text>Start Over</text>
-                    <postback>START OVER
-                        <think><set name="topic">UNKNOWN</set></think>
-
-                    </postback>
-                </button>
-                
-                <button>
-                    <text>Leave</text>
-                    <postback>END
-                        <think><set name="topic">UNKNOWN</set></think>
-
-                    </postback>
-                </button>
-            </template>
-        </category>
-
-        <category>
-            <pattern>SYSTEMS ENGINEER</pattern>
-            <template>
-            A career as a Systems Engineer you will manage and maintain your organization's IT infrastructure such as servers, PCs, and cloud services.
-                <br/><br/> You can start over if you changed your mind about any questions or leave our session.
-                <button>
-                    <text>Start Over</text>
-                    <postback>START OVER
-                        <think><set name="topic">UNKNOWN</set></think>
-
-                    </postback>
-                </button>
-                
-                <button>
-                    <text>Leave</text>
-                    <postback>END
-                        <think><set name="topic">UNKNOWN</set></think>
-
-                    </postback>
-                </button>
-            </template>
-        </category>
-
-        <category>
-            <pattern>WEB DEVELOPER</pattern>
-            <template>
-            A career as a Web Developer you will be building websites and web applications. Usually, web developers focus on the front end systems of a website and web application focused on UX/UI and drawing customers in
-                <br/><br/> You can start over if you changed your mind about any questions or leave our session.
-                <button>
-                    <text>Start Over</text>
-                    <postback>START OVER
-                        <think><set name="topic">UNKNOWN</set></think>
-
-                    </postback>
-                </button>
-                
-                <button>
-                    <text>Leave</text>
-                    <postback>END
-                        <think><set name="topic">UNKNOWN</set></think>
-
-                    </postback>
-                </button>
-            </template>
-        </category>
-    </topic>
 
     <topic name="FINAL">
         <category>
@@ -824,23 +712,118 @@
                 Would you like to learn more about being a <get name="bestJob"/>?
                 <button>
                     <text>Learn More</text>
-                    <postback><get name="bestJob"/>
-                        <think><set name="topic">JOBINFO</set></think>
-                    </postback>
+                    <postback><get name="bestJob"/></postback>
                 </button>
                 <button>
                     <text>Start Over</text>
-                    <postback>START OVER
-                        <think><set name="topic">UNKNOWN</set></think>
-                    </postback>
+                    <postback>START OVER</postback>
                 </button>
                 <button>
                     <text>Exit</text>
-                    <postback>END
-                        <think><set name="topic">UNKNOWN</set></think>
-                    </postback>
+                    <postback>END</postback>
                 </button>
             </template>
         </category>
+        <category>
+            <pattern>START OVER</pattern>
+            <template>
+                Certainly, it's not uncommon to want to start over incase you were nervouse or changed your mind.<br/>
+                <set name="topic">START</set>
+                <srai>HI</srai>
+            </template> 
+        </category>
+        
+        <category>
+            <pattern>END</pattern>
+            <template>
+                Good Bye <get name="user"/>, feel free to stop by again.
+                <set name="topic">START</set>
+            </template> 
+        </category>
+        <category>
+            <pattern>SOFTWARE ENGINEER</pattern>
+            <template>
+                A career as a Software Engineer entails designing, developing, testing and maintaining software systems with programming languages and engineering principles.
+                <br/><br/> You can start over if you changed your mind about any questions or leave our session.
+                <button>
+                    <text>Start Over</text>
+                    <postback>START OVER</postback>
+                </button>
+                
+                <button>
+                    <text>Leave</text>
+                    <postback>END</postback>
+                </button>
+            </template>
+        </category>
+
+        <category>
+            <pattern>DATA SCIENTIST</pattern>
+            <template>
+                A career as a Data Scientist would entail you utilizing a combination of skills in both mathematics and coimputer science. Data Scientists usually analyze large sums of data to identify trends and predict future outcomes.
+                <br/><br/> You can start over if you changed your mind about any questions or leave our session.
+                <button>
+                    <text>Start Over</text>
+                    <postback>START OVER</postback>
+                </button>
+                
+                <button>
+                    <text>Leave</text>
+                    <postback>END</postback>
+                </button>
+            </template>
+        </category>
+
+        <category>
+            <pattern>CYBERSECURITY ANALYST</pattern>
+            <template>
+                A career as a CyberSecurity Analyst you will be in charge maintaining both hardware and software of your companies systems. You will constantly be looking to detect new vulnerabilities, add additional security, and learn about new bug/hacking trends.
+                <br/><br/> You can start over if you changed your mind about any questions or leave our session.
+                <button>
+                    <text>Start Over</text>
+                    <postback>START OVER</postback>
+                </button>
+                
+                <button>
+                    <text>Leave</text>
+                    <postback>END</postback>
+                </button>
+            </template>
+        </category>
+
+        <category>
+            <pattern>SYSTEMS ENGINEER</pattern>
+            <template>
+            A career as a Systems Engineer you will manage and maintain your organization's IT infrastructure such as servers, PCs, and cloud services.
+                <br/><br/> You can start over if you changed your mind about any questions or leave our session.
+                <button>
+                    <text>Start Over</text>
+                    <postback>START OVER</postback>
+                </button>
+                
+                <button>
+                    <text>Leave</text>
+                    <postback>END</postback>
+                </button>
+            </template>
+        </category>
+
+        <category>
+            <pattern>WEB DEVELOPER</pattern>
+            <template>
+            A career as a Web Developer you will be building websites and web applications. Usually, web developers focus on the front end systems of a website and web application focused on UX/UI and drawing customers in
+                <br/><br/> You can start over if you changed your mind about any questions or leave our session.
+                <button>
+                    <text>Start Over</text>
+                    <postback>START OVER</postback>
+                </button>
+                
+                <button>
+                    <text>Leave</text>
+                    <postback>END</postback>
+                </button>
+            </template>
+        </category>
+
     </topic>
 </aiml>
