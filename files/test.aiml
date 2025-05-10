@@ -15,16 +15,16 @@
                 If at anytime you feel you need to Start Over your session or leave the session you can do both by replying in the message bar "START OVER" or "END"
                 <button>
                     <text>Start!</text>
-                    <postback>ONE</postback>
+                    <postback>start</postback>
                 </button>
             </template>
         </category>
         <category>
-            <pattern>QONE</pattern>
+            <pattern>start</pattern>
             <template>
                 <think>
                     <set name="topic">ONE</set>
-                    <sr>QONE</sr>
+                    <srai>QONE</srai>
                 </think>
             </template>
         </category>
@@ -49,27 +49,27 @@
                 Question 1: What type of project excites you the most?<br/>
                 <button>
                     <text>Building complex software applications</text>
-                    <postback>QTWO SE</postback>
+                    <postback> TOPICTWO SE</postback>
                 </button>
                     
                 <button>
                     <text>Analyzing large datasets</text>
-                    <postback>QTWO DS</postback>
+                    <postback> TOPICTWO DS</postback>
                 </button>
                     
                 <button>
                     <text>Setting up IT systems</text>
-                    <postback>QTWO SYS</postback>
+                    <postback> TOPICTWO SYS</postback>
                 </button>
 
                 <button>
                     <text>Securing networks from cyber threats</text>
-                    <postback>QTWO CA</postback>
+                    <postback> TOPICTWO CA</postback>
                 </button>
 
                 <button>
                     <text>Designing interactive websites</text>
-                    <postback>QTWO WEB</postback>
+                    <postback> TOPICTWO WEB</postback>
                 </button>
             </template>
         </category>
@@ -89,12 +89,12 @@
         </category>
         
         <category>
-            <pattern>QTWO *</pattern>
+            <pattern>TOPICTWO *</pattern>
             <template>
                 <think>
                     <set name="choice"><star/></set>
                     <set name="topic">TWO</set>
-                    <sr>QTWO <get name="choice"/></sr>  
+                    <srai>QTWO <get name="choice"/></srai>  
                 </think>
             </template> 
         </category>
@@ -204,7 +204,7 @@
                 <think>
                     <set name="choice"><star/></set>
                     <set name="topic">THREE</set>
-                    <sr>QTHREE <get name="choice"/></sr>  
+                    <srai>QTHREE <get name="choice"/></srai>  
                 </think>
             </template> 
         </category>
@@ -314,7 +314,7 @@
                 <think>
                     <set name="choice"><star/></set>
                     <set name="topic">FOUR</set>
-                    <sr>QFOUR <get name="choice"/></sr>  
+                    <srai>QFOUR <get name="choice"/></srai>  
                 </think>
             </template> 
         </category>
@@ -432,7 +432,7 @@
                 <think>
                     <set name="choice"><star/></set>
                     <set name="topic">FIVE</set>
-                    <sr>QFIVE <get name="choice"/></sr>  
+                    <srai>QFIVE <get name="choice"/></srai>  
                 </think>
             </template> 
         </category>
@@ -550,7 +550,7 @@
                 <think>
                     <set name="choice"><star/></set>
                     <set name="topic">RESULT</set>
-                    <sr>QSIX <get name="choice"/></sr>  
+                    <srai>QSIX <get name="choice"/></srai>  
                 </think>
             </template> 
         </category>
@@ -648,7 +648,7 @@
             <template>
                 <think>
                     <set name="topic">FINAL</set>
-                    <sr>FINAL</sr>  
+                    <srai>FINAL</srai>  
                 </think>
             </template> 
         </category>
