@@ -14,11 +14,10 @@
     <category>
       <pattern>*</pattern>
       <template>
-        Sorry <get name="user"/>, I did not quite get that.<br/>
-        If you would like to begin just tap the "Start!" button.<br/>
-        If you would like to End Your Session type "END".<br/>
-        If you would like to start over type "START OVER".<br/>
-        <think><sr>MY NAME IS <get name="user"/></sr></think>
+        Hello! Welcome to the Computer Science Career Center. I am your new career advisor.
+        I am looking forward to helping you identify your best Computer Science Career Fit.
+        Before we get started, what's your name? Please Reply "My name is (name)".<br/>
+        You don't need to worry about case sensitivity.
       </template>
     </category>
   </topic>
@@ -115,7 +114,7 @@
       </template>
     </category>
   </topic>
-  
+
   <topic name="FINAL">
     <category>
       <pattern>*</pattern>

@@ -74,6 +74,20 @@
                 </button>
             </template>
         </category>
+        <category>
+            <pattern>START OVER</pattern>
+            <template>
+                Certainly, it's not uncommon to want to start over incase you were nervouse or changed your mind.<br/>
+                <srai>HI</srai>
+            </template> 
+        </category>
+        
+        <category>
+            <pattern>END</pattern>
+            <template>
+                Good Bye <get name="user"/>, feel free to stop by again.
+            </template> 
+        </category>
 	</topic>
 	
     <topic name="TWO">
@@ -172,6 +186,20 @@
                     </postback>
                 </button>
             </template>
+        </category>
+        <category>
+            <pattern>START OVER</pattern>
+            <template>
+                Certainly, it's not uncommon to want to start over incase you were nervouse or changed your mind.<br/>
+                <srai>HI</srai>
+            </template> 
+        </category>
+        
+        <category>
+            <pattern>END</pattern>
+            <template>
+                Good Bye <get name="user"/>, feel free to stop by again.
+            </template> 
         </category>
     </topic>
 	
@@ -273,6 +301,20 @@
                     </postback>
                 </button>
             </template>
+        </category>
+        <category>
+            <pattern>START OVER</pattern>
+            <template>
+                Certainly, it's not uncommon to want to start over incase you were nervouse or changed your mind.<br/>
+                <srai>HI</srai>
+            </template> 
+        </category>
+        
+        <category>
+            <pattern>END</pattern>
+            <template>
+                Good Bye <get name="user"/>, feel free to stop by again.
+            </template> 
         </category>
     </topic>
 
@@ -383,6 +425,20 @@
                 </button>
             </template>
         </category>
+        <category>
+            <pattern>START OVER</pattern>
+            <template>
+                Certainly, it's not uncommon to want to start over incase you were nervouse or changed your mind.<br/>
+                <srai>HI</srai>
+            </template> 
+        </category>
+        
+        <category>
+            <pattern>END</pattern>
+            <template>
+                Good Bye <get name="user"/>, feel free to stop by again.
+            </template> 
+        </category>
     </topic>
 
     <topic name="FIVE">
@@ -489,6 +545,21 @@
                 </button>
             </template>
         </category>
+
+        <category>
+            <pattern>START OVER</pattern>
+            <template>
+                Certainly, it's not uncommon to want to start over incase you were nervouse or changed your mind.<br/>
+                <srai>HI</srai>
+            </template> 
+        </category>
+        
+        <category>
+            <pattern>END</pattern>
+            <template>
+                Good Bye <get name="user"/>, feel free to stop by again.
+            </template> 
+        </category>
     </topic>
 
 
@@ -564,6 +635,21 @@
                 </button>
             </template>
         </category>
+
+        <category>
+            <pattern>START OVER</pattern>
+            <template>
+                Certainly, it's not uncommon to want to start over incase you were nervouse or changed your mind.<br/>
+                <srai>HI</srai>
+            </template> 
+        </category>
+        
+        <category>
+            <pattern>END</pattern>
+            <template>
+                Good Bye <get name="user"/>, feel free to stop by again.
+            </template> 
+        </category>
     </topic>
 
     
@@ -581,6 +667,7 @@
             Good Bye <get name="user"/>, feel free to stop by again.
         </template> 
     </category>
+
 
     <topic name="JOBINFO">
         <category>
