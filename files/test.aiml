@@ -1,5 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
+    
+    <category>
+        <pattern>*</pattern>
+        <that>IF AT ANYTIME YOU WOULD LIKE TO END YOUR SESSION YOU CAN TYPE END</that>
+        <template>
+            <button>
+                <text>Go Back</text>
+                <postback>START</postback>
+            </button>
+            Apologies <get name="user"/>, I think we had a miscommunication.<br/>
+            If your net input does not match any of the following, we will start over.<br/>
+            If you would like to go back and proceed with beginning the session, tap the "Go Back" Button Below.<br/>
+            If you would to start over type "START OVER".
+            If You would like to end your session type "END".<br/>
+            You don't need to worry about case sensitivity.<br/>
+        </template>
+    </category>
+    
+    <category>
+          <pattern>*</pattern>
+          <that>IF AT ANYTIME YOU WOULD LIKE TO END YOUR SESSION YOU CAN TYPE END</that>
+          <template>
+          Sorry <get name="user"/>, I did not quite get that.<br/>
+          If you would like to continue with Question 1 tap your selected answer<br/>
+          If you would like to End Your Session type "END".<br/>
+          If you would like to start over type "START OVER".<br/>
+          <think><srai>QONE</srai></think>
+          </template>
+      </category>
+  
+      <category>
+        <pattern>*</pattern>
+        <that>Question TWO</that>
+        <template>
+          Sorry <get name="user"/>, I did not quite get that.<br/>
+          If you would like to continue with Question 2 tap your selected answer<br/>
+          If you would like to End Your Session type "END".<br/>
+          If you would like to start over type "START OVER".<br/>
+          <think><srai>QTWO none</srai></think>
+  
+        </template>
+      </category>
+  
+      <category>
+        <pattern>*</pattern>
+        <that>Question THREE</that>
+        <template>
+          Sorry <get name="user"/>, I did not quite get that.<br/>
+          If you would like to continue with Question 3 tap your selected answer<br/>
+          If you would like to End Your Session type "END".<br/>
+          If you would like to start over type "START OVER".<br/>
+          <think><srai>QTHREE none</srai></think>
+  
+        </template>
+      </category>
+  
+      <category>
+        <pattern>*</pattern>
+        <that>Question FOUR</that>
+        <template>
+          Sorry <get name="user"/>, I did not quite get that.<br/>
+          If you would like to continue with Question 4 tap your selected answer<br/>
+          If you would like to End Your Session type "END".<br/>
+          If you would like to start over type "START OVER".<br/>
+          <think><srai>QFOUR none</srai></think>
+  
+        </template>
+      </category>
+  
+      <category>
+        <pattern>*</pattern>
+        <that>Question FIVE</that>
+        <template>
+          Sorry <get name="user"/>, I did not quite get that.<br/>
+          If you would like to continue with Question 5 tap your selected answer<br/>
+          If you would like to End Your Session type "END".<br/>
+          If you would like to start over type "START OVER".<br/>
+          <think><srai>QFIVE none</srai></think>
+  
+        </template>
+      </category>
+  
+      <category>
+        <pattern>*</pattern>
+        <that>Question SIX</that>
+        <template>
+          Sorry <get name="user"/>, I did not quite get that.<br/>
+          Here are your results.<br/>
+          If you do not want to see your results you can either:<br/>
+          End Your Session type "END".<br/>
+          Start over type "START OVER".<br/>
+          <think><srai>FINAL</srai></think>
+        </template>
+      </category>
+  
+  
     <category>
         <pattern>
             MY NAME IS *
@@ -8,26 +104,21 @@
         <template>
             <think>
                 <set name = "user"><star/></set>
+                <button><text>Start!</text><postback>START</postback></button>
             </think>
             It is great to meet you <get name="user"/>. Since our goal today is to find what career fits you best, I will be asking you
             a series of question to understand your personality and strengths to suggest the best career. Once You feel ready all you need to do is tap the "Start!" button<br/><br/><br/>
-            If at anytime you feel you need to Start Over your session or leave the session you can do both by replying in the message bar "START OVER" or "END".
-            
-            <think><button><text>Start!</text><postback>QUESTONE</postback></button></think>
+            If at anytime you feel you need to Start Over, you may restart the session by typing "START OVER".<br/>
+            If at anytime you would like to End your session, you can type "END".<br/>
         </template>
     </category>
-    <category>
-        <pattern>QUESTONE</pattern>
-        <template>
 
-        </template>
-    </category>
 
     <category>
         <pattern>
-            QONE
+            START
         </pattern>
-        <that>ARE YOU READY TO BEGIN</that>
+        <that>IF AT ANYTIME YOU WOULD LIKE TO END YOUR SESSION YOU CAN TYPE END</that>
         <template>
             <think>
                 <set name = "SE">0</set>
@@ -36,9 +127,6 @@
                 <set name = "SYS">0</set>
                 <set name = "WEB">0</set>
             </think>
-            Perfect let's get right into it.<br/>
-            For each question you will be provided different answers to choose from. Once you have decided on your answer, simply just click on it to move forward.<br/><br/>
-            Question 1: What type of project excites you the most?<br/>
             <button>
                 <text>Building complex software applications</text>
                 <postback> TOPICTWO SE</postback>
@@ -63,23 +151,11 @@
                 <text>Designing interactive websites</text>
                 <postback> TOPICTWO WEB</postback>
             </button>
+            Perfect let's get right into it.<br/>
+            For each question you will be provided different answers to choose from. Once you have decided on your answer, simply just click on it to move forward.<br/><br/>
+            Question 1: What type of project excites you the most?<br/>
         </template>
     </category>
-    <category>
-        <pattern>START OVER</pattern>
-        <template>
-            Certainly, it's not uncommon to want to start over incase you were nervouse or changed your mind.<br/>
-            <srai>HI</srai>
-        </template> 
-    </category>
-    
-    <category>
-        <pattern>END</pattern>
-        <template>
-            Good Bye <get name="user"/>, feel free to stop by again.
-        </template> 
-    </category>
-    
 
 
     <category>
@@ -106,8 +182,6 @@
                     <li></li>                   
                 </condition>
             </think>
-            Great! Now for the next question.<br/>
-            Question 2: Which of the following do you prefer to work with?<br/>
             <button>
                 <text>Hardware</text>
                 <postback>TOPICTHREE SYS</postback>
@@ -128,24 +202,10 @@
                 <text>Security</text>
                 <postback>TOPICTHREE CA</postback>
             </button>
+            Great! Now for the next question.<br/>
+            Question 2: Which of the following do you prefer to work with?<br/>
         </template>
     </category>
-
-    <category>
-        <pattern>START OVER</pattern>
-        <template>
-            Certainly, it's not uncommon to want to start over incase you were nervouse or changed your mind.<br/>
-            <srai>HI</srai>
-        </template> 
-    </category>
-    
-    <category>
-        <pattern>END</pattern>
-        <template>
-            Good Bye <get name="user"/>, feel free to stop by again.
-        </template> 
-    </category>
-
 
     <category>
         <pattern>QTHREE *</pattern>
@@ -174,9 +234,7 @@
                     </li>     
                     <li></li>              
                 </condition>
-            </think>           
-            Thank You!<br/><br/>
-            Question 3: Would you say that you are someone who:<br/>
+            </think>
             <button>
                 <text>Thinks in terms of Logic</text>
                 <postback>TOPICFOUR DS </postback>
@@ -196,24 +254,11 @@
             <button>
                 <text>Thinks in terms of Safety</text>
                 <postback>TOPICFOUR CA </postback>
-            </button>
+            </button>     
+            Thank You!<br/><br/>
+            Question 3: Would you say that you are someone who:<br/>
         </template>
     </category>
-    <category>
-        <pattern>START OVER</pattern>
-        <template>
-            Certainly, it's not uncommon to want to start over incase you were nervouse or changed your mind.<br/>
-            <srai>HI</srai>
-        </template> 
-    </category>
-    
-    <category>
-        <pattern>END</pattern>
-        <template>
-            Good Bye <get name="user"/>, feel free to stop by again.
-        </template> 
-    </category>
-
 
     <category>
         <pattern>
@@ -246,9 +291,6 @@
                     <li></li>                   
                 </condition>
             </think>
-            Terrific!<br/><br/>
-            Question 4: How do you approach solving a problem at work<br/>
-            
             <button>
                 <text>Automate with code</text>
                 <postback>TOPICFIVE SE</postback>
@@ -273,21 +315,9 @@
                 <text>Focus on designing and optimizing</text>
                 <postback>TOPICFIVE WEB</postback>
             </button>
+            Terrific!<br/><br/>
+            Question 4: How do you approach solving a problem at work<br/>
         </template>
-    </category>
-    <category>
-        <pattern>START OVER</pattern>
-        <template>
-            Certainly, it's not uncommon to want to start over incase you were nervouse or changed your mind.<br/>
-            <srai>HI</srai>
-        </template> 
-    </category>
-    
-    <category>
-        <pattern>END</pattern>
-        <template>
-            Good Bye <get name="user"/>, feel free to stop by again.
-        </template> 
     </category>
 
 
@@ -321,10 +351,7 @@
                     </li>        
                     <li></li>           
                 </condition>
-            </think>   
-            Glorious!<br/><br/>
-            Question 5: Which of the following tasks would you enjoy the most?<br/>
-            
+            </think>
             <button>
                 <text>Writing algorithms</text>
                 <postback>TOPICSIX SE</postback>
@@ -349,22 +376,9 @@
                 <text>Designing responsive interfaces</text>
                 <postback>TOPICSIX WEB</postback>
             </button>
+            Glorious!<br/><br/>
+            Question 5: Which of the following tasks would you enjoy the most?<br/>
         </template>
-    </category>
-
-    <category>
-        <pattern>START OVER</pattern>
-        <template>
-            Certainly, it's not uncommon to want to start over incase you were nervouse or changed your mind.<br/>
-            <srai>HI</srai>
-        </template> 
-    </category>
-    
-    <category>
-        <pattern>END</pattern>
-        <template>
-            Good Bye <get name="user"/>, feel free to stop by again.
-        </template> 
     </category>
 
 
