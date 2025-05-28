@@ -22,7 +22,6 @@
         <pattern>
             BEGIN
         </pattern>
-        <that>IF AT ANYTIME YOU WOULD LIKE TO END YOUR SESSION YOU CAN TYPE END</that>
         <template>
             <think>
                 <set name = "SE">0</set>
