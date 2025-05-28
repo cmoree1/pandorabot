@@ -482,9 +482,8 @@
 
 
     <category>
-        <pattern>
-            QSIX *
-        </pattern>
+        <pattern>QSIX *</pattern>
+        <template>
         <think>
             <set name="type"><star/></set>
             <condition name="type">
@@ -509,7 +508,6 @@
                 <li></li>                   
             </condition>
         </think> 
-        <template>
             <button>
                 <text>Results</text>
                 <postback>FINAL</postback>	            
@@ -522,9 +520,6 @@
         <pattern>*</pattern>
         <that>When you are ready tap the results button</that>
         <template>
-            <think>
-
-            </think>
             <button>
                 <text>See Your Results</text>
                 <postback>FINAL</postback>
