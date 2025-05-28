@@ -12,88 +12,77 @@
             Apologies <get name="user"/>, I think we had a miscommunication.<br/>
             If your net input does not match any of the following, we will start over.<br/>
             If you would like to go back and proceed with beginning the session, tap the "Go Back" Button Below.<br/>
-            If you would to start over type "START OVER".
-            If You would like to end your session type "END".<br/>
+            If you would like to start over type "START OVER".<br/>
+            If you would like to end your session type "END".<br/>
             You don't need to worry about case sensitivity.<br/>
         </template>
     </category>
-    
-    <category>
-          <pattern>*</pattern>
-          <that>IF AT ANYTIME YOU WOULD LIKE TO END YOUR SESSION YOU CAN TYPE END</that>
-          <template>
-          Sorry <get name="user"/>, I did not quite get that.<br/>
-          If you would like to continue with Question 1 tap your selected answer<br/>
-          If you would like to End Your Session type "END".<br/>
-          If you would like to start over type "START OVER".<br/>
-          <think><srai>QONE</srai></think>
-          </template>
-      </category>
   
-      <category>
+    <category>
         <pattern>*</pattern>
         <that>Question TWO</that>
         <template>
-          Sorry <get name="user"/>, I did not quite get that.<br/>
-          If you would like to continue with Question 2 tap your selected answer<br/>
-          If you would like to End Your Session type "END".<br/>
-          If you would like to start over type "START OVER".<br/>
-          <think><srai>QTWO none</srai></think>
-  
+            <think><set name="topic">QTWO</set></think>
+            Sorry <get name="user"/>, I did not quite get that.<br/>
+            If you would like to continue with Question 2, please select your answer from the options above.<br/>
+            If you would like to End Your Session type "END".<br/>
+            If you would like to start over type "START OVER".<br/>
+            Please select your answer from the options above or type "START OVER" to restart.<br/>
         </template>
-      </category>
-  
-      <category>
+    </category>
+
+    <category>
         <pattern>*</pattern>
         <that>Question THREE</that>
         <template>
-          Sorry <get name="user"/>, I did not quite get that.<br/>
-          If you would like to continue with Question 3 tap your selected answer<br/>
-          If you would like to End Your Session type "END".<br/>
-          If you would like to start over type "START OVER".<br/>
-          <think><srai>QTHREE none</srai></think>
-  
+            <think><set name="topic">QTHREE</set></think>
+            Sorry <get name="user"/>, I did not quite get that.<br/>
+            If you would like to continue with Question 3, please select your answer from the options above.<br/>
+            If you would like to End Your Session type "END".<br/>
+            If you would like to start over type "START OVER".<br/>
+            Please select your answer from the options above or type "START OVER" to restart.<br/>
         </template>
-      </category>
-  
-      <category>
+    </category>
+
+    <category>
         <pattern>*</pattern>
         <that>Question FOUR</that>
         <template>
-          Sorry <get name="user"/>, I did not quite get that.<br/>
-          If you would like to continue with Question 4 tap your selected answer<br/>
-          If you would like to End Your Session type "END".<br/>
-          If you would like to start over type "START OVER".<br/>
-          <think><srai>QFOUR none</srai></think>
-  
+            <think><set name="topic">QFOUR</set></think>
+            Sorry <get name="user"/>, I did not quite get that.<br/>
+            If you would like to continue with Question 4, please select your answer from the options above.<br/>
+            If you would like to End Your Session type "END".<br/>
+            If you would like to start over type "START OVER".<br/>
+            Please select your answer from the options above or type "START OVER" to restart.<br/>
         </template>
-      </category>
-  
-      <category>
+    </category>
+
+    <category>
         <pattern>*</pattern>
         <that>Question FIVE</that>
         <template>
-          Sorry <get name="user"/>, I did not quite get that.<br/>
-          If you would like to continue with Question 5 tap your selected answer<br/>
-          If you would like to End Your Session type "END".<br/>
-          If you would like to start over type "START OVER".<br/>
-          <think><srai>QFIVE none</srai></think>
-  
+            <think><set name="topic">QFIVE</set></think>
+            Sorry <get name="user"/>, I did not quite get that.<br/>
+            If you would like to continue with Question 5, please select your answer from the options above.<br/>
+            If you would like to End Your Session type "END".<br/>
+            If you would like to start over type "START OVER".<br/>
+            Please select your answer from the options above or type "START OVER" to restart.<br/>
         </template>
-      </category>
-  
-      <category>
+    </category>
+
+    <category>
         <pattern>*</pattern>
         <that>Question SIX</that>
         <template>
-          Sorry <get name="user"/>, I did not quite get that.<br/>
-          Here are your results.<br/>
-          If you do not want to see your results you can either:<br/>
-          End Your Session type "END".<br/>
-          Start over type "START OVER".<br/>
-          <think><srai>FINAL</srai></think>
+            <think><set name="topic">QSIX</set></think>
+            Sorry <get name="user"/>, I did not quite get that.<br/>
+            Here are your results.<br/>
+            If you do not want to see your results you can either:<br/>
+            End Your Session type "END".<br/>
+            Start over type "START OVER".<br/>
+            Please select your answer from the options above or type "START OVER" to restart.<br/>
         </template>
-      </category>
+    </category>
   
   
     <category>
@@ -472,10 +461,13 @@
     <category>
         <pattern>START OVER</pattern>
         <template>
-            Certainly, it's not uncommon to want to start over incase you were nervouse or changed your mind.<br/>
-            <set name="topic">START</set>
-            <srai>HI</srai>
-        </template> 
+            Certainly, it's not uncommon to want to start over in case you were nervous or changed your mind.<br/>
+            <think>
+                <set name="topic">START</set>
+                <set name="user">Guest</set>
+            </think>
+            <srai>START</srai>
+        </template>
     </category>
     
     <category>
