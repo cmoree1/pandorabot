@@ -139,28 +139,31 @@
                     <li value="SE">
                         <set name="SE"><srai>XSUB <get name="SE"/> XS 1</srai></set>
                     </li>
+
                     <li value="DS">
                         <set name="DS"><srai>XSUB <get name="DS"/> XS 1</srai></set>
                     </li>
+
                     <li value="CA">
                         <set name="CA"><srai>XSUB <get name="CA"/> XS 1</srai></set>
-
                     </li>
+
                     <li value="SYS">
                         <set name="SYS"><srai>XSUB <get name="SYS"/> XS 1</srai></set>
-
                     </li>
+
                     <li>
                         <set name="WEB"><srai>XSUB <get name="WEB"/> XS 1</srai></set>
-
                     </li>
                     <li></li>                   
                 </condition>
             </think>
+            
             <button>
                 <text>Go Back</text>
-                <postback>QTWO <get>type</get></postback>
+                <postback>QTWO <get name="type"/></postback>
             </button>
+            
             <button>
                 <text>Start Over</text>
                 <postback>RESTART</postback>
@@ -256,7 +259,7 @@
             </think>
             <button>
                 <text>Go Back</text>
-                <postback>QTHREE <get>type</get></postback>
+                <postback>QTHREE <get name="type"/></postback>
             </button>
             <button>
                 <text>Start Over</text>
@@ -359,7 +362,7 @@
             </think>
             <button>
                 <text>Go Back</text>
-                <postback>QFOUR <get>type</get></postback>
+                <postback>QFOUR <get name="type"/></postback>
             </button>
             <button>
                 <text>Start Over</text>
@@ -462,7 +465,7 @@
             </think>
             <button>
                 <text>Go Back</text>
-                <postback>QFIVE <get>type</get></postback>
+                <postback>QFIVE <get name="type"/></postback>
             </button>
             <button>
                 <text>Start Over</text>
