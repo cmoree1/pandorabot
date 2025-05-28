@@ -1,90 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
     
-    <category>
-        <pattern>*</pattern>
-        <that>IF AT ANYTIME YOU WOULD LIKE TO END YOUR SESSION YOU CAN TYPE END</that>
-        <template>
-            <button>
-                <text>Go Back</text>
-                <postback>START</postback>
-            </button>
-            Apologies <get name="user"/>, I think we had a miscommunication.<br/>
-            If your net input does not match any of the following, we will start over.<br/>
-            If you would like to go back and proceed with beginning the session, tap the "Go Back" Button Below.<br/>
-            If you would like to start over type "START OVER".<br/>
-            If you would like to end your session type "END".<br/>
-            You don't need to worry about case sensitivity.<br/>
-        </template>
-    </category>
-  
-    <category>
-        <pattern>*</pattern>
-        <that>Question TWO</that>
-        <template>
-            <think><set name="topic">QTWO</set></think>
-            Sorry <get name="user"/>, I did not quite get that.<br/>
-            If you would like to continue with Question 2, please select your answer from the options above.<br/>
-            If you would like to End Your Session type "END".<br/>
-            If you would like to start over type "START OVER".<br/>
-            Please select your answer from the options above or type "START OVER" to restart.<br/>
-        </template>
-    </category>
-
-    <category>
-        <pattern>*</pattern>
-        <that>Question THREE</that>
-        <template>
-            <think><set name="topic">QTHREE</set></think>
-            Sorry <get name="user"/>, I did not quite get that.<br/>
-            If you would like to continue with Question 3, please select your answer from the options above.<br/>
-            If you would like to End Your Session type "END".<br/>
-            If you would like to start over type "START OVER".<br/>
-            Please select your answer from the options above or type "START OVER" to restart.<br/>
-        </template>
-    </category>
-
-    <category>
-        <pattern>*</pattern>
-        <that>Question FOUR</that>
-        <template>
-            <think><set name="topic">QFOUR</set></think>
-            Sorry <get name="user"/>, I did not quite get that.<br/>
-            If you would like to continue with Question 4, please select your answer from the options above.<br/>
-            If you would like to End Your Session type "END".<br/>
-            If you would like to start over type "START OVER".<br/>
-            Please select your answer from the options above or type "START OVER" to restart.<br/>
-        </template>
-    </category>
-
-    <category>
-        <pattern>*</pattern>
-        <that>Question FIVE</that>
-        <template>
-            <think><set name="topic">QFIVE</set></think>
-            Sorry <get name="user"/>, I did not quite get that.<br/>
-            If you would like to continue with Question 5, please select your answer from the options above.<br/>
-            If you would like to End Your Session type "END".<br/>
-            If you would like to start over type "START OVER".<br/>
-            Please select your answer from the options above or type "START OVER" to restart.<br/>
-        </template>
-    </category>
-
-    <category>
-        <pattern>*</pattern>
-        <that>Question SIX</that>
-        <template>
-            <think><set name="topic">QSIX</set></think>
-            Sorry <get name="user"/>, I did not quite get that.<br/>
-            Here are your results.<br/>
-            If you do not want to see your results you can either:<br/>
-            End Your Session type "END".<br/>
-            Start over type "START OVER".<br/>
-            Please select your answer from the options above or type "START OVER" to restart.<br/>
-        </template>
-    </category>
-  
-  
+    
     <category>
         <pattern>
             MY NAME IS *
@@ -116,27 +33,27 @@
             </think>
             <button>
                 <text>Building complex software applications</text>
-                <postback> TOPICTWO SE</postback>
+                <postback>QTWO SE</postback>
             </button>
                 
             <button>
                 <text>Analyzing large datasets</text>
-                <postback> TOPICTWO DS</postback>
+                <postback>QTWO DS</postback>
             </button>
                 
             <button>
                 <text>Setting up IT systems</text>
-                <postback> TOPICTWO SYS</postback>
+                <postback>QTWO SYS</postback>
             </button>
 
             <button>
                 <text>Securing networks from cyber threats</text>
-                <postback> TOPICTWO CA</postback>
+                <postback>QTWO CA</postback>
             </button>
 
             <button>
                 <text>Designing interactive websites</text>
-                <postback> TOPICTWO WEB</postback>
+                <postback>QTWO WEB</postback>
             </button>
             Perfect let's get right into it.<br/>
             For each question you will be provided different answers to choose from. Once you have decided on your answer, simply just click on it to move forward.<br/><br/>
@@ -171,23 +88,23 @@
             </think>
             <button>
                 <text>Hardware</text>
-                <postback>TOPICTHREE SYS</postback>
+                <postback>QTHREE SYS</postback>
             </button>
             <button>
                 <text>Data</text>
-                <postback>TOPICTHREE DS</postback>
+                <postback>QTHREE DS</postback>
             </button>
             <button>
                 <text>Design</text>
-                <postback>TOPICTHREE WEB</postback>
+                <postback>QTHREE WEB</postback>
             </button>
             <button>
                 <text>Code</text>
-                <postback>TOPICTHREE SE</postback>
+                <postback>QTHREE SE</postback>
             </button>
             <button>
                 <text>Security</text>
-                <postback>TOPICTHREE CA</postback>
+                <postback>QTHREE CA</postback>
             </button>
             Great! Now for the next question.<br/>
             Question 2: Which of the following do you prefer to work with?<br/>
@@ -224,23 +141,23 @@
             </think>
             <button>
                 <text>Thinks in terms of Logic</text>
-                <postback>TOPICFOUR DS </postback>
+                <postback>QFOUR DS</postback>
             </button>
             <button>
                 <text>Thinks in terms of Creativity</text>
-                <postback>TOPICFOUR WEB </postback>
+                <postback>QFOUR WEB</postback>
             </button>
             <button>
                 <text>Thinks in terms Logic and Creativity</text>
-                <postback>TOPICFOUR SE </postback>
+                <postback>QFOUR SE</postback>
             </button>
             <button>
                 <text>Thinks in terms of Emotions</text>
-                <postback>TOPICFOUR SYS </postback>
+                <postback>QFOUR SYS</postback>
             </button>
             <button>
                 <text>Thinks in terms of Safety</text>
-                <postback>TOPICFOUR CA </postback>
+                <postback>QFOUR CA</postback>
             </button>     
             Thank You!<br/><br/>
             Question 3: Would you say that you are someone who:<br/>
@@ -280,27 +197,27 @@
             </think>
             <button>
                 <text>Automate with code</text>
-                <postback>TOPICFIVE SE</postback>
+                <postback>QFIVE SE</postback>
             </button>
             
             <button>
                 <text>Analyze data to find patterns</text>
-                <postback>TOPICFIVE DS</postback>
+                <postback>QFIVE DS</postback>
             </button>
             
             <button>
                 <text>Check hardware and network</text>
-                <postback>TOPICFIVE SYS</postback>
+                <postback>QFIVE SYS</postback>
             </button>
 
             <button>
                 <text>Assess security vulnerabilities</text>
-                <postback>TOPICFIVE CA</postback>
+                <postback>QFIVE CA</postback>
             </button>
 
             <button>
                 <text>Focus on designing and optimizing</text>
-                <postback>TOPICFIVE WEB</postback>
+                <postback>QFIVE WEB</postback>
             </button>
             Terrific!<br/><br/>
             Question 4: How do you approach solving a problem at work<br/>
@@ -341,27 +258,27 @@
             </think>
             <button>
                 <text>Writing algorithms</text>
-                <postback>TOPICSIX SE</postback>
+                <postback>QSIX SE</postback>
             </button>
             
             <button>
                 <text>Creating data visualizations</text>
-                <postback>TOPICSIX DS</postback>
+                <postback>QSIX DS</postback>
             </button>
             
             <button>
                 <text>Configuring servers</text>
-                <postback>TOPICSIX SYS</postback>
+                <postback>QSIX SYS</postback>
             </button>
 
             <button>
                 <text>Performing security assessments</text>
-                <postback>TOPICSIX CA</postback>
+                <postback>QSIX CA</postback>
             </button>
 
             <button>
                 <text>Designing responsive interfaces</text>
-                <postback>TOPICSIX WEB</postback>
+                <postback>QSIX WEB</postback>
             </button>
             Glorious!<br/><br/>
             Question 5: Which of the following tasks would you enjoy the most?<br/>
