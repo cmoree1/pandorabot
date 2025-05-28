@@ -61,17 +61,22 @@
     </category>
     
     <category>
-        <patter>*</patter>
+        <pattern>*</pattern>
         <that>Question 1 What type of project excites you the most</that>
         <template>
-            <text>Go Back</text>
-            <postback>BEGIN</postback>
-            
-            <text>Start Over</text>
-            <postback>START OVER</postback>
-
-            <text>End</text>
-            <postback>END</postback>
+            <button>
+                <text>Go Back</text>
+                <postback>BEGIN</postback>
+            </button>
+            <button>
+                <text>Start Over</text>
+                <postback>RESTART</postback>
+            </button>
+            <button>
+                <text>End</text>
+                <postback>END</postback>
+            </button>
+            Sorry, I did not understand that. You can either click "Go Back" to return to the previous question, "End" to exit the session, "Start Over" or Send a Message in Chat to start a new session<br/>
         </template>
     </category>
 
@@ -126,6 +131,50 @@
     </category>
 
     <category>
+        <pattern>*</pattern>
+        <that>Question 2 Which of the following do you prefer to work with</that>
+        <template>
+            <think>
+                <condition name="type">
+                    <li value="SE">
+                        <set name="SE"><srai>XSUB <get name="SE"/> XS 1</srai></set>
+                    </li>
+                    <li value="DS">
+                        <set name="DS"><srai>XSUB <get name="DS"/> XS 1</srai></set>
+                    </li>
+                    <li value="CA">
+                        <set name="CA"><srai>XSUB <get name="CA"/> XS 1</srai></set>
+
+                    </li>
+                    <li value="SYS">
+                        <set name="SYS"><srai>XSUB <get name="SYS"/> XS 1</srai></set>
+
+                    </li>
+                    <li>
+                        <set name="WEB"><srai>XSUB <get name="WEB"/> XS 1</srai></set>
+
+                    </li>
+                    <li></li>                   
+                </condition>
+            </think>
+            <button>
+                <text>Go Back</text>
+                <postback>QTWO <get>type</get></postback>
+            </button>
+            <button>
+                <text>Start Over</text>
+                <postback>RESTART</postback>
+            </button>
+            <button>
+                <text>End</text>
+                <postback>END</postback>
+            </button>
+            Sorry, I did not understand that. You can either click "Go Back" to return to the previous question, "End" to exit the session, "Start Over" or Send a Message in Chat to start a new session<br/>
+        </template>
+    </category>
+
+
+    <category>
         <pattern>QTHREE *</pattern>
         <template>
             <think>
@@ -175,6 +224,49 @@
             </button>     
             Thank You!<br/><br/>
             Question 3: Would you say that you are someone who:<br/>
+        </template>
+    </category>
+
+    <category>
+        <pattern>*</pattern>
+        <that>Question 3 Would you say that you are someone who</that>
+        <template>
+            <think>
+                <condition name="type">
+                    <li value="SE">
+                        <set name="SE"><srai>XSUB <get name="SE"/> XS 1</srai></set>
+                    </li>
+                    <li value="DS">
+                        <set name="DS"><srai>XSUB <get name="DS"/> XS 1</srai></set>
+                    </li>
+                    <li value="CA">
+                        <set name="CA"><srai>XSUB <get name="CA"/> XS 1</srai></set>
+
+                    </li>
+                    <li value="SYS">
+                        <set name="SYS"><srai>XSUB <get name="SYS"/> XS 1</srai></set>
+
+                    </li>
+                    <li>
+                        <set name="WEB"><srai>XSUB <get name="WEB"/> XS 1</srai></set>
+
+                    </li>
+                    <li></li>                   
+                </condition>
+            </think>
+            <button>
+                <text>Go Back</text>
+                <postback>QTHREE <get>type</get></postback>
+            </button>
+            <button>
+                <text>Start Over</text>
+                <postback>RESTART</postback>
+            </button>
+            <button>
+                <text>End</text>
+                <postback>END</postback>
+            </button>
+            Sorry, I did not understand that. You can either click "Go Back" to return to the previous question, "End" to exit the session, "Start Over" or Send a Message in Chat to start a new session<br/>
         </template>
     </category>
 
@@ -238,6 +330,48 @@
         </template>
     </category>
 
+    <category>
+        <pattern>*</pattern>
+        <that>Question 4 How do you approach solving a problem at work</that>
+        <template>
+            <think>
+                <condition name="type">
+                    <li value="SE">
+                        <set name="SE"><srai>XSUB <get name="SE"/> XS 1</srai></set>
+                    </li>
+                    <li value="DS">
+                        <set name="DS"><srai>XSUB <get name="DS"/> XS 1</srai></set>
+                    </li>
+                    <li value="CA">
+                        <set name="CA"><srai>XSUB <get name="CA"/> XS 1</srai></set>
+
+                    </li>
+                    <li value="SYS">
+                        <set name="SYS"><srai>XSUB <get name="SYS"/> XS 1</srai></set>
+
+                    </li>
+                    <li>
+                        <set name="WEB"><srai>XSUB <get name="WEB"/> XS 1</srai></set>
+
+                    </li>
+                    <li></li>                   
+                </condition>
+            </think>
+            <button>
+                <text>Go Back</text>
+                <postback>QFOUR <get>type</get></postback>
+            </button>
+            <button>
+                <text>Start Over</text>
+                <postback>RESTART</postback>
+            </button>
+            <button>
+                <text>End</text>
+                <postback>END</postback>
+            </button>
+            Sorry, I did not understand that. You can either click "Go Back" to return to the previous question, "End" to exit the session, "Start Over" or Send a Message in Chat to start a new session<br/>
+        </template>
+    </category>
 
     <category>
         <pattern>
@@ -299,6 +433,49 @@
         </template>
     </category>
 
+    <category>
+        <pattern>*</pattern>
+        <that>Question 5 Which of the following tasks would you enjoy the most</that>
+        <template>
+            <think>
+                <condition name="type">
+                    <li value="SE">
+                        <set name="SE"><srai>XSUB <get name="SE"/> XS 1</srai></set>
+                    </li>
+                    <li value="DS">
+                        <set name="DS"><srai>XSUB <get name="DS"/> XS 1</srai></set>
+                    </li>
+                    <li value="CA">
+                        <set name="CA"><srai>XSUB <get name="CA"/> XS 1</srai></set>
+
+                    </li>
+                    <li value="SYS">
+                        <set name="SYS"><srai>XSUB <get name="SYS"/> XS 1</srai></set>
+
+                    </li>
+                    <li>
+                        <set name="WEB"><srai>XSUB <get name="WEB"/> XS 1</srai></set>
+
+                    </li>
+                    <li></li>                   
+                </condition>
+            </think>
+            <button>
+                <text>Go Back</text>
+                <postback>QFIVE <get>type</get></postback>
+            </button>
+            <button>
+                <text>Start Over</text>
+                <postback>RESTART</postback>
+            </button>
+            <button>
+                <text>End</text>
+                <postback>END</postback>
+            </button>
+            Sorry, I did not understand that. You can either click "Go Back" to return to the previous question, "End" to exit the session, "Start Over" or Send a Message in Chat to start a new session<br/>
+        </template>
+    </category>
+
 
 
     <category>
@@ -330,13 +507,37 @@
             </condition>
         </think> 
         <template>
-            Alright! Questions are done, and I have your results. When you are ready tap the results button
             <button>
                 <text>Results</text>
                 <postback>FINAL</postback>	            
             </button>
+            Alright! Questions are done, and I have your results. When you are ready tap the results button.
         </template>
     </category>
+
+    <category>
+        <pattern>*</pattern>
+        <that>When you are ready tap the results button</that>
+        <template>
+            <think>
+
+            </think>
+            <button>
+                <text>See Your Results</text>
+                <postback>FINAL</postback>
+            </button>
+            <button>
+                <text>Start Over</text>
+                <postback>START OVER</postback>
+            </button>
+            <button>
+                <text>End</text>
+                <postback>END</postback>
+            </button>
+            Sorry, I did not understand that. You can either click "Go Back" to return to the previous question, "End" to exit the session, "Start Over" or Send a Message in Chat to start a new session<br/>
+        </template>
+    </category>
+
 
     <category>
         <pattern>FINAL</pattern>
@@ -387,15 +588,21 @@
             </button>
         </template>
     </category>
+
+    <category>
+        <pattern>RESTART</pattern>
+        <template>
+            Restarting now!<br/>
+            <srai>HI</srai>
+        </template>
+    </category>
+
+
     <category>
         <pattern>START OVER</pattern>
         <template>
-            Certainly, it's not uncommon to want to start over in case you were nervous or changed your mind.<br/>
-            <think>
-                <set name="topic">START</set>
-                <set name="user">Guest</set>
-            </think>
-            <srai>START</srai>
+            Certainly, it's not uncommon to re-test, in case you were nervous or changed your mind.<br/>
+            <srai>HI</srai>
         </template>
     </category>
     
@@ -477,7 +684,7 @@
     <category>
         <pattern>WEB DEVELOPER</pattern>
         <template>
-        A career as a Web Developer you will be building websites and web applications. Usually, web developers focus on the front end systems of a website and web application focused on UX/UI and drawing customers in
+            A career as a Web Developer you will be building websites and web applications. Usually, web developers focus on the front end systems of a website and web application focused on UX/UI and drawing customers in
             <br/><br/> You can start over if you changed your mind about any questions or leave our session.
             <button>
                 <text>Start Over</text>
