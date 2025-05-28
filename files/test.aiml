@@ -91,10 +91,8 @@
         </pattern>
         <that>YOU DO NOT NEED TO WORRY ABOUT CASE SENSITIVITY</that>
         <template>
-            <think>
-                <set name = "user"><star/></set>
-                <button><text>Start!</text><postback>START</postback></button>
-            </think>
+            <think><set name="user"><star/></set></think>
+            <button><text>Start!</text><postback>START</postback></button>
             It is great to meet you <get name="user"/>. Since our goal today is to find what career fits you best, I will be asking you
             a series of question to understand your personality and strengths to suggest the best career. Once You feel ready all you need to do is tap the "Start!" button<br/><br/><br/>
             If at anytime you feel you need to Start Over, you may restart the session by typing "START OVER".<br/>
